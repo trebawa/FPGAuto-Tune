@@ -1,0 +1,66 @@
+##############################################################
+#
+# Xilinx Core Generator version K.39
+# Date: Mon Nov 24 20:39:46 2014
+#
+##############################################################
+#
+#  This file contains the customisation parameters for a
+#  Xilinx CORE Generator IP GUI. It is strongly recommended
+#  that you do not manually alter this file as it may cause
+#  unexpected and unsupported behavior.
+#
+##############################################################
+#
+# BEGIN Project Options
+SET addpads = False
+SET asysymbol = True
+SET busformat = BusFormatAngleBracketNotRipped
+SET createndf = False
+SET designentry = VHDL
+SET device = xc2v6000
+SET devicefamily = virtex2
+SET flowvendor = Foundation_iSE
+SET formalverification = False
+SET foundationsym = False
+SET implementationfiletype = Ngc
+SET package = bf957
+SET removerpms = False
+SET simulationfiles = Behavioral
+SET speedgrade = -4
+SET verilogsim = True
+SET vhdlsim = True
+# END Project Options
+# BEGIN Select
+SELECT CORDIC family Xilinx,_Inc. 3.0
+# END Select
+# BEGIN Parameters
+CSET aclr=false
+CSET architectural_configuration=Parallel
+CSET ce=false
+CSET coarse_rotation=true
+CSET compensation_scaling=Block_Multiplier
+CSET component_name=cordic
+CSET create_rpm=true
+CSET data_format=SignedFraction
+CSET functional_selection=Translate
+CSET input_width=18
+CSET iterations=0
+CSET nd=true
+CSET output_width=18
+CSET phase_format=Scaled_Radians
+CSET phase_output=true
+CSET pipelining_mode=Maximum
+CSET precision=0
+CSET rdy=true
+CSET register_inputs=true
+CSET register_outputs=true
+CSET round_mode=Round_Pos_Neg_Inf
+CSET sclr=false
+CSET synchronization_enable=No_Override
+CSET x_out=true
+CSET y_out=false
+# END Parameters
+GENERATE
+# CRC: 242cb477
+

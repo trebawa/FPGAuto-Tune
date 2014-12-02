@@ -1,0 +1,5 @@
+MO note_lut NULL note_lut.v vlg02/note__lut.bin 1417548516
+MO qmult NULL qmult.v vlg17/qmult.bin 1417407439
+MO freq_estimator NULL freq_estimator.v vlg3D/freq__estimator.bin 1417407439
+MO qadd NULL qadd.v vlg7E/qadd.bin 1417407439
+MO scale_freq_select NULL scale_lut.v vlg60/scale__freq__select.bin 1417406879

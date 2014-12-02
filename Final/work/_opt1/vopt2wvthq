@@ -1,0 +1,91 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/afs/athena.mit.edu/user/t/r/trebawa/6.111/Final/Final
+T_opt
+Z1 VS_U0o:cV?;fZ3::L4EH0]0
+Z2 04 5 4 work qmult fast 0
+Z3 04 4 4 work glbl fast 0
+Z4 =1-f04da20f0662-547ccff7-27bfc-35d5
+Z5 o-quiet -auto_acc_if_foreign -work work -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver
+Z6 OE;O;6.4a;39
+T_opt1
+Z7 V5A9o?1RBFCGe`4@39JL8[1
+Z8 04 13 4 work freq_est_test fast 0
+R3
+Z9 =1-f04da20f0662-547cdfe7-6fca8-3f50
+R5
+R6
+T_opt2
+Z10 Vj^A6J8>YSO1W4acE9`z[[0
+R8
+R3
+Z11 =1-f04da20f0662-547cddaa-1580-3e76
+R5
+R6
+vfreq_est_test
+Z12 IWSg0@cl`V>5FW;[Dl4zFG3
+Z13 V_I4WThl2QYj3MZE]:W??W3
+Z14 w1417467047
+Z15 8freq_est_test.v
+Z16 Ffreq_est_test.v
+L0 25
+Z17 OE;L;6.4a;39
+r1
+31
+Z18 o+acc -L mtiAvm -L mtiOvm -L mtiUPF
+Z19 !s100 TIPeM^]IfM]0HXY_43X]`3
+!s85 0
+vfreq_estimator
+Z20 IS1>6IgjEH^NNFfd]Aa6kG1
+Z21 V6[2hcdZU9CJBAVD1=TBNW0
+Z22 w1417469901
+Z23 8freq_estimator.v
+Z24 Ffreq_estimator.v
+L0 21
+R17
+r1
+31
+R18
+Z25 !s100 XVMIn8hS3Bh^=8_QYUNL^3
+!s85 0
+vglbl
+Z26 IB;@1jEXmEfQXL`;Kf0IBZ3
+Z27 VnN]4Gon>inod6>M^M2[SV1
+Z28 w1202685744
+Z29 8/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
+Z30 F/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
+L0 5
+R17
+r1
+31
+R18
+Z31 !s100 T?5S;>bN`@zG_25]R_4A33
+!s85 0
+vqadd
+Z32 IoKgC4Bn2SdmXbWAHB9=BT0
+Z33 V]@[JV<3FEajHSm967fUZ]3
+Z34 w1388848621
+Z35 8qadd.v
+Z36 Fqadd.v
+L0 21
+R17
+r1
+31
+R18
+Z37 !s100 5OMYe?:R>`mJkbPC:c2Q91
+!s85 0
+vqmult
+Z38 I2ZohDPKZo4RRibYN?YmRi3
+Z39 VHf?Z`]AHNzMm[lF:Yee6:0
+R34
+Z40 8qmult.v
+Z41 Fqmult.v
+L0 21
+R17
+r1
+31
+R18
+Z42 !s100 9L=cKSDd0XmNzijT7]FIR3
+!s85 0

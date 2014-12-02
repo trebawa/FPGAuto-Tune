@@ -1,0 +1,3 @@
+verilog work "qadd.v"
+verilog work "Test_add.v"
+verilog work "C:/Xilinx/10.1/ISE/verilog/src/glbl.v"

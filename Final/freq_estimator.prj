@@ -1,0 +1,3 @@
+verilog work "qmult.v"
+verilog work "qadd.v"
+verilog work "freq_estimator.v"

@@ -1,0 +1,28 @@
+Release 10.1 - xst K.31 (nt)
+Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to ./xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> 
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "scale_lut.v" in library work
+ERROR:HDLCompilers:26 - "scale_lut.v" line 43 unexpected token: '['
+Module <scale_freq_select> compiled
+ERROR:HDLCompilers:26 - "scale_lut.v" line 43 expecting 'endmodule', found '0'
+ERROR:HDLCompilers:26 - "scale_lut.v" line 99 unexpected token: ')'
+ERROR:HDLCompilers:26 - "scale_lut.v" line 117 expecting '*)', found 'EOF'
+ERROR:HDLCompilers:26 - "scale_lut.v" line 117 unexpected token: 'EOF'
+Analysis of file <"scale_freq_select.prj"> failed.
+--> 
+
+Total memory usage is 143352 kilobytes
+
+Number of errors   :    5 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

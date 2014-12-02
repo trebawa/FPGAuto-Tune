@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RootFolder label="COREGEN" treetype="folder" language="COREGEN">
+	<Folder label="VERILOG Component Instantiation" treetype="folder">
+		<Template label="cordic" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+cordic YourInstanceName (
+    .x_in(x_in), // Bus [17 : 0] 
+    .y_in(y_in), // Bus [17 : 0] 
+    .nd(nd),
+    .x_out(x_out), // Bus [17 : 0] 
+    .phase_out(phase_out), // Bus [17 : 0] 
+    .rdy(rdy),
+    .clk(clk));
+
+ 
+		</Template>
+		<Template label="nn_multiplier" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+nn_multiplier YourInstanceName (
+    .clk(clk),
+    .a(a), // Bus [11 : 0] 
+    .b(b), // Bus [16 : 0] 
+    .p(p)); // Bus [11 : 0] 
+
+ 
+		</Template>
+		<Template label="time_divider" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+time_divider YourInstanceName (
+    .clk(clk),
+    .rfd(rfd),
+    .dividend(dividend), // Bus [17 : 0] 
+    .divisor(divisor), // Bus [17 : 0] 
+    .quotient(quotient), // Bus [17 : 0] 
+    .fractional(fractional)); // Bus [18 : 0] 
+
+ 
+		</Template>
+		<Template label="ram_a" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+ram_a YourInstanceName (
+    .addr(addr), // Bus [8 : 0] 
+    .clk(clk),
+    .din(din), // Bus [31 : 0] 
+    .dout(dout), // Bus [31 : 0] 
+    .we(we));
+
+ 
+		</Template>
+	</Folder>
+	<Folder label="VHDL Component Instantiation" treetype="folder">
+		<Template label="cordic" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component cordic
+    port (
+    x_in: IN std_logic_VECTOR(17 downto 0);
+    y_in: IN std_logic_VECTOR(17 downto 0);
+    nd: IN std_logic;
+    x_out: OUT std_logic_VECTOR(17 downto 0);
+    phase_out: OUT std_logic_VECTOR(17 downto 0);
+    rdy: OUT std_logic;
+    clk: IN std_logic);
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : cordic
+        port map (
+            x_in =&gt; x_in,
+            y_in =&gt; y_in,
+            nd =&gt; nd,
+            x_out =&gt; x_out,
+            phase_out =&gt; phase_out,
+            rdy =&gt; rdy,
+            clk =&gt; clk);
+ 
+		</Template>
+		<Template label="nn_multiplier" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component nn_multiplier
+    port (
+    clk: IN std_logic;
+    a: IN std_logic_VECTOR(11 downto 0);
+    b: IN std_logic_VECTOR(16 downto 0);
+    p: OUT std_logic_VECTOR(11 downto 0));
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : nn_multiplier
+        port map (
+            clk =&gt; clk,
+            a =&gt; a,
+            b =&gt; b,
+            p =&gt; p);
+ 
+		</Template>
+		<Template label="time_divider" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component time_divider
+    port (
+    clk: IN std_logic;
+    rfd: OUT std_logic;
+    dividend: IN std_logic_VECTOR(17 downto 0);
+    divisor: IN std_logic_VECTOR(17 downto 0);
+    quotient: OUT std_logic_VECTOR(17 downto 0);
+    fractional: OUT std_logic_VECTOR(18 downto 0));
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : time_divider
+        port map (
+            clk =&gt; clk,
+            rfd =&gt; rfd,
+            dividend =&gt; dividend,
+            divisor =&gt; divisor,
+            quotient =&gt; quotient,
+            fractional =&gt; fractional);
+ 
+		</Template>
+		<Template label="ram_a" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component ram_a
+    port (
+    addr: IN std_logic_VECTOR(8 downto 0);
+    clk: IN std_logic;
+    din: IN std_logic_VECTOR(31 downto 0);
+    dout: OUT std_logic_VECTOR(31 downto 0);
+    we: IN std_logic);
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : ram_a
+        port map (
+            addr =&gt; addr,
+            clk =&gt; clk,
+            din =&gt; din,
+            dout =&gt; dout,
+            we =&gt; we);
+ 
+		</Template>
+	</Folder>
+</RootFolder>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 50 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 60 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 70 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 80 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 90 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 100 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 110 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 120 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 130 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 140 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 150 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 160 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 170 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 180 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 190 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 200 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 210 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 220 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 230 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 240 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 250 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 260 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 270 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 280 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 290 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 300 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 310 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 320 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 330 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 340 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 350 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 360 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 370 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 380 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 390 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 400 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 410 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 420 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 430 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 440 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 450 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 460 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 470 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 480 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 490 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 500 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 510 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 520 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 530 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 540 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 550 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 560 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 570 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 580 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 590 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 600 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 610 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 620 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 630 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 640 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 650 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 660 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 670 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 680 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 690 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 700 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 710 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 720 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 730 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 740 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 750 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 760 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 770 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 780 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 790 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 800 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 810 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 820 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 830 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 840 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 850 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 860 </arg>Too many digits specified in hex constant
+</msg>
+
+<msg type="warning" file="HDLCompilers" num="301" delta="unknown" ><arg fmt="%s" index="1">&quot;note_lut.v&quot; line 870 </arg>Too many digits specified in hex constant
+</msg>
+
+</messages>
+
