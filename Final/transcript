@@ -26,20 +26,10 @@
 # Top level modules:
 # 	glbl
 # vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps scale_freq_select_test glbl 
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: trebawa  Hostname: eecs-digital-13  ProcessID: 8080
-#           Attempting to use alternate WLF file "./wlftDgsDIt".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftDgsDIt
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftDgsDIt
-# Design is being optimized...
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading work.scale_freq_select_test(fast)
 # Loading work.scale_freq_select(fast)
 # Loading work.glbl(fast)
-# ** Warning: (vsim-3017) scale_freq_select_test.v(48): [TFMPC] - Too few port connections. Expected 8, found 7.
-#         Region: /scale_freq_select_test/uut
-# ** Warning: (vsim-3722) scale_freq_select_test.v(48): [TFMPC] - Missing connection for port 'clk'.
 # .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
 # .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
 # .main_pane.signals.interior.cs

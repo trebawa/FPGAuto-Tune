@@ -859,8 +859,7 @@ proc restore { { project_dir "" } } {
       "scale_lut.v" 
       "serial_peak_finder.v" 
       "shift_divider.v" 
-      "time_divider.xco" 
-      "window.v"}
+      "time_divider.xco"}
 
   HandleException {
     AddUserFiles $iProjHelper $user_files

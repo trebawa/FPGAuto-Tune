@@ -44,7 +44,8 @@ module scale_freq_select_test;
 		.scale(scale), 
 		.start(start), 
 		.done(done), 
-		.freq_desired(freq_desired)
+		.freq_desired(freq_desired),
+		.clk(clk)
 	);
 	
 	initial clk <= 0;
@@ -52,10 +53,10 @@ module scale_freq_select_test;
 
 	initial begin
 		// Initialize Inputs
-		note_name = 6;
+		note_name = 2;
 		note_octave = 4;
-		greater = 0;
-		scale = 12'b111111111111;
+		greater = 1;
+		scale = 12'b111111100000;
 		start = 0;
 
 		// Wait 100 ns for global reset to finish
@@ -64,6 +65,11 @@ module scale_freq_select_test;
 		start = 1;
 		#10 start = 0;
 		// Add stimulus here
+		#100
+		greater = 0;
+		start = 1;
+		#10 start = 0;
+		
 
 	end
       

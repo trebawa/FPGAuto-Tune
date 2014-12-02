@@ -37,7 +37,7 @@ module scale_freq_select(
 	 reg [3:0] act_note = 0;
 	 reg [2:0] act_octave = 0; 
 	 
-	 reg [31:0] note_table [0:10];//sixth octave frequencies 11Q32
+	 reg [31:0] note_table [0:11];//sixth octave frequencies 11Q32
 	 initial begin
 		note_table[0] = 32'h41680943;//C6
 		note_table[1] = 32'h454bb03a;//C#6
@@ -62,7 +62,7 @@ module scale_freq_select(
 			octave_b <= note_octave;
 		end
 		else if (!done) begin
-			if (greater && scale[current_note_a]) begin //this is so we err on the proper side
+			if (greater && scale[current_note_a]) begin //this is so we lean towards the proper side
 				done <= 1;
 				act_note <= current_note_a;
 				act_octave <= octave_a;
@@ -77,19 +77,17 @@ module scale_freq_select(
 				act_note <= current_note_a;
 				act_octave <= octave_a;
 			end
-			else if (current_note_a===4'hB || current_note_b===4'h0) begin 
+			else begin 
 				if (current_note_a===4'hB) begin  //these two statements make sure notes are cyclic
 					current_note_a <= 4'h0;
 					octave_a <= octave_a + 1;
 				end
+				else current_note_a <= current_note_a+1;
 				if (current_note_b===4'h0) begin
 					current_note_b <= 4'hB;
 					octave_b <= octave_b - 1;
 				end
-			end
-			else begin
-				current_note_a <= current_note_a+1;
-				current_note_b <= current_note_a-1;
+				else current_note_b <= current_note_b-1;
 			end
 		end
 	 end
