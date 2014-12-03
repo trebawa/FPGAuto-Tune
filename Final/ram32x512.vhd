@@ -26,8 +26,8 @@
 --     (c) Copyright 1995-2007 Xilinx, Inc.                                   --
 --     All rights reserved.                                                   --
 --------------------------------------------------------------------------------
--- You must compile the wrapper file cordic.vhd when simulating
--- the core, cordic. When compiling the wrapper file, be sure to
+-- You must compile the wrapper file ram32x512.vhd when simulating
+-- the core, ram32x512. When compiling the wrapper file, be sure to
 -- reference the XilinxCoreLib VHDL simulation library. For detailed
 -- instructions, please refer to the "CORE Generator Help".
 
@@ -40,76 +40,85 @@ USE ieee.std_logic_1164.ALL;
 -- synthesis translate_off
 Library XilinxCoreLib;
 -- synthesis translate_on
-ENTITY cordic IS
+ENTITY ram32x512 IS
 	port (
-	x_in: IN std_logic_VECTOR(17 downto 0);
-	y_in: IN std_logic_VECTOR(17 downto 0);
-	nd: IN std_logic;
-	x_out: OUT std_logic_VECTOR(23 downto 0);
-	phase_out: OUT std_logic_VECTOR(23 downto 0);
-	rdy: OUT std_logic;
-	clk: IN std_logic);
-END cordic;
+	clka: IN std_logic;
+	dina: IN std_logic_VECTOR(31 downto 0);
+	addra: IN std_logic_VECTOR(8 downto 0);
+	wea: IN std_logic_VECTOR(0 downto 0);
+	douta: OUT std_logic_VECTOR(31 downto 0));
+END ram32x512;
 
-ARCHITECTURE cordic_a OF cordic IS
+ARCHITECTURE ram32x512_a OF ram32x512 IS
 -- synthesis translate_off
-component wrapped_cordic
+component wrapped_ram32x512
 	port (
-	x_in: IN std_logic_VECTOR(17 downto 0);
-	y_in: IN std_logic_VECTOR(17 downto 0);
-	nd: IN std_logic;
-	x_out: OUT std_logic_VECTOR(23 downto 0);
-	phase_out: OUT std_logic_VECTOR(23 downto 0);
-	rdy: OUT std_logic;
-	clk: IN std_logic);
+	clka: IN std_logic;
+	dina: IN std_logic_VECTOR(31 downto 0);
+	addra: IN std_logic_VECTOR(8 downto 0);
+	wea: IN std_logic_VECTOR(0 downto 0);
+	douta: OUT std_logic_VECTOR(31 downto 0));
 end component;
 
 -- Configuration specification 
-	for all : wrapped_cordic use entity XilinxCoreLib.cordic_v3_0(behavioral)
+	for all : wrapped_ram32x512 use entity XilinxCoreLib.blk_mem_gen_v2_8(behavioral)
 		generic map(
-			c_has_clk => 1,
-			c_has_x_out => 1,
-			c_has_y_in => 1,
-			c_reg_inputs => 1,
-			c_architecture => 2,
-			c_input_width => 18,
-			c_iterations => 0,
-			c_precision => 0,
-			c_has_rdy => 1,
-			c_has_sclr => 0,
-			c_has_nd => 1,
-			c_scale_comp => 2,
-			c_enable_rlocs => 1,
-			c_has_phase_in => 0,
-			c_has_rfd => 0,
-			c_cordic_function => 1,
-			c_has_ce => 0,
-			c_mif_file_prefix => "cor1",
-			c_round_mode => 2,
-			c_has_aclr => 0,
-			c_sync_enable => 1,
-			c_has_y_out => 0,
-			c_data_format => 0,
-			c_reg_outputs => 1,
-			c_coarse_rotate => 1,
-			c_phase_format => 1,
-			c_has_phase_out => 1,
-			c_has_x_in => 1,
-			c_pipeline_mode => -2,
-			c_output_width => 24);
+			c_has_regceb => 0,
+			c_has_regcea => 0,
+			c_mem_type => 0,
+			c_prim_type => 1,
+			c_sinita_val => "0",
+			c_read_width_b => 32,
+			c_family => "virtex2",
+			c_read_width_a => 32,
+			c_disable_warn_bhv_coll => 0,
+			c_write_mode_b => "WRITE_FIRST",
+			c_init_file_name => "no_coe_file_loaded",
+			c_write_mode_a => "WRITE_FIRST",
+			c_mux_pipeline_stages => 0,
+			c_has_mem_output_regs_b => 0,
+			c_load_init_file => 0,
+			c_xdevicefamily => "virtex2",
+			c_has_mem_output_regs_a => 0,
+			c_write_depth_b => 512,
+			c_write_depth_a => 512,
+			c_has_ssrb => 0,
+			c_has_mux_output_regs_b => 0,
+			c_has_ssra => 0,
+			c_has_mux_output_regs_a => 0,
+			c_addra_width => 9,
+			c_addrb_width => 9,
+			c_default_data => "0",
+			c_use_ecc => 0,
+			c_algorithm => 1,
+			c_disable_warn_bhv_range => 0,
+			c_write_width_b => 32,
+			c_write_width_a => 32,
+			c_read_depth_b => 512,
+			c_read_depth_a => 512,
+			c_byte_size => 9,
+			c_sim_collision_check => "ALL",
+			c_use_ramb16bwer_rst_bhv => 0,
+			c_common_clk => 0,
+			c_wea_width => 1,
+			c_has_enb => 0,
+			c_web_width => 1,
+			c_has_ena => 0,
+			c_sinitb_val => "0",
+			c_use_byte_web => 0,
+			c_use_byte_wea => 0,
+			c_use_default_data => 0);
 -- synthesis translate_on
 BEGIN
 -- synthesis translate_off
-U0 : wrapped_cordic
+U0 : wrapped_ram32x512
 		port map (
-			x_in => x_in,
-			y_in => y_in,
-			nd => nd,
-			x_out => x_out,
-			phase_out => phase_out,
-			rdy => rdy,
-			clk => clk);
+			clka => clka,
+			dina => dina,
+			addra => addra,
+			wea => wea,
+			douta => douta);
 -- synthesis translate_on
 
-END cordic_a;
+END ram32x512_a;
 

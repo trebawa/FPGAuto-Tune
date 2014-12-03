@@ -1,0 +1,11 @@
+# Output products list for <cordic>
+cordic.asy
+cordic.ngc
+cordic.sym
+cordic.v
+cordic.veo
+cordic.vhd
+cordic.vho
+cordic.xco
+cordic_flist.txt
+cordic_xmdf.tcl

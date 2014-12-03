@@ -31,19 +31,17 @@
 // (in parentheses) to your own signal names.
 
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
-cordic YourInstanceName (
-	.x_in(x_in), // Bus [17 : 0] 
-	.y_in(y_in), // Bus [17 : 0] 
-	.nd(nd),
-	.x_out(x_out), // Bus [23 : 0] 
-	.phase_out(phase_out), // Bus [23 : 0] 
-	.rdy(rdy),
-	.clk(clk));
+ram36x512 YourInstanceName (
+	.clka(clka),
+	.dina(dina), // Bus [35 : 0] 
+	.addra(addra), // Bus [8 : 0] 
+	.wea(wea), // Bus [0 : 0] 
+	.douta(douta)); // Bus [35 : 0] 
 
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 
-// You must compile the wrapper file cordic.v when simulating
-// the core, cordic. When compiling the wrapper file, be sure to
+// You must compile the wrapper file ram36x512.v when simulating
+// the core, ram36x512. When compiling the wrapper file, be sure to
 // reference the XilinxCoreLib Verilog simulation library. For detailed
 // instructions, please refer to the "CORE Generator Help".
 

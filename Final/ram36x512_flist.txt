@@ -1,0 +1,12 @@
+# Output products list for <ram36x512>
+ram36x512.asy
+ram36x512.ngc
+ram36x512.sym
+ram36x512.v
+ram36x512.veo
+ram36x512.vhd
+ram36x512.vho
+ram36x512.xco
+ram36x512_blk_mem_gen_v2_8_xst_1.ngc_xst.xrpt
+ram36x512_flist.txt
+ram36x512_xmdf.tcl

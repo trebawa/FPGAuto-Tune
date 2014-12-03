@@ -29,20 +29,18 @@
 -- The following code must appear in the VHDL architecture header:
 
 ------------- Begin Cut here for COMPONENT Declaration ------ COMP_TAG
-component cordic
+component ram32x512
 	port (
-	x_in: IN std_logic_VECTOR(17 downto 0);
-	y_in: IN std_logic_VECTOR(17 downto 0);
-	nd: IN std_logic;
-	x_out: OUT std_logic_VECTOR(23 downto 0);
-	phase_out: OUT std_logic_VECTOR(23 downto 0);
-	rdy: OUT std_logic;
-	clk: IN std_logic);
+	clka: IN std_logic;
+	dina: IN std_logic_VECTOR(31 downto 0);
+	addra: IN std_logic_VECTOR(8 downto 0);
+	wea: IN std_logic_VECTOR(0 downto 0);
+	douta: OUT std_logic_VECTOR(31 downto 0));
 end component;
 
 -- Synplicity black box declaration
 attribute syn_black_box : boolean;
-attribute syn_black_box of cordic: component is true;
+attribute syn_black_box of ram32x512: component is true;
 
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------
 
@@ -50,19 +48,17 @@ attribute syn_black_box of cordic: component is true;
 -- body. Substitute your own instance name and net names.
 
 ------------- Begin Cut here for INSTANTIATION Template ----- INST_TAG
-your_instance_name : cordic
+your_instance_name : ram32x512
 		port map (
-			x_in => x_in,
-			y_in => y_in,
-			nd => nd,
-			x_out => x_out,
-			phase_out => phase_out,
-			rdy => rdy,
-			clk => clk);
+			clka => clka,
+			dina => dina,
+			addra => addra,
+			wea => wea,
+			douta => douta);
 -- INST_TAG_END ------ End INSTANTIATION Template ------------
 
--- You must compile the wrapper file cordic.vhd when simulating
--- the core, cordic. When compiling the wrapper file, be sure to
+-- You must compile the wrapper file ram32x512.vhd when simulating
+-- the core, ram32x512. When compiling the wrapper file, be sure to
 -- reference the XilinxCoreLib VHDL simulation library. For detailed
 -- instructions, please refer to the "CORE Generator Help".
 
