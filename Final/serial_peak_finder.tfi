@@ -1,0 +1,13 @@
+
+
+
+// Instantiate the module
+serial_peak_finder instance_name (
+    .clk(clk), 
+    .enable(enable), 
+    .start(start), 
+    .data_in(data_in), 
+    .peak_index(peak_index)
+    );
+
+

@@ -1,5 +1,5 @@
 NUM_USER_FILES
-22
+24
 s
 user_file_1
 cordic.xco
@@ -47,10 +47,10 @@ user_file_22
 ram32x512.xco
 s
 user_file_23
-ram36x512.xco
+nn_multiplier.v
 s
 user_file_24
-ram36x512.xco
+nn_mult_test.v
 s
 user_file_3
 freq_estimator.v

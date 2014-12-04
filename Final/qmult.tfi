@@ -1,0 +1,12 @@
+
+
+
+// Instantiate the module
+qmult instance_name (
+    .i_multiplicand(i_multiplicand), 
+    .i_multiplier(i_multiplier), 
+    .o_result(o_result), 
+    .ovr(ovr)
+    );
+
+

@@ -1,4 +1,4 @@
-# //  ModelSim SE 6.4a Aug 28 2008 Linux 3.2.0-72-generic
+# //  ModelSim SE 6.4a Aug 28 2008 Linux 3.2.0-70-generic
 # //
 # //  Copyright 1991-2008 Mentor Graphics Corporation
 # //              All Rights Reserved.
@@ -8,28 +8,49 @@
 # //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
-# do {scale_freq_select_test.fdo} 
+# do {nn_mult_test.fdo} 
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module scale_freq_select
+# -- Compiling module qmult
 # 
 # Top level modules:
-# 	scale_freq_select
+# 	qmult
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module scale_freq_select_test
+# -- Compiling module nn_multiplier
 # 
 # Top level modules:
-# 	scale_freq_select_test
+# 	nn_multiplier
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module nn_mult_test
+# ** Warning: nn_mult_test.v(29): Keyword "unsigned" not allowed here in Verilog 2001.
+# 
+# Top level modules:
+# 	nn_mult_test
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module glbl
 # 
 # Top level modules:
 # 	glbl
-# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps scale_freq_select_test glbl 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading work.scale_freq_select_test(fast)
-# Loading work.scale_freq_select(fast)
+# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps nn_mult_test glbl 
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: trebawa  Hostname: eecs-digital-04  ProcessID: 13169
+#           Attempting to use alternate WLF file "./wlftG2MEy3".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftG2MEy3
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftG2MEy3
+# Design is being optimized...
+# ** Warning: nn_mult_test.v(29): Keyword "unsigned" not allowed here in Verilog 2001.
+# Loading work.nn_mult_test(fast)
+# Loading work.nn_multiplier(fast)
+# Loading work.qmult(fast)
 # Loading work.glbl(fast)
 # .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
 # .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
 # .main_pane.signals.interior.cs
+restart -f
+# Loading work.nn_mult_test(fast)
+# Loading work.nn_multiplier(fast)
+# Loading work.qmult(fast)
+# Loading work.glbl(fast)
+run 6000ns

@@ -91,19 +91,31 @@ module main_fsm(
 	 //CORDIC
 	 wire cordic_done;
 	 wire signed [23:0] c_magnitude;//1QN
-	 wire signed [31:0] magnitude = {10{c_magnitude[22]},c_magnitude[22:1]}; //sign extended to 11Q32 format
+	 wire signed [31:0] magnitude = {10{c_magnitude[23]},c_magnitude[22:1]}; //sign extended to 11Q32 format
 	 wire signed [22:0] c_phase;//2QN
-	 wire signed [31:0] phase = {9{c_phase[22]},c_phase[22:0]};//sign extended to 11Q32 format
+	 wire signed [31:0] phase = {9{c_phase[23]},c_phase[22:0]};//sign extended to 11Q32 format
+	 wire cordic_done;
 	 
 	 cordic cart_to_phasor(
 		.x_in(ram_a_real),
 		.y_in(ram_a_imag),
-		.nd(cordic_new_data),
+		.nd(cordic_start),
 		.clk(clk),
 		.x_out(c_magnitude),
 		.phase_out(c_phase),
 		.rdy(cordic_done)
-		); // synthesis black_box
+		); 
+		
+	 //Peak finder
+	 wire
+	 
+	serial_peak_finder peak_finder (
+		 .clk(clk), 
+		 .enable(enable), 
+		 .start(start), 
+		 .data_in(data_in), 
+		 .peak_index(peak_index)
+		 );
 	 
 	 
 	 //////////////////////
