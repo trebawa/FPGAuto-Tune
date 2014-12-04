@@ -1,0 +1,12 @@
+
+
+
+// Instantiate the module
+note_lut instance_name (
+    .freq_fun(freq_fun), 
+    .note_name(note_name), 
+    .note_octave(note_octave), 
+    .greater(greater)
+    );
+
+

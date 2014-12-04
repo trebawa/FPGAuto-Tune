@@ -121,20 +121,30 @@ module main_fsm(
 		 .frequency(fund_freq;)
 		);
 
-	 //scale forcer
+	 //note LUT
 	 wire greater;
-	 wire scale_force_done;
 	 
-	 // Instantiate the module
-	 scale_freq_select instance_name (
+	 note_lut note_table (
+    .freq_fun(fund_freq), 
+    .note_name(note_name), 
+    .note_octave(note_octave), 
+    .greater(greater)
+    );
+
+	 //scale forcer
+	 wire scale_force_done;
+	 wire [31:0] scale_freq;
+	 reg scale_force_start;
+	 
+	 scale_freq_select scale_forcer (
 		 .note_name(note_name), 
 		 .note_octave(note_octave), 
 		 .greater(greater), 
 		 .scale(scale), 
-		 .start(start), 
+		 .start(scale_force_start), 
 		 .clk(clk), 
 		 .done(scale_force_done), 
-		 .freq_desired(freq_desired)
+		 .freq_desired(scale_freq)
 		 );
 
 	 
@@ -205,11 +215,11 @@ module main_fsm(
 				end
 			end
 			S_FORCE_TO_SCALE: begin
-				
+					
 			end
-			S_DIVIDE_SHIFT: begin
+			//S_DIVIDE_SHIFT: begin
 				
-			end
+			//end
 		endcase
 	 end
 
