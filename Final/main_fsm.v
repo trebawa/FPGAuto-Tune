@@ -24,8 +24,7 @@ module main_fsm(
     output reg done = 1,	//when the calculation is complete
 		
     input fft_done,				//interface with the fft
-    output reg [8:0] fft_address,
-    output reg fft_read_enable,
+    input reg [8:0] fft_address,
     input fft_read_valid,
     input signed [35:0] fft_data,
 	 
@@ -40,13 +39,13 @@ module main_fsm(
 	 ///////////////////////////////
 	 
 	 //RAM alpha
-	 wire [8:0] ram_a_waddr;
+	 wire [8:0] ram_a_waddr = fft_address;
 	 wire [8:0] ram_a_raddr;
 	 wire signed [17:0] ram_a_real;
 	 wire signed [17:0] ram_a_imag;
 	 reg ram_a_write = 0;
 	 wire [8:0] ram_a_addr = ram_a_write ? ram_a_waddr : ram_a_raddr;
-	 wire ram_a_we = ram_a_write;
+	 wire ram_a_we = ram_a_write && fft_read_valid;
 	 
 	 ram36x512 ram_a(
 		.clka(clk),
@@ -129,12 +128,13 @@ module main_fsm(
 	 always @(posedge clk) begin
 		case (state)
 			S_WAIT_FOR_DATA: begin
-				if (fft_done) state<= S_WAIT_TO_READ;
+				if (fft_done) begin
+					state<= S_WAIT_TO_READ;
+					ram_a_write <= 1;
+				end
 			end
 			S_WAIT_TO_READ: begin
-				if (fft_read_valid) state <= S_POPULATE_RAM_A;
 			end
-			S_POPULATE_RAM_A: begin
 		endcase
 	 end
 
