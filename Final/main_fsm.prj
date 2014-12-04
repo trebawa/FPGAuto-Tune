@@ -1,0 +1,5 @@
+verilog work "serial_peak_finder.v"
+verilog work "ram36x512.v"
+verilog work "./ram32x512.v"
+verilog work "cordic.v"
+verilog work "main_fsm.v"

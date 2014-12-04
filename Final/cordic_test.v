@@ -4,10 +4,10 @@
 // Company: 
 // Engineer:
 //
-// Create Date:   15:15:03 11/24/2014
+// Create Date:   14:50:54 12/04/2014
 // Design Name:   cordic
 // Module Name:   /afs/athena.mit.edu/user/t/r/trebawa/6.111/Final/Final/cordic_test.v
-// Project Name:  Final
+// Project Name:  final_project
 // Target Device:  
 // Tool versions:  
 // Description: 
@@ -31,8 +31,8 @@ module cordic_test;
 	reg clk;
 
 	// Outputs
-	wire [17:0] x_out;
-	wire [17:0] phase_out;
+	wire [23:0] x_out;
+	wire [23:0] phase_out;
 	wire rdy;
 
 	// Instantiate the Unit Under Test (UUT)
@@ -46,24 +46,18 @@ module cordic_test;
 		.rdy(rdy)
 	);
 
-	initial clk <= 0;
-	always #5 clk <= !clk;
-
 	initial begin
 		// Initialize Inputs
 		x_in = 0;
 		y_in = 0;
 		nd = 0;
+		clk = 0;
 
 		// Wait 100 ns for global reset to finish
 		#100;
         
 		// Add stimulus here
-		for (x_in  = -3; x_in < 4; x_in = x_in +1) begin
-			for (y_in  = -3; y_in < 4; y_in = y_in +1) begin 
-				#10;
-			end
-		end
+
 	end
       
 endmodule

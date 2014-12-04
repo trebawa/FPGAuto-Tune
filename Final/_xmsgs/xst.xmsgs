@@ -5,14 +5,5 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="error" file="HDLCompilers" num="26" delta="unknown" >&quot;<arg fmt="%s" index="1">nn_multiplier.v</arg>&quot; line <arg fmt="%d" index="2">29</arg> <arg fmt="%s" index="3">unexpected token: &apos;=&apos;</arg>
-</msg>
-
-<msg type="error" file="HDLCompilers" num="26" delta="unknown" >&quot;<arg fmt="%s" index="1">nn_multiplier.v</arg>&quot; line <arg fmt="%d" index="2">29</arg> <arg fmt="%s" index="3">unexpected token: &apos;[&apos;</arg>
-</msg>
-
-<msg type="error" file="HDLCompilers" num="26" delta="unknown" >&quot;<arg fmt="%s" index="1">nn_multiplier.v</arg>&quot; line <arg fmt="%d" index="2">29</arg> <arg fmt="%s" index="3">expecting &apos;endmodule&apos;, found &apos;30&apos;</arg>
-</msg>
-
 </messages>
 

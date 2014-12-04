@@ -1,0 +1,4 @@
+set -tmpdir "./xst/projnav.tmp"
+elaborate
+-ifn serial_peak_finder.prj
+-ifmt mixed

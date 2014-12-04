@@ -1,0 +1,42 @@
+Release 10.1.03 - xst K.39 (lin64)
+Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to ./xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> 
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "serial_peak_finder.v" in library work
+Compiling verilog file "ram36x512.v" in library work
+Module <serial_peak_finder> compiled
+Compiling verilog file "./ram32x512.v" in library work
+Module <ram36x512> compiled
+Compiling verilog file "cordic.v" in library work
+Module <ram32x512> compiled
+Compiling verilog file "main_fsm.v" in library work
+Module <cordic> compiled
+Module <main_fsm> compiled
+WARNING:HDLCompilers:188 - "main_fsm.v" line 63 Index in bit-select of vector wire 'c_phase' is out of range
+No errors in compilation
+Analysis of file <"main_fsm.prj"> succeeded.
+ 
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> 
+
+
+Total memory usage is 283668 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

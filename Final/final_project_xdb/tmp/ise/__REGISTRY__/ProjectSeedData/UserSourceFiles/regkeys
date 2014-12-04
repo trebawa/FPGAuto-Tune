@@ -1,5 +1,5 @@
 NUM_USER_FILES
-24
+25
 s
 user_file_1
 cordic.xco
@@ -51,6 +51,9 @@ nn_multiplier.v
 s
 user_file_24
 nn_mult_test.v
+s
+user_file_25
+cordictest.v
 s
 user_file_3
 freq_estimator.v

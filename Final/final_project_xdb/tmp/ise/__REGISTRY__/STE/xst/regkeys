@@ -1,5 +1,5 @@
 CommandLine
-/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/bin/lin64/unwrapped/xst -ise /afs/athena.mit.edu/user/t/r/trebawa/6.111/Final/Final/final_project.ise -intstyle ise -ifn nn_multiplier.xst -ofn nn_multiplier.stx -finalclean 1
+/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/bin/lin64/unwrapped/xst -ise /afs/athena.mit.edu/user/t/r/trebawa/6.111/Final/Final/final_project.ise -intstyle ise -ifn serial_peak_finder.xst -ofn serial_peak_finder.stx -finalclean 1
 s
 FormatString
 xst [-ifn <InputFile>] [-ofn <OutputFile>] [-ise <iseProjectFile>] [--quiet] [-intstyle <Style>] [--deb <DebugLevel>] [--finalclean <Clean>] [--PcubeFlow] [--globOptFlow] [--XstNtrc]

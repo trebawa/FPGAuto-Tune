@@ -22,15 +22,19 @@ module main_fsm(
 	 input start,
 	 input clk,
     output reg done = 1,	//when the calculation is complete
+    output reg note_done = 0,	//when the calculation is complete
+    output [3:0] note_name,
+    output [2:0] note_octave,
+	 input [11:0] scale,
 		
     input fft_done,				//interface with the fft
-    input reg [8:0] fft_address,
+    input [8:0] fft_address,
     input fft_read_valid,
     input signed [35:0] fft_data,
 	 
     input [8:0] result_address,	//supply data that can be sent to the IFFT
     input result_read_enable,
-    output signed reg [35:0] result_data,
+    output reg signed [35:0] result_data,
     output reg result_read_valid
     );
 	 
@@ -40,7 +44,7 @@ module main_fsm(
 	 
 	 //RAM alpha
 	 wire [8:0] ram_a_waddr = fft_address;
-	 wire [8:0] ram_a_raddr;
+	 reg [8:0] ram_a_raddr = 0;
 	 wire signed [17:0] ram_a_real;
 	 wire signed [17:0] ram_a_imag;
 	 reg ram_a_write = 0;
@@ -56,11 +60,11 @@ module main_fsm(
 		);
 			 
 	 //CORDIC
-	 wire cordic_done;
+	 reg cordic_start = 0;
 	 wire signed [23:0] c_magnitude;//1QN
-	 wire signed [31:0] magnitude = {10{c_magnitude[23]},c_magnitude[22:1]}; //sign extended to 11Q32 format
+	 wire signed [31:0] magnitude = {{10{c_magnitude[23]}},c_magnitude[22:1]}; //sign extended to 11Q32 format
 	 wire signed [22:0] c_phase;//2QN
-	 wire signed [31:0] phase = {9{c_phase[23]},c_phase[22:0]};//sign extended to 11Q32 format
+	 wire signed [31:0] phase = {{9{c_phase[23]}},c_phase[22:0]};//sign extended to 11Q32 format
 	 wire cordic_done;
 	 
 	 cordic cart_to_phasor(
@@ -74,19 +78,21 @@ module main_fsm(
 		); 
 		
 	 //Peak finder
-	 wire
+	 reg pf_start = 0;
+	 reg [32:0] max_freq = 0;
+	 reg [8:0] max_index;
 	 
 	 serial_peak_finder peak_finder (
 		 .clk(clk), 
-		 .enable(pf_enable), 
-		 .start(start), 
-		 .data_in(data_in), 
+		 .index(ram_b_waddr), 
+		 .start(pf_start), 
+		 .data_in(magnitude), 
 		 .peak_index(peak_index)
 		 );
 		
 	 //RAM beta
-	 wire [8:0] ram_b_waddr;
-	 wire [8:0] ram_b_raddr;
+	 reg [8:0] ram_b_waddr = 0;
+	 reg [8:0] ram_b_raddr;
 	 reg ram_b_write = 0;
 	 wire [8:0] ram_b_addr = ram_b_write ? ram_b_waddr : ram_b_raddr;
 	 wire ram_b_we = ram_b_write;
@@ -94,15 +100,43 @@ module main_fsm(
 	 
 	 ram32x512 ram_b(
 		.clka(clk),
-		.dina(ram_b_din),
+		.dina(phase),
 		.addra(ram_b_addr),
 		.wea(ram_b_we),
-		.douta(ram_b_out);
+		.douta(ram_b_out)
 		);
 		
-
-
+	 //frequency estimator
+	 reg signed [32:0] max_phase;
+	 reg est_start;
+	 wire est_done;
+	 wire [32:0] fund_freq;
 	 
+	 freq_estimator estimator (
+		 .max_phase(max_phase), 
+		 .max_index(max_index), 
+		 .clk(clk), 
+		 .start(est_start), 
+		 .done(est_done), 
+		 .frequency(fund_freq;)
+		);
+
+	 //scale forcer
+	 wire greater;
+	 wire scale_force_done;
+	 
+	 // Instantiate the module
+	 scale_freq_select instance_name (
+		 .note_name(note_name), 
+		 .note_octave(note_octave), 
+		 .greater(greater), 
+		 .scale(scale), 
+		 .start(start), 
+		 .clk(clk), 
+		 .done(scale_force_done), 
+		 .freq_desired(freq_desired)
+		 );
+
 	 
 	 //////////////////////
 	 //  State encoding  //
@@ -129,11 +163,52 @@ module main_fsm(
 		case (state)
 			S_WAIT_FOR_DATA: begin
 				if (fft_done) begin
-					state<= S_WAIT_TO_READ;
+					state<= S_POPULATE_RAM_A;
 					ram_a_write <= 1;
 				end
 			end
-			S_WAIT_TO_READ: begin
+			S_POPULATE_RAM_A: begin
+				if (fft_address === 511) begin
+					state<= S_RUN_CORDICS;
+					ram_a_write <= 0;
+					cordic_start <= 0;
+					ram_a_raddr <= 0;
+					ram_b_write <= 1;
+					pf_start <= 1;
+				end
+			end
+			S_RUN_CORDICS: begin
+				if (cordic_done) begin
+					pf_start <= 0;
+					if (ram_b_waddr === 511) begin
+						state <= S_FIND_MAX_FREQ;
+						max_index <= peak_index; //we have determined the peak bin
+					end
+					else ram_b_waddr <= ram_b_waddr+1;
+				end
+				else if (ram_a_raddr != 511) cordic_start <= 1;
+				else cordic_start <= 0;
+				if (cordic_start) ram_a_raddr <= ram_a_addr + 1;
+			end
+			S_FIND_MAX_FREQ: begin
+				ram_b_raddr <= max_index;
+				if (ram_b_raddr === max_index) begin
+					max_phase <= ram_b_out;
+					state <= S_FIND_FUND_FREQ;
+					est_start <= 1;
+				end
+			end
+			S_FIND_FUND_FREQ: begin
+				est_start <= 0;
+				if (est_done) begin
+					state <= S_FORCE_TO_SCALE;
+				end
+			end
+			S_FORCE_TO_SCALE: begin
+				
+			end
+			S_DIVIDE_SHIFT: begin
+				
 			end
 		endcase
 	 end

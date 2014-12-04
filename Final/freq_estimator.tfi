@@ -1,0 +1,14 @@
+
+
+
+// Instantiate the module
+freq_estimator instance_name (
+    .max_phase(max_phase), 
+    .max_index(max_index), 
+    .clk(clk), 
+    .start(start), 
+    .done(done), 
+    .frequency(frequency)
+    );
+
+

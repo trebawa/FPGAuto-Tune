@@ -1,0 +1,16 @@
+
+
+
+// Instantiate the module
+scale_freq_select instance_name (
+    .note_name(note_name), 
+    .note_octave(note_octave), 
+    .greater(greater), 
+    .scale(scale), 
+    .start(start), 
+    .clk(clk), 
+    .done(done), 
+    .freq_desired(freq_desired)
+    );
+
+

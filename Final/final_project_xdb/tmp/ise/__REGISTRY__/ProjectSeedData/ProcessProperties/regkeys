@@ -1133,7 +1133,7 @@ prop_270_name
 PROP_SmartGuideFileName
 s
 prop_270_val
-"freq_estimator_guide.ncd"
+"main_fsm_guide.ncd"
 s
 prop_271_name
 PROP_ModelSimSourceWin
@@ -1847,13 +1847,13 @@ prop_378_name
 PROP_netgenPostXlateSimModelName
 s
 prop_378_val
-"freq_estimator_translate.v"
+"main_fsm_translate.v"
 s
 prop_379_name
 PROP_netgenPostMapSimModelName
 s
 prop_379_val
-"freq_estimator_map.v"
+"main_fsm_map.v"
 s
 prop_37_name
 PROP_xstVeriIncludeDir_Global
@@ -1865,7 +1865,7 @@ prop_380_name
 PROP_netgenPostParSimModelName
 s
 prop_380_val
-"freq_estimator_timesim.v"
+"main_fsm_timesim.v"
 s
 prop_381_name
 PROP_bencherPostXlateTestbenchName
@@ -1901,7 +1901,7 @@ prop_386_name
 PROP_netgenPostSynthesisSimModelName
 s
 prop_386_val
-"freq_estimator_synthesis.v"
+"main_fsm_synthesis.v"
 s
 prop_387_name
 PROP_SimModelAutoInsertGlblModuleInNetlist
@@ -2297,7 +2297,7 @@ prop_8_name
 PROP_SynthTop
 s
 prop_8_val
-"Module|freq_estimator"
+"Module|main_fsm"
 s
 prop_90_name
 PROP_UserEditorPreference
@@ -2363,5 +2363,5 @@ prop_9_name
 PROP_BehavioralSimTop
 s
 prop_9_val
-"Module|nn_mult_test"
+"Module|peak_finder_test"
 s
