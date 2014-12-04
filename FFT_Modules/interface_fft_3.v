@@ -1,26 +1,25 @@
 //fft_interface.v -- just the interface module
 
 ///////////////////////////////////////////////////////////////////////////////
-//  Separating out the module that handles and performs the fft operation
-//   (eventually, am instance of this should be called by the recorder module
-//   above)
+//  FFT DRIVER MODULE
+//   
 ///////////////////////////////////////////////////////////////////////////////
 
-module interface_fft(
-  // remainder of the control parameters should be added here
+module interface_fft_3(
   input wire clk,
   input wire reset,
   input wire [17:0] sample_from_codec, // ultimately from left_in_data and right_in_data from lab5audio module
   output wire [17:0] data_real_out,
   output wire [17:0] data_imag_out,
   // expose SRAM interface for main to read
-  output reg [9:0] counter_addr,
-  output wire read_valid
+  output reg [8:0] counter_addr,
+  output wire read_valid,
+  output wire done
 );
 
   parameter Nb = 18;
   parameter Dp = 16;
-  parameter log_depth = 10;
+  parameter log_depth = 9;
   parameter N = 1 << log_depth;
 
   //wire reset;
@@ -32,8 +31,8 @@ module interface_fft(
   reg start_delay = 1'b0;
 
   reg write_enable_in = 1'b1;
-  reg [log_depth - 1 : 0] addr_in  = 10'd0;
-  reg [log_depth - 1 : 0] addr_out = 10'd0;
+  reg [log_depth - 1 : 0] addr_in  = 9'd0;
+  reg [log_depth - 1 : 0] addr_out = 9'd0;
   reg read_enable_out = 1'b0;
 
   reg [log_depth - 1 : 0] read_count = 1'b0;
@@ -41,13 +40,13 @@ module interface_fft(
   wire signed [Nb - 1 : 0] output_accum_real;
   wire signed [Nb - 1 : 0] output_accum_imag;
 
-  wire done;
+  //wire done;
   //wire read_valid;
 
   reg signed [Nb - 1 : 0] data_real_in = 18'd0;
   reg signed [Nb - 1 : 0] data_imag_in = 18'd0;
 
-  reg [3 : 0] cur_log_depth = 4'd10;
+  reg [3 : 0] cur_log_depth = log_depth;
   reg cur_real_mode = 1'b1;
   wire cur_direction = 1'b0;
   wire [3:0] cur_output_scaling;
@@ -90,7 +89,7 @@ always @(posedge clk) begin
       end
   	 else begin
   		write_enable_in <= 1'b0;
-  		addr_in <= 10'd0;
+  		addr_in <= 9'd0;
   	end
     end
     else if (read_enable_out && read_valid) begin // -- Step 3
@@ -103,7 +102,7 @@ always @(posedge clk) begin
       end
   	 else begin
   		 // reset addr_in, read_enable, write_enable?
-  		 addr_in <= 10'd0;
+  		 addr_in <= 9'd0;
   		 read_enable_out <= 1'b0;
   		 write_enable_in <= 1'b1;
   		 first <= 1'b1;

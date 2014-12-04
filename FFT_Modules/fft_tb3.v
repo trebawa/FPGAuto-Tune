@@ -10,7 +10,9 @@
 
 module fft_tb3;
 
-reg [9:0] counter = 10'd0;
+parameter log_depth = 9;
+
+reg [8:0] counter = 9'd0;
 reg clk = 1'b0;
 reg reset;
 reg [17:0] sample_from_codec = 18'd0;
@@ -19,23 +21,25 @@ wire [17:0] test_imag_out;
 
 reg freeze_input = 1'b0;
 
-reg [35:0] input_array[0 : (1 << 10) - 1];
-reg [35:0] output_array[0 : (1 << 10) - 1];
+reg [35:0] input_array[0 : (1 << log_depth) - 1];
+reg [35:0] output_array[0 : (1 << log_depth) - 1];
 
 reg once = 1'b0;
 
 // additional variables exposed for testing output
-wire [9:0] counter_addr;
+wire [8:0] counter_addr;
 wire read_valid;
+wire done;
 
-interface_fft interface_test (
+interface_fft_3 interface_test (
 	.clk(clk),
 	.reset(reset),
 	.sample_from_codec(sample_from_codec),
 	.data_real_out(test_real_out),
 	.data_imag_out(test_imag_out),
 	.counter_addr(counter_addr),
-	.read_valid(read_valid)
+	.read_valid(read_valid),
+	.done(done)
 	);
 
 // This initial time buffer is required? For what?
@@ -54,7 +58,7 @@ initial begin
 	//#20 sample_from_codec <= 18'd0;
 
 	// fill the memory array with sample data from text file
-	#20 $readmemh("fft_tb_input.txt", input_array, 0, (1 << 10) - 1);
+	#20 $readmemh("fft_tb_input.txt", input_array, 0, (1 << log_depth) - 1);
 
 	//reset to begin the fft
 	#50 reset <= 1'b1;
@@ -75,10 +79,10 @@ always @(posedge clk) begin
 		//#10000 $finish
 		if (read_valid && !once) begin
 			output_array[counter_addr] = {test_imag_out, test_real_out};
-			if (counter_addr == 10'd1023) begin
+			if (counter_addr == 9'd511) begin
 				once <= 1'b1;
 				// should capture output data after only intial cycle
-				$writememh("fft_tb3_output.txt", output_array, 0, (1<<10) - 1);
+				$writememh("fft_tb3_output.txt", output_array, 0, (1 << log_depth) - 1);
 			end
 		end
 	end
