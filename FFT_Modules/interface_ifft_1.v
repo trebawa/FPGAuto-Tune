@@ -1,20 +1,19 @@
-//fft_interface.v -- just the interface module
+
 
 ///////////////////////////////////////////////////////////////////////////////
-//  FFT DRIVER MODULE
+//  IFFT DRIVER MODULE
 //   
 ///////////////////////////////////////////////////////////////////////////////
 
-module interface_fft_3(
+module interface_ifft_1(
   input wire clk,
   input wire reset,
-  input wire [17:0] sample_from_codec, // ultimately from left_in_data and right_in_data from lab5audio module
-  output wire signed [17:0] data_real_out,
-  output wire signed [17:0] data_imag_out,
-  // expose SRAM interface for main to read
+  input wire [35:0] auto_tuned_data, // input from the main_fsm module
+  input wire result_done,
   output reg [8:0] counter_addr,
-  output wire read_valid,
-  output wire done
+
+  output wire [17:0] data_real_out,
+  output wire [17:0] data_imag_out,
 );
 
   parameter Nb = 18;
@@ -40,15 +39,15 @@ module interface_fft_3(
   wire signed [Nb - 1 : 0] output_accum_real;
   wire signed [Nb - 1 : 0] output_accum_imag;
 
-  //wire done;
-  //wire read_valid;
+  wire done;
+  wire read_valid;
 
   reg signed [Nb - 1 : 0] data_real_in = 18'd0;
   reg signed [Nb - 1 : 0] data_imag_in = 18'd0;
 
   reg [3 : 0] cur_log_depth = log_depth;
-  reg cur_real_mode = 1'b1;
-  wire cur_direction = 1'b0;
+  reg cur_real_mode = 1'b0;
+  wire cur_direction = 1'b1;
   wire [3:0] cur_output_scaling;
   
   reg first = 1'b1;
@@ -81,47 +80,47 @@ fft #(
 always @(posedge clk) begin
   if (!reset) begin
   // write input data-- Step1
+  // write only if done is high from the main module
     if (write_enable_in) begin
-      if (addr_in != N-1) begin
-        data_real_in <= sample_from_codec; //from_ac97_data; --> needs to be 18 bits
-        data_imag_in <= sample_from_codec; //from_ac97_data; --> needs to be 18 bits
-        addr_in = addr_in + 1;
+      if (result_done) begin
+        if (addr_in != N-1) begin
+          data_real_in <= auto_tuned_data[35:18]; // real part of shifted data
+          data_imag_in <= auto_tuned_data[17:0]; // imaginary part of shifted data
+          addr_in = addr_in + 1;
+        end
       end
-  	 else begin
-  		write_enable_in <= 1'b0;
-  		addr_in <= 9'd0;
-  	end
+     else begin
+      write_enable_in <= 1'b0;
+      addr_in <= 9'd0;
+    end
     end
     else if (read_enable_out && read_valid) begin // -- Step 3
       if (addr_in != N - 1) begin
-        //real_output_fft <= data_real_out;
-        //imag_output_fft <= data_imag_out;
-
         // data will appear on data_real_out and data_imag_out
         addr_in = addr_in + 1;
       end
-  	 else begin
-  		 // reset addr_in, read_enable, write_enable?
-  		 addr_in <= 9'd0;
-  		 read_enable_out <= 1'b0;
-  		 write_enable_in <= 1'b1;
-  		 first <= 1'b1;
-  		 // ready <= 1'b1;
-  	 end
+     else begin
+       // reset addr_in, read_enable, write_enable?
+       addr_in <= 9'd0;
+       read_enable_out <= 1'b0;
+       write_enable_in <= 1'b1;
+       first <= 1'b1;
+       // ready <= 1'b1;
+     end
     end
-    else begin // run FFT -- Step 2
+    else begin // run IFFT -- Step 2
     //if (!ready) begin
         // turn ready low
         //ready<= 1'b0;
         // blip the start flag
-    	 if (first) begin
-    		start <= 1'b1;
-    		first <= 1'b0;
-    	 end
-    	 else if (!first) start <= 1'b0;
-    		 //start_delay <= start;
-    		 //start <= (start && (~start_delay));
-    		 //first <= 1'b0;
+       if (first) begin
+        start <= 1'b1;
+        first <= 1'b0;
+       end
+       else if (!first) start <= 1'b0;
+         //start_delay <= start;
+         //start <= (start && (~start_delay));
+         //first <= 1'b0;
         if (done) read_enable_out <= 1'b1;
     //end
     end
