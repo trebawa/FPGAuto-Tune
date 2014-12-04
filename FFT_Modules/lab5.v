@@ -38,13 +38,13 @@ endmodule
 // bi-directional monaural interface to AC97
 //
 ///////////////////////////////////////////////////////////////////////////////
-
+// this module has been edited to provide added bits of audio resolution
 module lab5audio (
   input wire clock_27mhz,
   input wire reset,
   input wire [4:0] volume,
-  output wire [7:0] audio_in_data,
-  input wire [7:0] audio_out_data,
+  output wire [17:0] audio_in_data, // changed to offer 18 bits
+  input wire [17:0] audio_out_data, // changed to offer 18 bits
   output wire ready,
   output reg audio_reset_b,   // ac97 interface signals
   output wire ac97_sdata_out,
@@ -92,8 +92,8 @@ module lab5audio (
   reg [7:0] out_data;
   always @ (posedge clock_27mhz)
     if (ready) out_data <= audio_out_data;
-  assign audio_in_data = left_in_data[19:12];
-  assign left_out_data = {out_data, 12'b000000000000};
+  assign audio_in_data = left_in_data[19:2]; //left_in_data[19:12];
+  assign left_out_data = {out_data, 2'b00}; //{out_data, 12'b000000000000};
   assign right_out_data = left_out_data;
 
   // generate repeating sequence of read/writes to AC97 registers
@@ -645,7 +645,7 @@ module lab5   (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
    SRL16 #(.INIT(16'hFFFF)) reset_sr(.D(1'b0), .CLK(clock_27mhz), .Q(reset),
                                      .A0(1'b1), .A1(1'b1), .A2(1'b1), .A3(1'b1));
 			    
-   wire [7:0] from_ac97_data, to_ac97_data;
+   wire [17:0] from_ac97_data, to_ac97_data; // changed from 8 bits to 18 bits
    wire ready;
 
    // allow user to adjust volume
@@ -694,8 +694,10 @@ module lab5   (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
    assign analyzer1_data[3] = ac97_synch;
    assign analyzer1_data[15:4] = 0;
 
-   assign analyzer3_clock = ready;
-   assign analyzer3_data = {from_ac97_data, to_ac97_data};
+   //assign analyzer3_clock = ready;
+   //assign analyzer3_data = {from_ac97_data, to_ac97_data};
+
+
 endmodule
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -710,10 +712,8 @@ module recorder(
   input wire playback,             // 1 for playback, 0 for record
   input wire ready,                // 1 when AC97 data is available
   input wire filter,               // 1 when using low-pass filter
-  input wire [7:0] from_ac97_data, // 8-bit PCM data from mic
-  output reg [7:0] to_ac97_data,    // 8-bit PCM data to headphone
-  output reg [9:0] real_output_fft,
-  output reg [9:0] imag_output_fft
+  input wire [17:0] from_ac97_data, // 18-bit PCM data from mic
+  output reg [17:0] to_ac97_data    // 18-bit PCM data to headphone
 );  
    // test: playback 750hz tone, or loopback using incoming data
    wire [19:0] tone;
@@ -727,120 +727,34 @@ module recorder(
    end*/
 
    // assume that you can get 18-bit PCM data from above-- TODO
-   // feed Codec output to FFT module from Michael
+   // feed Codec output to Ishwarya's FFT Driver
 
- 
+   //////////////////////////////////////////////////////////////////////////
+   // FFT MODULE DRIVER
+   // IN: SAMPLE FROM CODEC
+   // OUT: REAL AND IMAGINARY FFT DATA
+   //////////////////////////////////////////////////////////////////////////
 
-
-
-
-endmodule
-
-///////////////////////////////////////////////////////////////////////////////
-//  Separating out the module that handles and performs the fft operation
-//   (eventually, am instance of this should be called by the recorder module
-//   above)
-///////////////////////////////////////////////////////////////////////////////
-
-module interface_fft(
-  // remainder of the control parameters should be added here
-  input clk,
-  input wire [17:0] sample_from_codec,
-  output reg [17:0] data_real_out,
-  output reg [17:0] data_imag_out
-);
-
-  parameter Nb = 18;
-  parameter Dp = 16;
-  parameter log_depth = 10;
-  parameter N = 1 << log_depth;
-
-  reg reset = 1'b1;
-  //reg clk;
-
-  wire ready;
-
-  reg start = 1'b0;
-  reg start_delay = 1'b0;
-
-  reg write_enable_in = 1'b1;
-  reg [log_depth - 1 : 0] addr_in  = 10'd0;
-  reg [log_depth - 1 : 0] addr_out = 10'd0;
-  reg read_enable_out = 1'b0;
-
-  reg [log_depth - 1 : 0] read_count = 1'b0;
-
-  wire signed [Nb - 1 : 0] output_accum_real;
-  wire signed [Nb - 1 : 0] output_accum_imag;
-
-  wire done;
-  wire read_valid;
-
-  reg signed [Nb - 1 : 0] data_real_in;
-  reg signed [Nb - 1 : 0] data_imag_in;
-
-  reg [3 : 0] cur_log_depth = 4'd10;
-  reg cur_real_mode = 1'b0;
-  wire [3 : 0] cur_output_scaling = 1'b1;
-
-  
-fft #(
-    .Nb(Nb),
-    .Dp(Dp),
-    .log_depth(log_depth)
-) dut(
-  .clk(clk), 
+   interface_fft fft_driver (
+  .clk(clock),
   .reset(reset),
-  .ctl_ready(ready),
-  .ctl_start(start), 
-  .ctl_log_depth(cur_log_depth),
-  .ctl_real_mode(cur_real_mode),
-  .ctl_direction(cur_direction),
-  .ctl_done(done),
-  .ctl_output_scaling(cur_output_scaling),
-  
-  .data_address(addr_in),
-  .data_read_enable(read_enable_out),
-  .data_read_valid(read_valid),
-  .data_read_data({data_imag_out, data_real_out}),
-  .data_write_enable(write_enable_in),
-  .data_write_data({data_imag_in, data_real_in})
-);
+  .sample_from_codec(from_ac97_data),
+  .data_real_out(test_real_out), // to trevor's main_fsm
+  .data_imag_out(test_imag_out)
+  );
 
-always @(posedge clk) begin
-// any issues with the sample being updated and overwritten prior
-  // to being assigned to data_real_in?
-// write input data-- Step1
-  if (write_enable_in) begin
-    if (addr_in != N-1) begin
-      data_real_in <= sample_from_codec; //from_ac97_data; --> needs to be 18 bits
-      data_imag_in <= sample_from_codec; //from_ac97_data; --> needs to be 18 bits
-      addr_in = addr_in + 1;
-    end
-    write_enable_in <= 1'b0;
-    addr_in <= 10'd0;
-  end
-  else if (read_enable_out) begin // -- Step 3
-    if (addr_in != N - 1) begin
-      //real_output_fft <= data_real_out;
-      //imag_output_fft <= data_imag_out;
+   //////////////////////////////////////////////////////////////////////////
+   // MAIN_FSM INSTANCE (TOP-LEVEL FOR FREQ. ESTIMATION, SHIFTER, LUT, etc)
+   // IN: FFT DATA
+   // OUT: SHIFTED FFT DATA FOR THE IFFT
+   //////////////////////////////////////////////////////////////////////////
 
-      // data will appear on data_real_out and data_imag_out
-      addr_in = addr_in + 1;
-    end
-    // reset addr_in, read_enable, write_enable?
-    addr_in <= 10'd0;
-    read_enable_out <= 1'b0;
-    write_enable_in <= 1'b1;
-  end
-  else begin // run FFT -- Step 2
-    // blip the start flag
-    start <= 1'b1;
-    start_delay <= start;
-    start <= (start && (~start_delay));
-    if (done) read_enable_out <= 1'b1;
-  end
-end
+   /////////////////////////////////////////////////////////////////////////////
+   // Hex Output display for music notes A - G | # | Octave Num
+   /////////////////////////////////////////////////////////////////////////////
+
+
+
 
 endmodule
 
@@ -869,76 +783,6 @@ module mybram #(parameter LOGSIZE=14, WIDTH=1)
    end
 endmodule
 
-///////////////////////////////////////////////////////////////////////////////
-//
-// 31-tap FIR filter, 8-bit signed data, 10-bit signed coefficients.
-// ready is asserted whenever there is a new sample on the X input,
-// the Y output should also be sampled at the same time.  Assumes at
-// least 32 clocks between ready assertions.  Note that since the
-// coefficients have been scaled by 2**10, so has the output (it's
-// expanded from 8 bits to 18 bits).  To get an 8-bit result from the
-// filter just divide by 2**10, ie, use Y[17:10].
-//
-///////////////////////////////////////////////////////////////////////////////
 
-module fir31(
-  input wire clock,reset,ready,
-  input wire signed [7:0] x,
-  output reg signed [17:0] y
-);
-  // for now just pass data through
-  always @(posedge clock) begin
-    if (ready) y <= {x,10'd0};
-  end
-endmodule
 
-///////////////////////////////////////////////////////////////////////////////
-//
-// Coefficients for a 31-tap low-pass FIR filter with Wn=.125 (eg, 3kHz for a
-// 48kHz sample rate).  Since we're doing integer arithmetic, we've scaled
-// the coefficients by 2**10
-// Matlab command: round(fir1(30,.125)*1024)
-//
-///////////////////////////////////////////////////////////////////////////////
 
-module coeffs31(
-  input wire [4:0] index,
-  output reg signed [9:0] coeff
-);
-  // tools will turn this into a 31x10 ROM
-  always @(index)
-    case (index)
-      5'd0:  coeff = -10'sd1;
-      5'd1:  coeff = -10'sd1;
-      5'd2:  coeff = -10'sd3;
-      5'd3:  coeff = -10'sd5;
-      5'd4:  coeff = -10'sd6;
-      5'd5:  coeff = -10'sd7;
-      5'd6:  coeff = -10'sd5;
-      5'd7:  coeff = 10'sd0;
-      5'd8:  coeff = 10'sd10;
-      5'd9:  coeff = 10'sd26;
-      5'd10: coeff = 10'sd46;
-      5'd11: coeff = 10'sd69;
-      5'd12: coeff = 10'sd91;
-      5'd13: coeff = 10'sd110;
-      5'd14: coeff = 10'sd123;
-      5'd15: coeff = 10'sd128;
-      5'd16: coeff = 10'sd123;
-      5'd17: coeff = 10'sd110;
-      5'd18: coeff = 10'sd91;
-      5'd19: coeff = 10'sd69;
-      5'd20: coeff = 10'sd46;
-      5'd21: coeff = 10'sd26;
-      5'd22: coeff = 10'sd10;
-      5'd23: coeff = 10'sd0;
-      5'd24: coeff = -10'sd5;
-      5'd25: coeff = -10'sd7;
-      5'd26: coeff = -10'sd6;
-      5'd27: coeff = -10'sd5;
-      5'd28: coeff = -10'sd3;
-      5'd29: coeff = -10'sd1;
-      5'd30: coeff = -10'sd1;
-      default: coeff = 10'hXXX;
-    endcase
-endmodule
