@@ -27,15 +27,17 @@ reg once = 1'b0;
 // additional variables exposed for testing output
 wire [9:0] counter_addr;
 wire read_valid;
+wire done;
 
-interface_fft interface_test (
+interface_fft_3 interface_test (
 	.clk(clk),
 	.reset(reset),
 	.sample_from_codec(sample_from_codec),
 	.data_real_out(test_real_out),
 	.data_imag_out(test_imag_out),
 	.counter_addr(counter_addr),
-	.read_valid(read_valid)
+	.read_valid(read_valid),
+	.done(done)
 	);
 
 // This initial time buffer is required? For what?

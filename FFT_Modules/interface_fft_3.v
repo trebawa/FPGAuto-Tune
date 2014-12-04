@@ -1,13 +1,11 @@
 //fft_interface.v -- just the interface module
 
 ///////////////////////////////////////////////////////////////////////////////
-//  Separating out the module that handles and performs the fft operation
-//   (eventually, am instance of this should be called by the recorder module
-//   above)
+//  FFT DRIVER MODULE
+//   
 ///////////////////////////////////////////////////////////////////////////////
 
-module interface_fft(
-  // remainder of the control parameters should be added here
+module interface_fft_3(
   input wire clk,
   input wire reset,
   input wire [17:0] sample_from_codec, // ultimately from left_in_data and right_in_data from lab5audio module
@@ -15,7 +13,8 @@ module interface_fft(
   output wire [17:0] data_imag_out,
   // expose SRAM interface for main to read
   output reg [9:0] counter_addr,
-  output wire read_valid
+  output wire read_valid,
+  output wire done
 );
 
   parameter Nb = 18;
@@ -41,7 +40,7 @@ module interface_fft(
   wire signed [Nb - 1 : 0] output_accum_real;
   wire signed [Nb - 1 : 0] output_accum_imag;
 
-  wire done;
+  //wire done;
   //wire read_valid;
 
   reg signed [Nb - 1 : 0] data_real_in = 18'd0;

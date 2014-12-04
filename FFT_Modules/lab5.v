@@ -735,12 +735,22 @@ module recorder(
    // OUT: REAL AND IMAGINARY FFT DATA
    //////////////////////////////////////////////////////////////////////////
 
-   interface_fft fft_driver (
+   wire [9:0] counter_addr;
+   wire [17:0] data_real_out;
+   wire [17:0] data_imag_out;
+   wire read_valid;
+   wire done;
+
+   interface_fft_3 fft_driver (
   .clk(clock),
   .reset(reset),
   .sample_from_codec(from_ac97_data),
-  .data_real_out(test_real_out), // to trevor's main_fsm
-  .data_imag_out(test_imag_out)
+  .data_real_out(data_real_out), // to trevor's main_fsm
+  .data_imag_out(data_imag_out),
+
+  .counter_addr(counter_addr),
+  .read_valid(read_valid),
+  .done(done)
   );
 
    //////////////////////////////////////////////////////////////////////////
