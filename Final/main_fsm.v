@@ -31,7 +31,7 @@ module main_fsm(
 	 
     input [8:0] result_address,	//supply data that can be sent to the IFFT
     input result_read_enable,
-    output signed reg [63:0] result_data,
+    output signed reg [35:0] result_data,
     output reg result_read_valid
     );
 	 
@@ -55,39 +55,7 @@ module main_fsm(
 		.wea(ram_a_we),
 		.douta({ram_a_real,ram_a_imag})
 		);
-		
-	 //RAM beta
-	 wire [8:0] ram_b_waddr;
-	 wire [8:0] ram_b_raddr;
-	 reg ram_b_write = 0;
-	 wire [8:0] ram_b_addr = ram_b_write ? ram_b_waddr : ram_b_raddr;
-	 wire ram_b_we = ram_b_write;
-	 wire signed [31:0] ram_b_out; //phase data, 11Q32
-	 
-	 ram32x512 ram_b(
-		.clka(clk),
-		.dina(ram_b_din),
-		.addra(ram_b_addr),
-		.wea(ram_b_we),
-		.douta(ram_b_out);
-		);
-		
-	 //RAM gamma
-	 wire [8:0] ram_c_waddr;
-	 wire [8:0] ram_c_raddr;
-	 wire [35:0] ram_c_out;
-	 reg ram_c_write = 0;
-	 wire [8:0] ram_c_addr = ram_c_write ? ram_c_waddr : ram_c_raddr;
-	 wire ram_c_we = ram_c_write;
-	 
-	 ram36x512 ram_c(
-		.clka(clk),
-		.dina(ram_c_din),
-		.addra(ram_c_addr),
-		.wea(ram_c_we),
-		.douta(ram_c_out)
-		);
-	 
+			 
 	 //CORDIC
 	 wire cordic_done;
 	 wire signed [23:0] c_magnitude;//1QN
@@ -109,13 +77,32 @@ module main_fsm(
 	 //Peak finder
 	 wire
 	 
-	serial_peak_finder peak_finder (
+	 serial_peak_finder peak_finder (
 		 .clk(clk), 
-		 .enable(enable), 
+		 .enable(pf_enable), 
 		 .start(start), 
 		 .data_in(data_in), 
 		 .peak_index(peak_index)
 		 );
+		
+	 //RAM beta
+	 wire [8:0] ram_b_waddr;
+	 wire [8:0] ram_b_raddr;
+	 reg ram_b_write = 0;
+	 wire [8:0] ram_b_addr = ram_b_write ? ram_b_waddr : ram_b_raddr;
+	 wire ram_b_we = ram_b_write;
+	 wire signed [31:0] ram_b_out; //phase data, 11Q32
+	 
+	 ram32x512 ram_b(
+		.clka(clk),
+		.dina(ram_b_din),
+		.addra(ram_b_addr),
+		.wea(ram_b_we),
+		.douta(ram_b_out);
+		);
+		
+
+
 	 
 	 
 	 //////////////////////
@@ -123,7 +110,7 @@ module main_fsm(
 	 //////////////////////
 	 
 	 parameter S_WAIT_FOR_DATA 	= 1; 		//expose RAMc to IFFT, set done flag, wait for start pulse
-	 parameter S_POPULATE_RAM_A 	= 2; 		//clear done flag, fill RAMa with FFT data
+	 parameter S_POPULATE_RAM_A 	= 2; 		//clear done flag, fill RAMa with FFT data (when read is valid)
 	 parameter S_RUN_CORDICS 		= 4; 		//fill RAMb with transformed data, run peak finder on magnitudes
 	 parameter S_FIND_MAX_FREQ 	= 8;		//read out from RAMb the phase of the peak bin and send it to f-est
 	 parameter S_FIND_FUND_FREQ	= 16;		//run the frequency estimator and send to Note LUT
@@ -142,8 +129,12 @@ module main_fsm(
 	 always @(posedge clk) begin
 		case (state)
 			S_WAIT_FOR_DATA: begin
-				
+				if (fft_done) state<= S_WAIT_TO_READ;
 			end
+			S_WAIT_TO_READ: begin
+				if (fft_read_valid) state <= S_POPULATE_RAM_A;
+			end
+			S_POPULATE_RAM_A: begin
 		endcase
 	 end
 
