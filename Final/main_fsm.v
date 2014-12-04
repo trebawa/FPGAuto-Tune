@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module main_fsm(
-	 input start,
+	 //input start,
 	 input clk,
     output reg done = 1,	//when the calculation is complete
     output reg note_done = 0,	//when the calculation is complete
@@ -63,7 +63,7 @@ module main_fsm(
 	 reg cordic_start = 0;
 	 wire signed [23:0] c_magnitude;//1QN
 	 wire signed [31:0] magnitude = {{10{c_magnitude[23]}},c_magnitude[22:1]}; //sign extended to 11Q32 format
-	 wire signed [22:0] c_phase;//2QN
+	 wire signed [23:0] c_phase;//2QN
 	 wire signed [31:0] phase = {{9{c_phase[23]}},c_phase[22:0]};//sign extended to 11Q32 format
 	 wire cordic_done;
 	 
@@ -76,19 +76,6 @@ module main_fsm(
 		.phase_out(c_phase),
 		.rdy(cordic_done)
 		); 
-		
-	 //Peak finder
-	 reg pf_start = 0;
-	 reg [32:0] max_freq = 0;
-	 reg [8:0] max_index;
-	 
-	 serial_peak_finder peak_finder (
-		 .clk(clk), 
-		 .index(ram_b_waddr), 
-		 .start(pf_start), 
-		 .data_in(magnitude), 
-		 .peak_index(peak_index)
-		 );
 		
 	 //RAM beta
 	 reg [8:0] ram_b_waddr = 0;
@@ -105,7 +92,20 @@ module main_fsm(
 		.wea(ram_b_we),
 		.douta(ram_b_out)
 		);
-		
+				
+	 //Peak finder
+	 reg pf_start = 0;
+	 reg [32:0] max_freq = 0;
+	 reg [8:0] max_index;
+	 
+	 serial_peak_finder peak_finder (
+		 .clk(clk), 
+		 .index(ram_b_waddr), 
+		 .start(pf_start), 
+		 .data_in(magnitude), 
+		 .peak_index(peak_index)
+		 );
+		 
 	 //frequency estimator
 	 reg signed [32:0] max_phase;
 	 reg est_start;
@@ -118,7 +118,7 @@ module main_fsm(
 		 .clk(clk), 
 		 .start(est_start), 
 		 .done(est_done), 
-		 .frequency(fund_freq;)
+		 .frequency(fund_freq)
 		);
 
 	 //note LUT

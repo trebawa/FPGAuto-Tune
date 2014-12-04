@@ -93,7 +93,7 @@ module scale_freq_select(
 	 end
 	
 	 
-	always @(*) begin
+	always @(act_note or act_octave) begin
 		if (act_octave > 3'd6) begin
 			freq_desired = note_table[act_note] << (act_octave-6); //just in case
 		end
