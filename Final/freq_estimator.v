@@ -33,7 +33,7 @@ module freq_estimator( //Everything is 11Q32) (11 integer bits, 1 sign bit, 20 f
 	 reg [31:0] old_max_phase = 0; //the last value of max_phase; necessary to calculate the phase difference
 	 
 	 reg [31:0] two_n = 0; //11Q32
-	 wire signed [31:0] two = 32'h200000; //1 in 11Q32
+	 wire signed [31:0] two = 32'h200000; //2 in 11Q32
 	 wire [31:0] new_two_n; 
 	 wire signed [31:0] dp;
 	 wire signed [31:0] df;
@@ -101,18 +101,8 @@ module freq_estimator( //Everything is 11Q32) (11 integer bits, 1 sign bit, 20 f
 		.b(two_n),
 		.c(numerator)
 	 );
-	 
-//	 qdiv #(20,32) divide(
-//		.i_dividend(numerator),
-//		.i_divisor(two_dt),
-//		.i_start(div_start),
-//		.i_clk(clk),
-//		.o_quotient_out(freq_result),
-//		.o_complete(div_done),
-//		.o_overflow(div_overflow)
-//	);
 
-	qmult #(20,32) mul(
+	 qmult #(20,32) mul(
 		.i_multiplicand(numerator),
 		.i_multiplier(two_dt_inv),
 		.o_result(freq_result),

@@ -22,7 +22,7 @@ module main_fsm(
 	 //input start,
 	 input clk,
     output reg done = 1,	//when the calculation is complete
-    output reg note_done = 0,	//when the calculation is complete
+    output reg note_done = 1,	//when the calculation is complete
     output [3:0] note_name,
     output [2:0] note_octave,
 	 input [11:0] scale,
@@ -44,7 +44,7 @@ module main_fsm(
 	 
 	 //RAM alpha
 	 wire [8:0] ram_a_waddr = fft_address;
-	 reg [8:0] ram_a_raddr = 0;
+	 reg [8:0] ram_a_raddr;
 	 wire signed [17:0] ram_a_real;
 	 wire signed [17:0] ram_a_imag;
 	 reg ram_a_write = 0;
@@ -53,14 +53,14 @@ module main_fsm(
 	 
 	 ram36x512 ram_a(
 		.clka(clk),
-		.dina(ram_a_din),
+		.dina(fft_data),
 		.addra(ram_a_addr),
 		.wea(ram_a_we),
 		.douta({ram_a_real,ram_a_imag})
 		);
 			 
 	 //CORDIC
-	 reg cordic_start = 0;
+	 reg cordic_start;
 	 wire signed [23:0] c_magnitude;//1QN
 	 wire signed [31:0] magnitude = {{10{c_magnitude[23]}},c_magnitude[22:1]}; //sign extended to 11Q32 format
 	 wire signed [23:0] c_phase;//2QN
@@ -78,7 +78,7 @@ module main_fsm(
 		); 
 		
 	 //RAM beta
-	 reg [8:0] ram_b_waddr = 0;
+	 reg [8:0] ram_b_waddr;
 	 reg [8:0] ram_b_raddr;
 	 reg ram_b_write = 0;
 	 wire [8:0] ram_b_addr = ram_b_write ? ram_b_waddr : ram_b_raddr;
@@ -94,9 +94,10 @@ module main_fsm(
 		);
 				
 	 //Peak finder
-	 reg pf_start = 0;
-	 reg [32:0] max_freq = 0;
+	 reg pf_start;
+	 //reg [31:0] max_freq;
 	 reg [8:0] max_index;
+	 wire [8:0] peak_index;
 	 
 	 serial_peak_finder peak_finder (
 		 .clk(clk), 
@@ -107,10 +108,10 @@ module main_fsm(
 		 );
 		 
 	 //frequency estimator
-	 reg signed [32:0] max_phase;
+	 reg signed [31:0] max_phase;
 	 reg est_start;
 	 wire est_done;
-	 wire [32:0] fund_freq;
+	 wire [31:0] fund_freq;
 	 
 	 freq_estimator estimator (
 		 .max_phase(max_phase), 
@@ -172,14 +173,22 @@ module main_fsm(
 	 always @(posedge clk) begin
 		case (state)
 			S_WAIT_FOR_DATA: begin
+				cordic_start <= 0;
+				//max_freq <= 0;
+				pf_start <= 0;
+				ram_a_raddr <= 0;
+				ram_b_waddr <= 0;
+				
 				if (fft_done) begin
 					state<= S_POPULATE_RAM_A;
 					ram_a_write <= 1;
+					done <= 0;
+					note_done <= 0;
 				end
 			end
 			S_POPULATE_RAM_A: begin
 				if (fft_address === 511) begin
-					state<= S_RUN_CORDICS;
+					state <= S_RUN_CORDICS;
 					ram_a_write <= 0;
 					cordic_start <= 0;
 					ram_a_raddr <= 0;
@@ -192,7 +201,7 @@ module main_fsm(
 					pf_start <= 0;
 					if (ram_b_waddr === 511) begin
 						state <= S_FIND_MAX_FREQ;
-						max_index <= peak_index; //we have determined the peak bin
+						max_index[8:0] <= peak_index[8:0]; //we have determined the peak bin
 					end
 					else ram_b_waddr <= ram_b_waddr+1;
 				end

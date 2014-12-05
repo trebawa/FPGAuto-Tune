@@ -5,31 +5,19 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompilers" num="259" delta="unknown" ><arg fmt="%s" index="1">&quot;main_fsm.v&quot; line 56 </arg>Connection to input port &apos;<arg fmt="%s" index="2">dina</arg>&apos; does not match port size
+<msg type="warning" file="HDLCompilers" num="261" delta="unknown" ><arg fmt="%s" index="1">&quot;main_fsm.v&quot; line 107 </arg>Connection to output port &apos;<arg fmt="%s" index="2">peak_index</arg>&apos; does not match port size
 </msg>
 
-<msg type="warning" file="HDLCompilers" num="261" delta="unknown" ><arg fmt="%s" index="1">&quot;main_fsm.v&quot; line 106 </arg>Connection to output port &apos;<arg fmt="%s" index="2">peak_index</arg>&apos; does not match port size
+<msg type="warning" file="HDLCompilers" num="259" delta="unknown" ><arg fmt="%s" index="1">&quot;main_fsm.v&quot; line 118 </arg>Connection to input port &apos;<arg fmt="%s" index="2">max_index</arg>&apos; does not match port size
 </msg>
 
-<msg type="warning" file="HDLCompilers" num="259" delta="unknown" ><arg fmt="%s" index="1">&quot;main_fsm.v&quot; line 116 </arg>Connection to input port &apos;<arg fmt="%s" index="2">max_phase</arg>&apos; does not match port size
+<msg type="warning" file="Xst" num="1464" delta="unknown" >&quot;<arg fmt="%s" index="1">main_fsm.v</arg>&quot; line <arg fmt="%d" index="2">190</arg>: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
 </msg>
 
-<msg type="warning" file="HDLCompilers" num="259" delta="unknown" ><arg fmt="%s" index="1">&quot;main_fsm.v&quot; line 117 </arg>Connection to input port &apos;<arg fmt="%s" index="2">max_index</arg>&apos; does not match port size
+<msg type="warning" file="Xst" num="1464" delta="unknown" >&quot;<arg fmt="%s" index="1">main_fsm.v</arg>&quot; line <arg fmt="%d" index="2">202</arg>: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
 </msg>
 
-<msg type="warning" file="HDLCompilers" num="261" delta="unknown" ><arg fmt="%s" index="1">&quot;main_fsm.v&quot; line 121 </arg>Connection to output port &apos;<arg fmt="%s" index="2">frequency</arg>&apos; does not match port size
-</msg>
-
-<msg type="warning" file="HDLCompilers" num="259" delta="unknown" ><arg fmt="%s" index="1">&quot;main_fsm.v&quot; line 128 </arg>Connection to input port &apos;<arg fmt="%s" index="2">freq_fun</arg>&apos; does not match port size
-</msg>
-
-<msg type="warning" file="Xst" num="1464" delta="unknown" >&quot;<arg fmt="%s" index="1">main_fsm.v</arg>&quot; line <arg fmt="%d" index="2">181</arg>: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
-</msg>
-
-<msg type="warning" file="Xst" num="1464" delta="unknown" >&quot;<arg fmt="%s" index="1">main_fsm.v</arg>&quot; line <arg fmt="%d" index="2">193</arg>: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
-</msg>
-
-<msg type="warning" file="Xst" num="1464" delta="unknown" >&quot;<arg fmt="%s" index="1">main_fsm.v</arg>&quot; line <arg fmt="%d" index="2">205</arg>: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
+<msg type="warning" file="Xst" num="1464" delta="unknown" >&quot;<arg fmt="%s" index="1">main_fsm.v</arg>&quot; line <arg fmt="%d" index="2">214</arg>: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
 </msg>
 
 <msg type="warning" file="Xst" num="2211" delta="unknown" >&quot;<arg fmt="%s" index="1">cordic.v</arg>&quot; line <arg fmt="%d" index="2">70</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">cordic</arg>&gt;.
@@ -52,13 +40,10 @@
 <arg fmt="%s" index="3">&lt;note_table&gt;</arg>
 </msg>
 
-<msg type="info" file="Xst" num="2679" delta="unknown" >Register &lt;<arg fmt="%s" index="1">ovr</arg>&gt; in unit &lt;<arg fmt="%s" index="2">qmult</arg>&gt; has a constant value of <arg fmt="%s" index="3">1</arg> during circuit operation. The register is replaced by logic.
-</msg>
-
 <msg type="warning" file="Xst" num="1781" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">note_table</arg>&gt; is used but never assigned. Tied to default value.
 </msg>
 
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">r_result&lt;63&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">r_result&lt;63:51&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">r_result&lt;19:0&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -76,19 +61,10 @@
 <msg type="warning" file="Xst" num="1306" delta="unknown" >Output &lt;<arg fmt="%s" index="1">result_data</arg>&gt; is never assigned.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">fft_data</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
 <msg type="warning" file="Xst" num="1306" delta="unknown" >Output &lt;<arg fmt="%s" index="1">result_read_valid</arg>&gt; is never assigned.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">result_address</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="1306" delta="unknown" >Output &lt;<arg fmt="%s" index="1">done</arg>&gt; is never assigned.
-</msg>
-
-<msg type="warning" file="Xst" num="1306" delta="unknown" >Output &lt;<arg fmt="%s" index="1">note_done</arg>&gt; is never assigned.
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">result_read_enable</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -103,28 +79,10 @@
 <msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">scale_force_done</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">ram_a_din</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0</arg>.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">max_phase&lt;32&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">max_freq</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">fund_freq&lt;32&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
 <msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">c_magnitude&lt;0&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="2404" delta="unknown" > FFs/Latches &lt;<arg fmt="%s" index="1">max_index</arg>&lt;<arg fmt="%d" index="2">8</arg>:<arg fmt="%d" index="3">1</arg>&gt;&gt; (without init value) have a constant value of 0 in block &lt;<arg fmt="%s" index="4">main_fsm</arg>&gt;.
-</msg>
-
 <msg type="warning" file="Xst" num="2404" delta="unknown" > FFs/Latches &lt;<arg fmt="%s" index="1">peak_index</arg>&lt;<arg fmt="%d" index="2">11</arg>:<arg fmt="%d" index="3">9</arg>&gt;&gt; (without init value) have a constant value of 0 in block &lt;<arg fmt="%s" index="4">serial_peak_finder</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2404" delta="unknown" > FFs/Latches &lt;<arg fmt="%s" index="1">ram_b_raddr</arg>&lt;<arg fmt="%d" index="2">8</arg>:<arg fmt="%d" index="3">1</arg>&gt;&gt; (without init value) have a constant value of 0 in block &lt;<arg fmt="%s" index="4">main_fsm</arg>&gt;.
 </msg>
 
 <msg type="info" file="Xst" num="2385" delta="unknown" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">Mmult_r_result_mult0000</arg> by adding <arg fmt="%d" index="2">3</arg> register level(s).
@@ -140,7 +98,8 @@
 You should achieve better results by setting this init to <arg fmt="%i" index="3">1</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">max_phase_32</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">main_fsm</arg>&gt;.
+<msg type="warning" file="Xst" num="1426" delta="unknown" >The value init of the FF/Latch <arg fmt="%s" index="1">done</arg> hinder the constant cleaning in the block <arg fmt="%s" index="2">main_fsm</arg>.
+You should achieve better results by setting this init to <arg fmt="%i" index="3">0</arg>.
 </msg>
 
 <msg type="warning" file="Xst" num="1293" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">done</arg>&gt; has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">scale_forcer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
@@ -167,30 +126,6 @@ You should achieve better results by setting this init to <arg fmt="%i" index="3
 <msg type="warning" file="Xst" num="1293" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">act_octave_2</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">scale_forcer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">peak_index_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">peak_finder</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">peak_index_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">peak_finder</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">peak_index_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">peak_finder</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">peak_index_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">peak_finder</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">peak_index_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">peak_finder</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">peak_index_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">peak_finder</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">peak_index_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">peak_finder</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">peak_index_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">peak_finder</arg>&gt;.
-</msg>
-
 <msg type="warning" file="Xst" num="1293" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">current_note_b_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">scale_forcer</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
@@ -207,10 +142,361 @@ You should achieve better results by setting this init to <arg fmt="%i" index="3
 It will be removed from the design.
 </msg>
 
-<msg type="error" file="Xst" num="528" delta="unknown" >Multi-source in Unit &lt;<arg fmt="%s" index="1">qmult</arg>&gt; on signal &lt;<arg fmt="%s" index="2">ovr</arg>&gt;; this signal is connected to multiple drivers.
+<msg type="warning" file="Xst" num="1293" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">done</arg>&gt; has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">scale_freq_select</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
 </msg>
 
-<msg type="error" file="Xst" num="528" delta="unknown" >Multi-source in Unit &lt;<arg fmt="%s" index="1">qmult</arg>&gt; on signal &lt;<arg fmt="%s" index="2">ovr</arg>&gt;; this signal is connected to multiple drivers.
+<msg type="warning" file="Xst" num="1896" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">act_note_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">scale_freq_select</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">act_note_1</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">scale_freq_select</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">act_note_2</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">scale_freq_select</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">act_note_3</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">scale_freq_select</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">act_octave_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">scale_freq_select</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">act_octave_1</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">scale_freq_select</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1896" delta="unknown" >Due to other FF/Latch trimming, FF/Latch &lt;<arg fmt="%s" index="1">act_octave_2</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">scale_freq_select</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">current_note_b_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">scale_freq_select</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">current_note_b_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">scale_freq_select</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">current_note_b_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">scale_freq_select</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="unknown" >Node &lt;<arg fmt="%s" index="1">current_note_b_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">scale_freq_select</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="unknown" >FF/Latch &lt;<arg fmt="%s" index="1">estimator/two_n_31</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">main_fsm</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU9864</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU9877&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU3198</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU3211&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU11682</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU11695&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU2592</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU2605&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU11076</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU11089&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU4410</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU4423&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU3804</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU3817&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU12288</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU12301&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU5016</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU5029&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU13500</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU13513&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU12894</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU12907&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU6228</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU6241&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU5622</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU5635&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU14106</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU14119&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU7440</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU7453&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU6834</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU6847&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU8046</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU8059&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU36</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">45 FFs/Latches</arg> : <arg fmt="%s" index="4">&lt;BU38&gt; &lt;BU40&gt; &lt;BU42&gt; &lt;BU44&gt; &lt;BU46&gt; &lt;BU48&gt; &lt;BU50&gt; &lt;BU52&gt; &lt;BU54&gt; &lt;BU56&gt; &lt;BU99&gt; &lt;BU101&gt; &lt;BU103&gt; &lt;BU105&gt; &lt;BU107&gt; &lt;BU109&gt; &lt;BU111&gt; &lt;BU113&gt; &lt;BU115&gt; &lt;BU117&gt; &lt;BU119&gt; &lt;BU15689&gt; &lt;BU15782&gt; &lt;BU15784&gt; &lt;BU15790&gt; &lt;BU15796&gt; &lt;BU15800&gt; &lt;BU15804&gt; &lt;BU15806&gt; &lt;BU15965&gt; &lt;BU15971&gt; &lt;BU15977&gt; &lt;BU15979&gt; &lt;BU16029&gt; &lt;BU16109&gt; &lt;BU16111&gt; &lt;BU16117&gt; &lt;BU16123&gt; &lt;BU16127&gt; &lt;BU16131&gt; &lt;BU16133&gt; &lt;BU16259&gt; &lt;BU16265&gt; &lt;BU16271&gt; &lt;BU16273&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU2029</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">34 FFs/Latches</arg> : <arg fmt="%s" index="4">&lt;BU15780&gt; &lt;BU15786&gt; &lt;BU15788&gt; &lt;BU15792&gt; &lt;BU15794&gt; &lt;BU15798&gt; &lt;BU15802&gt; &lt;BU15808&gt; &lt;BU15810&gt; &lt;BU15957&gt; &lt;BU15959&gt; &lt;BU15961&gt; &lt;BU15963&gt; &lt;BU15967&gt; &lt;BU15969&gt; &lt;BU15973&gt; &lt;BU15975&gt; &lt;BU16107&gt; &lt;BU16113&gt; &lt;BU16115&gt; &lt;BU16119&gt; &lt;BU16121&gt; &lt;BU16125&gt; &lt;BU16129&gt; &lt;BU16135&gt; &lt;BU16137&gt; &lt;BU16251&gt; &lt;BU16253&gt; &lt;BU16255&gt; &lt;BU16257&gt; &lt;BU16261&gt; &lt;BU16263&gt; &lt;BU16267&gt; &lt;BU16269&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU9258</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU9271&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU8652</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU8665&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU1986</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU1999&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU10470</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU10483&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16056</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16206&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16054</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16204&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16044</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16194&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16052</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16202&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16042</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16192&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16050</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16200&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16040</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16190&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16048</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16198&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16038</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16188&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16046</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16196&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16036</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16186&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16034</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16184&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15723</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15900&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15721</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15898&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15694</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15871&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15729</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15906&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15719</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15896&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15727</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15904&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15717</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15894&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15725</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15902&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15715</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15892&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15703</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15880&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15713</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15890&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15711</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15888&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15701</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15878&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15709</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15886&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15699</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15876&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15707</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15884&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15705</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15882&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU9864</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU9877&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU3198</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU3211&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU11682</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU11695&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU2592</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU2605&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU11076</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU11089&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU4410</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU4423&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU3804</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU3817&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU12288</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU12301&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU5016</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU5029&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU13500</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU13513&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU12894</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU12907&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU6228</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU6241&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU5622</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU5635&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU14106</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU14119&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU7440</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU7453&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU6834</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU6847&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU8046</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU8059&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU36</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">45 FFs/Latches</arg> : <arg fmt="%s" index="4">&lt;BU38&gt; &lt;BU40&gt; &lt;BU42&gt; &lt;BU44&gt; &lt;BU46&gt; &lt;BU48&gt; &lt;BU50&gt; &lt;BU52&gt; &lt;BU54&gt; &lt;BU56&gt; &lt;BU99&gt; &lt;BU101&gt; &lt;BU103&gt; &lt;BU105&gt; &lt;BU107&gt; &lt;BU109&gt; &lt;BU111&gt; &lt;BU113&gt; &lt;BU115&gt; &lt;BU117&gt; &lt;BU119&gt; &lt;BU15689&gt; &lt;BU15782&gt; &lt;BU15784&gt; &lt;BU15790&gt; &lt;BU15796&gt; &lt;BU15800&gt; &lt;BU15804&gt; &lt;BU15806&gt; &lt;BU15965&gt; &lt;BU15971&gt; &lt;BU15977&gt; &lt;BU15979&gt; &lt;BU16029&gt; &lt;BU16109&gt; &lt;BU16111&gt; &lt;BU16117&gt; &lt;BU16123&gt; &lt;BU16127&gt; &lt;BU16131&gt; &lt;BU16133&gt; &lt;BU16259&gt; &lt;BU16265&gt; &lt;BU16271&gt; &lt;BU16273&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU2029</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">34 FFs/Latches</arg> : <arg fmt="%s" index="4">&lt;BU15780&gt; &lt;BU15786&gt; &lt;BU15788&gt; &lt;BU15792&gt; &lt;BU15794&gt; &lt;BU15798&gt; &lt;BU15802&gt; &lt;BU15808&gt; &lt;BU15810&gt; &lt;BU15957&gt; &lt;BU15959&gt; &lt;BU15961&gt; &lt;BU15963&gt; &lt;BU15967&gt; &lt;BU15969&gt; &lt;BU15973&gt; &lt;BU15975&gt; &lt;BU16107&gt; &lt;BU16113&gt; &lt;BU16115&gt; &lt;BU16119&gt; &lt;BU16121&gt; &lt;BU16125&gt; &lt;BU16129&gt; &lt;BU16135&gt; &lt;BU16137&gt; &lt;BU16251&gt; &lt;BU16253&gt; &lt;BU16255&gt; &lt;BU16257&gt; &lt;BU16261&gt; &lt;BU16263&gt; &lt;BU16267&gt; &lt;BU16269&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU9258</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU9271&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU8652</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU8665&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU1986</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU1999&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU10470</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU10483&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16056</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16206&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16054</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16204&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16044</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16194&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16052</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16202&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16042</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16192&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16050</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16200&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16040</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16190&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16048</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16198&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16038</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16188&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16046</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16196&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16036</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16186&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU16034</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU16184&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15723</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15900&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15721</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15898&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15694</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15871&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15729</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15906&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15719</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15896&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15727</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15904&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15717</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15894&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15725</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15902&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15715</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15892&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15703</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15880&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15713</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15890&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15711</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15888&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15701</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15878&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15709</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15886&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15699</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15876&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15707</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15884&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2260" delta="unknown" >The FF/Latch &lt;<arg fmt="%s" index="1">BU15705</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">cart_to_phasor</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg> : <arg fmt="%s" index="4">&lt;BU15882&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2169" delta="unknown" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+</msg>
+
+<msg type="warning" file="Xst" num="616" delta="unknown" >Invalid property &quot;<arg fmt="%s" index="1">BLACK_BOX</arg> <arg fmt="%s" index="2">1</arg>&quot;: Did not attach to <arg fmt="%s" index="3">cart_to_phasor</arg>.
 </msg>
 
 </messages>

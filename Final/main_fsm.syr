@@ -5,14 +5,14 @@ Parameter TMPDIR set to /afs/athena.mit.edu/user/t/r/trebawa/6.111/Final/Final/x
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/t/r/trebawa/6.111/Final/Final/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Reading design: main_fsm.prj
@@ -177,9 +177,9 @@ Analyzing top module <main_fsm>.
 	S_RATE_MUL = 32'sb00000000000000000000000010000000
 	S_RUN_CORDICS = 32'sb00000000000000000000000000000100
 	S_WAIT_FOR_DATA = 32'sb00000000000000000000000000000001
-WARNING:Xst:1464 - "main_fsm.v" line 181: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
-WARNING:Xst:1464 - "main_fsm.v" line 193: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
-WARNING:Xst:1464 - "main_fsm.v" line 205: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
+WARNING:Xst:1464 - "main_fsm.v" line 190: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
+WARNING:Xst:1464 - "main_fsm.v" line 202: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
+WARNING:Xst:1464 - "main_fsm.v" line 214: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
 WARNING:Xst:2211 - "cordic.v" line 70: Instantiating black box module <cordic>.
 Module <main_fsm> is correct for synthesis.
  
@@ -219,7 +219,6 @@ Module <scale_freq_select> is correct for synthesis.
 =========================================================================
 
 Performing bidirectional port resolution...
-INFO:Xst:2679 - Register <ovr> in unit <qmult> has a constant value of 1 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <serial_peak_finder>.
     Related source file is "serial_peak_finder.v".
@@ -436,7 +435,7 @@ Unit <scale_freq_select> synthesized.
 
 Synthesizing Unit <qmult>.
     Related source file is "qmult.v".
-WARNING:Xst:646 - Signal <r_result<63>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <r_result<63:51>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <r_result<19:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 31x31-bit multiplier for signal <r_result$mult0000> created at line 48.
     Found 1-bit xor2 for signal <r_RetVal<31>>.
@@ -482,49 +481,44 @@ Unit <freq_estimator> synthesized.
 Synthesizing Unit <main_fsm>.
     Related source file is "main_fsm.v".
 WARNING:Xst:1306 - Output <result_data> is never assigned.
-WARNING:Xst:647 - Input <fft_data> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:1306 - Output <result_read_valid> is never assigned.
 WARNING:Xst:647 - Input <result_address> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1306 - Output <done> is never assigned.
-WARNING:Xst:1306 - Output <note_done> is never assigned.
 WARNING:Xst:647 - Input <result_read_enable> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:646 - Signal <scale_freq> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:653 - Signal <scale_force_start> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:646 - Signal <scale_force_done> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <ram_a_din> is used but never assigned. This sourceless signal will be automatically connected to value 0.
-WARNING:Xst:646 - Signal <max_phase<32>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <max_freq> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <fund_freq<32>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <c_magnitude<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Register <note_done> equivalent to <done> has been removed
     Found finite state machine <FSM_0> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 6                                              |
     | Transitions        | 12                                             |
     | Inputs             | 6                                              |
-    | Outputs            | 8                                              |
+    | Outputs            | 9                                              |
     | Clock              | clk (rising_edge)                              |
     | Power Up State     | 0000000001                                     |
     | Encoding           | automatic                                      |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
+    Found 1-bit register for signal <done>.
     Found 1-bit register for signal <cordic_start>.
     Found 1-bit register for signal <est_start>.
     Found 9-bit register for signal <max_index>.
-    Found 33-bit register for signal <max_phase>.
-    Found 9-bit comparator not equal for signal <max_phase$cmp_ne0000> created at line 205.
+    Found 32-bit register for signal <max_phase>.
+    Found 9-bit comparator not equal for signal <max_phase$cmp_ne0000> created at line 214.
     Found 1-bit register for signal <pf_start>.
     Found 9-bit register for signal <ram_a_raddr>.
-    Found 9-bit adder for signal <ram_a_raddr$addsub0000> created at line 201.
+    Found 9-bit adder for signal <ram_a_raddr$addsub0000> created at line 210.
     Found 1-bit register for signal <ram_a_write>.
     Found 9-bit register for signal <ram_b_raddr>.
-    Found 9-bit up counter for signal <ram_b_waddr>.
+    Found 9-bit register for signal <ram_b_waddr>.
+    Found 9-bit adder for signal <ram_b_waddr$addsub0000> created at line 206.
     Found 1-bit register for signal <ram_b_write>.
-    Found 9-bit comparator equal for signal <state$cmp_eq0002> created at line 205.
+    Found 9-bit comparator equal for signal <state$cmp_eq0002> created at line 214.
     Summary:
 	inferred   1 Finite State Machine(s).
-	inferred   1 Counter(s).
-	inferred  65 D-type flip-flop(s).
-	inferred   1 Adder/Subtractor(s).
+	inferred  74 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
 	inferred   2 Comparator(s).
 Unit <main_fsm> synthesized.
 
@@ -537,28 +531,26 @@ Macro Statistics
  12x32-bit ROM                                         : 1
 # Multipliers                                          : 2
  31x31-bit multiplier                                  : 2
-# Adders/Subtractors                                   : 18
+# Adders/Subtractors                                   : 19
  31-bit adder                                          : 4
  31-bit subtractor                                     : 8
  32-bit adder                                          : 2
  4-bit adder                                           : 1
  4-bit subtractor                                      : 2
- 9-bit adder                                           : 1
-# Counters                                             : 4
+ 9-bit adder                                           : 2
+# Counters                                             : 3
  3-bit down counter                                    : 1
  3-bit up counter                                      : 1
  4-bit up counter                                      : 1
- 9-bit up counter                                      : 1
-# Registers                                            : 21
- 1-bit register                                        : 7
+# Registers                                            : 23
+ 1-bit register                                        : 8
  12-bit register                                       : 1
  18-bit register                                       : 1
  3-bit register                                        : 1
  31-bit register                                       : 1
- 32-bit register                                       : 4
- 33-bit register                                       : 1
+ 32-bit register                                       : 5
  4-bit register                                        : 2
- 9-bit register                                        : 3
+ 9-bit register                                        : 4
 # Comparators                                          : 176
  3-bit comparator greater                              : 1
  31-bit comparator greater                             : 4
@@ -600,9 +592,7 @@ Reading core <ram32x512.ngc>.
 Loading core <ram36x512> for timing and area information for instance <ram_a>.
 Loading core <cordic> for timing and area information for instance <cart_to_phasor>.
 Loading core <ram32x512> for timing and area information for instance <ram_b>.
-WARNING:Xst:2404 -  FFs/Latches <max_index<8:1>> (without init value) have a constant value of 0 in block <main_fsm>.
 WARNING:Xst:2404 -  FFs/Latches <peak_index<11:9>> (without init value) have a constant value of 0 in block <serial_peak_finder>.
-WARNING:Xst:2404 -  FFs/Latches <ram_b_raddr<8:1>> (without init value) have a constant value of 0 in block <main_fsm>.
 
 Synthesizing (advanced) Unit <qmult>.
 INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_r_result_mult0000 by adding 3 register level(s).
@@ -614,7 +604,8 @@ INFO:Xst - In order to maximize performance and save block RAM resources, the sm
 Unit <scale_freq_select> synthesized (advanced).
 WARNING:Xst:1426 - The value init of the FF/Latch ram_b_write hinder the constant cleaning in the block main_fsm.
    You should achieve better results by setting this init to 1.
-WARNING:Xst:2677 - Node <max_phase_32> of sequential type is unconnected in block <main_fsm>.
+WARNING:Xst:1426 - The value init of the FF/Latch done hinder the constant cleaning in the block main_fsm.
+   You should achieve better results by setting this init to 0.
 WARNING:Xst:1293 - FF/Latch <done> has a constant value of 1 in block <scale_forcer>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <act_note_0> has a constant value of 0 in block <scale_forcer>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <act_note_1> has a constant value of 0 in block <scale_forcer>. This FF/Latch will be trimmed during the optimization process.
@@ -623,14 +614,6 @@ WARNING:Xst:1293 - FF/Latch <act_note_3> has a constant value of 0 in block <sca
 WARNING:Xst:1293 - FF/Latch <act_octave_0> has a constant value of 0 in block <scale_forcer>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <act_octave_1> has a constant value of 0 in block <scale_forcer>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <act_octave_2> has a constant value of 0 in block <scale_forcer>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <peak_index_1> of sequential type is unconnected in block <peak_finder>.
-WARNING:Xst:2677 - Node <peak_index_2> of sequential type is unconnected in block <peak_finder>.
-WARNING:Xst:2677 - Node <peak_index_3> of sequential type is unconnected in block <peak_finder>.
-WARNING:Xst:2677 - Node <peak_index_4> of sequential type is unconnected in block <peak_finder>.
-WARNING:Xst:2677 - Node <peak_index_5> of sequential type is unconnected in block <peak_finder>.
-WARNING:Xst:2677 - Node <peak_index_6> of sequential type is unconnected in block <peak_finder>.
-WARNING:Xst:2677 - Node <peak_index_7> of sequential type is unconnected in block <peak_finder>.
-WARNING:Xst:2677 - Node <peak_index_8> of sequential type is unconnected in block <peak_finder>.
 WARNING:Xst:1293 - FF/Latch <current_note_b_0> has a constant value of 0 in block <scale_forcer>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <current_note_b_1> has a constant value of 0 in block <scale_forcer>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <current_note_b_2> has a constant value of 0 in block <scale_forcer>. This FF/Latch will be trimmed during the optimization process.
@@ -646,20 +629,19 @@ Macro Statistics
  12x32-bit ROM                                         : 1
 # Multipliers                                          : 2
  31x31-bit multiplier                                  : 2
-# Adders/Subtractors                                   : 18
+# Adders/Subtractors                                   : 19
  31-bit adder                                          : 4
  31-bit subtractor                                     : 8
  32-bit adder                                          : 2
  4-bit adder                                           : 1
  4-bit subtractor                                      : 2
- 9-bit adder                                           : 1
-# Counters                                             : 4
+ 9-bit adder                                           : 2
+# Counters                                             : 3
  3-bit down counter                                    : 1
  3-bit up counter                                      : 1
  4-bit up counter                                      : 1
- 9-bit up counter                                      : 1
-# Registers                                            : 250
- Flip-Flops                                            : 250
+# Registers                                            : 276
+ Flip-Flops                                            : 276
 # Comparators                                          : 176
  3-bit comparator greater                              : 1
  31-bit comparator greater                             : 4
@@ -681,25 +663,541 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+WARNING:Xst:1293 - FF/Latch <done> has a constant value of 1 in block <scale_freq_select>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <act_note_0> has a constant value of 0 in block <scale_freq_select>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <act_note_1> has a constant value of 0 in block <scale_freq_select>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <act_note_2> has a constant value of 0 in block <scale_freq_select>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <act_note_3> has a constant value of 0 in block <scale_freq_select>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <act_octave_0> has a constant value of 0 in block <scale_freq_select>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <act_octave_1> has a constant value of 0 in block <scale_freq_select>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <act_octave_2> has a constant value of 0 in block <scale_freq_select>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <current_note_b_0> of sequential type is unconnected in block <scale_freq_select>.
+WARNING:Xst:2677 - Node <current_note_b_1> of sequential type is unconnected in block <scale_freq_select>.
+WARNING:Xst:2677 - Node <current_note_b_2> of sequential type is unconnected in block <scale_freq_select>.
+WARNING:Xst:2677 - Node <current_note_b_3> of sequential type is unconnected in block <scale_freq_select>.
 
-ERROR:Xst:528 - Multi-source in Unit <qmult> on signal <ovr>; this signal is connected to multiple drivers.
-Drivers are: 
-   Signal <estimator/i_to_f/ovr> in Unit <qmult> is assigned to GND
+Optimizing unit <main_fsm> ...
 
-ERROR:Xst:528 - Multi-source in Unit <qmult> on signal <ovr>; this signal is connected to multiple drivers.
-Drivers are: 
-   Signal <estimator/mul/ovr> in Unit <qmult> is assigned to GND
+Optimizing unit <serial_peak_finder> ...
+
+Optimizing unit <note_lut> ...
+
+Optimizing unit <qadd> ...
+
+Optimizing unit <freq_estimator> ...
+WARNING:Xst:1293 - FF/Latch <estimator/two_n_31> has a constant value of 0 in block <main_fsm>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block main_fsm, actual ratio is 10.
+INFO:Xst:2260 - The FF/Latch <BU9864> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU9877> 
+INFO:Xst:2260 - The FF/Latch <BU3198> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU3211> 
+INFO:Xst:2260 - The FF/Latch <BU11682> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU11695> 
+INFO:Xst:2260 - The FF/Latch <BU2592> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU2605> 
+INFO:Xst:2260 - The FF/Latch <BU11076> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU11089> 
+INFO:Xst:2260 - The FF/Latch <BU4410> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU4423> 
+INFO:Xst:2260 - The FF/Latch <BU3804> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU3817> 
+INFO:Xst:2260 - The FF/Latch <BU12288> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU12301> 
+INFO:Xst:2260 - The FF/Latch <BU5016> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU5029> 
+INFO:Xst:2260 - The FF/Latch <BU13500> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU13513> 
+INFO:Xst:2260 - The FF/Latch <BU12894> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU12907> 
+INFO:Xst:2260 - The FF/Latch <BU6228> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU6241> 
+INFO:Xst:2260 - The FF/Latch <BU5622> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU5635> 
+INFO:Xst:2260 - The FF/Latch <BU14106> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU14119> 
+INFO:Xst:2260 - The FF/Latch <BU7440> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU7453> 
+INFO:Xst:2260 - The FF/Latch <BU6834> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU6847> 
+INFO:Xst:2260 - The FF/Latch <BU8046> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU8059> 
+INFO:Xst:2260 - The FF/Latch <BU36> in Unit <cart_to_phasor> is equivalent to the following 45 FFs/Latches : <BU38> <BU40> <BU42> <BU44> <BU46> <BU48> <BU50> <BU52> <BU54> <BU56> <BU99> <BU101> <BU103> <BU105> <BU107> <BU109> <BU111> <BU113> <BU115> <BU117> <BU119> <BU15689> <BU15782> <BU15784> <BU15790> <BU15796> <BU15800> <BU15804> <BU15806> <BU15965> <BU15971> <BU15977> <BU15979> <BU16029> <BU16109> <BU16111> <BU16117> <BU16123> <BU16127> <BU16131> <BU16133> <BU16259> <BU16265> <BU16271> <BU16273> 
+INFO:Xst:2260 - The FF/Latch <BU2029> in Unit <cart_to_phasor> is equivalent to the following 34 FFs/Latches : <BU15780> <BU15786> <BU15788> <BU15792> <BU15794> <BU15798> <BU15802> <BU15808> <BU15810> <BU15957> <BU15959> <BU15961> <BU15963> <BU15967> <BU15969> <BU15973> <BU15975> <BU16107> <BU16113> <BU16115> <BU16119> <BU16121> <BU16125> <BU16129> <BU16135> <BU16137> <BU16251> <BU16253> <BU16255> <BU16257> <BU16261> <BU16263> <BU16267> <BU16269> 
+INFO:Xst:2260 - The FF/Latch <BU9258> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU9271> 
+INFO:Xst:2260 - The FF/Latch <BU8652> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU8665> 
+INFO:Xst:2260 - The FF/Latch <BU1986> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU1999> 
+INFO:Xst:2260 - The FF/Latch <BU10470> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU10483> 
+INFO:Xst:2260 - The FF/Latch <BU16056> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16206> 
+INFO:Xst:2260 - The FF/Latch <BU16054> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16204> 
+INFO:Xst:2260 - The FF/Latch <BU16044> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16194> 
+INFO:Xst:2260 - The FF/Latch <BU16052> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16202> 
+INFO:Xst:2260 - The FF/Latch <BU16042> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16192> 
+INFO:Xst:2260 - The FF/Latch <BU16050> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16200> 
+INFO:Xst:2260 - The FF/Latch <BU16040> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16190> 
+INFO:Xst:2260 - The FF/Latch <BU16048> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16198> 
+INFO:Xst:2260 - The FF/Latch <BU16038> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16188> 
+INFO:Xst:2260 - The FF/Latch <BU16046> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16196> 
+INFO:Xst:2260 - The FF/Latch <BU16036> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16186> 
+INFO:Xst:2260 - The FF/Latch <BU16034> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16184> 
+INFO:Xst:2260 - The FF/Latch <BU15723> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15900> 
+INFO:Xst:2260 - The FF/Latch <BU15721> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15898> 
+INFO:Xst:2260 - The FF/Latch <BU15694> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15871> 
+INFO:Xst:2260 - The FF/Latch <BU15729> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15906> 
+INFO:Xst:2260 - The FF/Latch <BU15719> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15896> 
+INFO:Xst:2260 - The FF/Latch <BU15727> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15904> 
+INFO:Xst:2260 - The FF/Latch <BU15717> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15894> 
+INFO:Xst:2260 - The FF/Latch <BU15725> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15902> 
+INFO:Xst:2260 - The FF/Latch <BU15715> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15892> 
+INFO:Xst:2260 - The FF/Latch <BU15703> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15880> 
+INFO:Xst:2260 - The FF/Latch <BU15713> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15890> 
+INFO:Xst:2260 - The FF/Latch <BU15711> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15888> 
+INFO:Xst:2260 - The FF/Latch <BU15701> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15878> 
+INFO:Xst:2260 - The FF/Latch <BU15709> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15886> 
+INFO:Xst:2260 - The FF/Latch <BU15699> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15876> 
+INFO:Xst:2260 - The FF/Latch <BU15707> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15884> 
+INFO:Xst:2260 - The FF/Latch <BU15705> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15882> 
+INFO:Xst:2260 - The FF/Latch <BU9864> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU9877> 
+INFO:Xst:2260 - The FF/Latch <BU3198> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU3211> 
+INFO:Xst:2260 - The FF/Latch <BU11682> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU11695> 
+INFO:Xst:2260 - The FF/Latch <BU2592> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU2605> 
+INFO:Xst:2260 - The FF/Latch <BU11076> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU11089> 
+INFO:Xst:2260 - The FF/Latch <BU4410> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU4423> 
+INFO:Xst:2260 - The FF/Latch <BU3804> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU3817> 
+INFO:Xst:2260 - The FF/Latch <BU12288> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU12301> 
+INFO:Xst:2260 - The FF/Latch <BU5016> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU5029> 
+INFO:Xst:2260 - The FF/Latch <BU13500> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU13513> 
+INFO:Xst:2260 - The FF/Latch <BU12894> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU12907> 
+INFO:Xst:2260 - The FF/Latch <BU6228> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU6241> 
+INFO:Xst:2260 - The FF/Latch <BU5622> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU5635> 
+INFO:Xst:2260 - The FF/Latch <BU14106> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU14119> 
+INFO:Xst:2260 - The FF/Latch <BU7440> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU7453> 
+INFO:Xst:2260 - The FF/Latch <BU6834> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU6847> 
+INFO:Xst:2260 - The FF/Latch <BU8046> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU8059> 
+INFO:Xst:2260 - The FF/Latch <BU36> in Unit <cart_to_phasor> is equivalent to the following 45 FFs/Latches : <BU38> <BU40> <BU42> <BU44> <BU46> <BU48> <BU50> <BU52> <BU54> <BU56> <BU99> <BU101> <BU103> <BU105> <BU107> <BU109> <BU111> <BU113> <BU115> <BU117> <BU119> <BU15689> <BU15782> <BU15784> <BU15790> <BU15796> <BU15800> <BU15804> <BU15806> <BU15965> <BU15971> <BU15977> <BU15979> <BU16029> <BU16109> <BU16111> <BU16117> <BU16123> <BU16127> <BU16131> <BU16133> <BU16259> <BU16265> <BU16271> <BU16273> 
+INFO:Xst:2260 - The FF/Latch <BU2029> in Unit <cart_to_phasor> is equivalent to the following 34 FFs/Latches : <BU15780> <BU15786> <BU15788> <BU15792> <BU15794> <BU15798> <BU15802> <BU15808> <BU15810> <BU15957> <BU15959> <BU15961> <BU15963> <BU15967> <BU15969> <BU15973> <BU15975> <BU16107> <BU16113> <BU16115> <BU16119> <BU16121> <BU16125> <BU16129> <BU16135> <BU16137> <BU16251> <BU16253> <BU16255> <BU16257> <BU16261> <BU16263> <BU16267> <BU16269> 
+INFO:Xst:2260 - The FF/Latch <BU9258> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU9271> 
+INFO:Xst:2260 - The FF/Latch <BU8652> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU8665> 
+INFO:Xst:2260 - The FF/Latch <BU1986> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU1999> 
+INFO:Xst:2260 - The FF/Latch <BU10470> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU10483> 
+INFO:Xst:2260 - The FF/Latch <BU16056> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16206> 
+INFO:Xst:2260 - The FF/Latch <BU16054> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16204> 
+INFO:Xst:2260 - The FF/Latch <BU16044> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16194> 
+INFO:Xst:2260 - The FF/Latch <BU16052> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16202> 
+INFO:Xst:2260 - The FF/Latch <BU16042> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16192> 
+INFO:Xst:2260 - The FF/Latch <BU16050> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16200> 
+INFO:Xst:2260 - The FF/Latch <BU16040> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16190> 
+INFO:Xst:2260 - The FF/Latch <BU16048> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16198> 
+INFO:Xst:2260 - The FF/Latch <BU16038> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16188> 
+INFO:Xst:2260 - The FF/Latch <BU16046> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16196> 
+INFO:Xst:2260 - The FF/Latch <BU16036> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16186> 
+INFO:Xst:2260 - The FF/Latch <BU16034> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU16184> 
+INFO:Xst:2260 - The FF/Latch <BU15723> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15900> 
+INFO:Xst:2260 - The FF/Latch <BU15721> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15898> 
+INFO:Xst:2260 - The FF/Latch <BU15694> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15871> 
+INFO:Xst:2260 - The FF/Latch <BU15729> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15906> 
+INFO:Xst:2260 - The FF/Latch <BU15719> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15896> 
+INFO:Xst:2260 - The FF/Latch <BU15727> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15904> 
+INFO:Xst:2260 - The FF/Latch <BU15717> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15894> 
+INFO:Xst:2260 - The FF/Latch <BU15725> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15902> 
+INFO:Xst:2260 - The FF/Latch <BU15715> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15892> 
+INFO:Xst:2260 - The FF/Latch <BU15703> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15880> 
+INFO:Xst:2260 - The FF/Latch <BU15713> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15890> 
+INFO:Xst:2260 - The FF/Latch <BU15711> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15888> 
+INFO:Xst:2260 - The FF/Latch <BU15701> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15878> 
+INFO:Xst:2260 - The FF/Latch <BU15709> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15886> 
+INFO:Xst:2260 - The FF/Latch <BU15699> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15876> 
+INFO:Xst:2260 - The FF/Latch <BU15707> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15884> 
+INFO:Xst:2260 - The FF/Latch <BU15705> in Unit <cart_to_phasor> is equivalent to the following FF/Latch : <BU15882> 
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 263
+ Flip-Flops                                            : 263
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                             *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : main_fsm.ngr
+Top Level Output File Name         : main_fsm
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : NO
+
+Design Statistics
+# IOs                              : 116
+
+Cell Usage :
+# BELS                             : 14481
+#      BUF                         : 49
+#      GND                         : 4
+#      INV                         : 730
+#      LUT1                        : 824
+#      LUT2                        : 935
+#      LUT3                        : 425
+#      LUT3_D                      : 32
+#      LUT3_L                      : 33
+#      LUT4                        : 3267
+#      LUT4_D                      : 28
+#      LUT4_L                      : 4
+#      MUXCY                       : 5445
+#      MUXF5                       : 32
+#      VCC                         : 4
+#      XORCY                       : 2669
+# FlipFlops/Latches                : 3125
+#      FD                          : 18
+#      FDE                         : 3091
+#      FDRE                        : 9
+#      FDS                         : 7
+# RAMS                             : 2
+#      RAMB16_S36_S36              : 2
+# Shift Registers                  : 58
+#      SRL16E                      : 58
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 56
+#      IBUF                        : 47
+#      OBUF                        : 9
+# MULTs                            : 10
+#      MULT18X18                   : 6
+#      MULT18X18S                  : 4
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 2v6000bf957-4 
+
+ Number of Slices:                     3495  out of  33792    10%  
+ Number of Slice Flip Flops:           3125  out of  67584     4%  
+ Number of 4 input LUTs:               6336  out of  67584     9%  
+    Number used as logic:              6278
+    Number used as Shift registers:      58
+ Number of IOs:                         116
+ Number of bonded IOBs:                  57  out of    684     8%  
+ Number of BRAMs:                         2  out of    144     1%  
+ Number of MULT18X18s:                   10  out of    144     6%  
+ Number of GCLKs:                         1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
 
 
-Total REAL time to Xst completion: 14.00 secs
-Total CPU time to Xst completion: 12.40 secs
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+-------------------------------------------------------------------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)                                                                           | Load  |
+-----------------------------------+-------------------------------------------------------------------------------------------------+-------+
+clk                                | BUFGP                                                                                           | 3189  |
+ram_a/BU2/dbiterr                  | NONE(ram_a/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v2_noinit.ram/dpram.dp36x36.ram)| 1     |
+ram_b/BU2/dbiterr                  | NONE(ram_b/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v2_noinit.ram/dpram.dp36x36.ram)| 1     |
+-----------------------------------+-------------------------------------------------------------------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+---------------------------------------+-----------------------------+-------+
+Control Signal                         | Buffer(FF name)             | Load  |
+---------------------------------------+-----------------------------+-------+
+cart_to_phasor/N0(cart_to_phasor/GND:G)| NONE(cart_to_phasor/BU15775)| 4     |
+cart_to_phasor/N1(cart_to_phasor/VCC:P)| NONE(cart_to_phasor/BU15775)| 4     |
+---------------------------------------+-----------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 40.292ns (Maximum Frequency: 24.819MHz)
+   Minimum input arrival time before clock: 8.567ns
+   Maximum output required time after clock: 64.678ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 40.292ns (frequency: 24.819MHz)
+  Total number of paths / destination ports: 117692752669153 / 3592
+-------------------------------------------------------------------------
+Delay:               40.292ns (Levels of Logic = 116)
+  Source:            estimator/old_max_phase_0 (FF)
+  Destination:       estimator/frequency_31 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: estimator/old_max_phase_0 to estimator/frequency_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.568   0.803  estimator/old_max_phase_0 (estimator/old_max_phase_0)
+     LUT1:I0->O            1   0.439   0.000  estimator/Madd__sub0001_cy<0>_rt (estimator/Madd__sub0001_cy<0>_rt)
+     MUXCY:S->O            1   0.298   0.000  estimator/Madd__sub0001_cy<0> (estimator/Madd__sub0001_cy<0>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<1> (estimator/Madd__sub0001_cy<1>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<2> (estimator/Madd__sub0001_cy<2>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<3> (estimator/Madd__sub0001_cy<3>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<4> (estimator/Madd__sub0001_cy<4>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<5> (estimator/Madd__sub0001_cy<5>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<6> (estimator/Madd__sub0001_cy<6>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<7> (estimator/Madd__sub0001_cy<7>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<8> (estimator/Madd__sub0001_cy<8>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<9> (estimator/Madd__sub0001_cy<9>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<10> (estimator/Madd__sub0001_cy<10>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<11> (estimator/Madd__sub0001_cy<11>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<12> (estimator/Madd__sub0001_cy<12>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<13> (estimator/Madd__sub0001_cy<13>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<14> (estimator/Madd__sub0001_cy<14>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<15> (estimator/Madd__sub0001_cy<15>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<16> (estimator/Madd__sub0001_cy<16>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<17> (estimator/Madd__sub0001_cy<17>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<18> (estimator/Madd__sub0001_cy<18>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<19> (estimator/Madd__sub0001_cy<19>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<20> (estimator/Madd__sub0001_cy<20>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<21> (estimator/Madd__sub0001_cy<21>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<22> (estimator/Madd__sub0001_cy<22>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<23> (estimator/Madd__sub0001_cy<23>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<24> (estimator/Madd__sub0001_cy<24>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<25> (estimator/Madd__sub0001_cy<25>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<26> (estimator/Madd__sub0001_cy<26>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<27> (estimator/Madd__sub0001_cy<27>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<28> (estimator/Madd__sub0001_cy<28>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Madd__sub0001_cy<29> (estimator/Madd__sub0001_cy<29>)
+     XORCY:CI->O           4   1.274   0.956  estimator/Madd__sub0001_xor<30> (estimator/_sub0001<30>)
+     LUT2:I1->O            1   0.439   0.000  estimator/dp_calc/Mcompar_res_30_cmp_gt0000_lut<30> (estimator/dp_calc/Mcompar_res_30_cmp_gt0000_lut<30>)
+     MUXCY:S->O           58   1.187   1.189  estimator/dp_calc/Mcompar_res_30_cmp_gt0000_cy<30> (estimator/dp_calc/Mcompar_res_30_cmp_gt0000_cy<30>)
+     LUT3:I2->O            4   0.439   0.955  estimator/dp_calc/res_0_mux0000 (estimator/dp<0>)
+     LUT2:I1->O            1   0.439   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_lut<0> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_lut<0>)
+     MUXCY:S->O            1   0.298   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<0> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<0>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<1> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<1>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<2> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<2>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<3> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<3>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<4> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<4>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<5> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<5>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<6> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<6>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<7> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<7>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<8> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<8>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<9> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<9>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<10> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<10>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<11> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<11>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<12> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<12>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<13> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<13>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<14> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<14>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<15> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<15>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<16> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<16>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<17> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<17>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<18> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<18>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<19> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<19>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<20> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<20>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<21> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<21>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<22> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<22>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<23> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<23>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<24> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<24>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<25> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<25>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<26> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<26>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<27> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<27>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<28> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<28>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<29> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<29>)
+     MUXCY:CI->O          33   0.942   1.375  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<30> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<30>)
+     LUT3_L:I0->LO         1   0.439   0.134  estimator/add_numerator/res_19_mux0000_SW2 (N390)
+     LUT3:I2->O            2   0.439   0.701  estimator/add_numerator/res_19_mux0000 (estimator/numerator<19>)
+     MULT18X18:A2->P26     1   8.493   0.726  estimator/mul/Mmult_r_result_mult0000_submult_2 (estimator/mul/Mmult_r_result_mult0000_submult_2_26)
+     LUT2:I1->O            1   0.439   0.000  estimator/mul/Mmult_r_result_mult0000_Madd_lut<28> (estimator/mul/Mmult_r_result_mult0000_Madd_lut<28>)
+     MUXCY:S->O            1   0.298   0.000  estimator/mul/Mmult_r_result_mult0000_Madd_cy<28> (estimator/mul/Mmult_r_result_mult0000_Madd_cy<28>)
+     XORCY:CI->O           1   1.274   0.726  estimator/mul/Mmult_r_result_mult0000_Madd_xor<29> (estimator/mul/Mmult_r_result_mult0000_Madd_44)
+     LUT2:I1->O            1   0.439   0.000  estimator/mul/Mmult_r_result_mult0000_Madd1_lut<44> (estimator/mul/Mmult_r_result_mult0000_Madd1_lut<44>)
+     MUXCY:S->O            1   0.298   0.000  estimator/mul/Mmult_r_result_mult0000_Madd1_cy<44> (estimator/mul/Mmult_r_result_mult0000_Madd1_cy<44>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/mul/Mmult_r_result_mult0000_Madd1_cy<45> (estimator/mul/Mmult_r_result_mult0000_Madd1_cy<45>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/mul/Mmult_r_result_mult0000_Madd1_cy<46> (estimator/mul/Mmult_r_result_mult0000_Madd1_cy<46>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/mul/Mmult_r_result_mult0000_Madd1_cy<47> (estimator/mul/Mmult_r_result_mult0000_Madd1_cy<47>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/mul/Mmult_r_result_mult0000_Madd1_cy<48> (estimator/mul/Mmult_r_result_mult0000_Madd1_cy<48>)
+     MUXCY:CI->O           0   0.053   0.000  estimator/mul/Mmult_r_result_mult0000_Madd1_cy<49> (estimator/mul/Mmult_r_result_mult0000_Madd1_cy<49>)
+     XORCY:CI->O           5   1.274   0.979  estimator/mul/Mmult_r_result_mult0000_Madd1_xor<50> (estimator/freq_result<30>)
+     LUT2:I1->O            1   0.439   0.000  estimator/freq_diff/Mcompar_res_30_cmp_gt0000_lut<30> (estimator/freq_diff/Mcompar_res_30_cmp_gt0000_lut<30>)
+     MUXCY:S->O           53   1.187   1.176  estimator/freq_diff/Mcompar_res_30_cmp_gt0000_cy<30> (estimator/freq_diff/Mcompar_res_30_cmp_gt0000_cy<30>)
+     LUT4:I2->O            1   0.439   0.000  estimator/Mcompar_frequency_cmp_le0000_lut<0> (estimator/Mcompar_frequency_cmp_le0000_lut<0>)
+     MUXCY:S->O            1   0.298   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<0> (estimator/Mcompar_frequency_cmp_le0000_cy<0>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<1> (estimator/Mcompar_frequency_cmp_le0000_cy<1>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<2> (estimator/Mcompar_frequency_cmp_le0000_cy<2>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<3> (estimator/Mcompar_frequency_cmp_le0000_cy<3>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<4> (estimator/Mcompar_frequency_cmp_le0000_cy<4>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<5> (estimator/Mcompar_frequency_cmp_le0000_cy<5>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<6> (estimator/Mcompar_frequency_cmp_le0000_cy<6>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<7> (estimator/Mcompar_frequency_cmp_le0000_cy<7>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<8> (estimator/Mcompar_frequency_cmp_le0000_cy<8>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<9> (estimator/Mcompar_frequency_cmp_le0000_cy<9>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<10> (estimator/Mcompar_frequency_cmp_le0000_cy<10>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<11> (estimator/Mcompar_frequency_cmp_le0000_cy<11>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<12> (estimator/Mcompar_frequency_cmp_le0000_cy<12>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<13> (estimator/Mcompar_frequency_cmp_le0000_cy<13>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<14> (estimator/Mcompar_frequency_cmp_le0000_cy<14>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<15> (estimator/Mcompar_frequency_cmp_le0000_cy<15>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<16> (estimator/Mcompar_frequency_cmp_le0000_cy<16>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<17> (estimator/Mcompar_frequency_cmp_le0000_cy<17>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<18> (estimator/Mcompar_frequency_cmp_le0000_cy<18>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<19> (estimator/Mcompar_frequency_cmp_le0000_cy<19>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<20> (estimator/Mcompar_frequency_cmp_le0000_cy<20>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<21> (estimator/Mcompar_frequency_cmp_le0000_cy<21>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<22> (estimator/Mcompar_frequency_cmp_le0000_cy<22>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<23> (estimator/Mcompar_frequency_cmp_le0000_cy<23>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<24> (estimator/Mcompar_frequency_cmp_le0000_cy<24>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<25> (estimator/Mcompar_frequency_cmp_le0000_cy<25>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<26> (estimator/Mcompar_frequency_cmp_le0000_cy<26>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<27> (estimator/Mcompar_frequency_cmp_le0000_cy<27>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<28> (estimator/Mcompar_frequency_cmp_le0000_cy<28>)
+     MUXCY:CI->O           1   0.053   0.000  estimator/Mcompar_frequency_cmp_le0000_cy<29> (estimator/Mcompar_frequency_cmp_le0000_cy<29>)
+     MUXCY:CI->O           2   0.942   0.910  estimator/Mcompar_frequency_cmp_le0000_cy<30> (estimator/frequency_cmp_le0000)
+     LUT2:I1->O           32   0.439   1.088  estimator/frequency_not00011 (estimator/frequency_not0001)
+     FDE:CE                    0.240          estimator/frequency_0
+    ----------------------------------------
+    Total                     40.292ns (28.576ns logic, 11.716ns route)
+                                       (70.9% logic, 29.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 238 / 65
+-------------------------------------------------------------------------
+Offset:              8.567ns (Levels of Logic = 7)
+  Source:            fft_address<7> (PAD)
+  Destination:       ram_a_raddr_3 (FF)
+  Destination Clock: clk rising
+
+  Data Path: fft_address<7> to ram_a_raddr_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   0.825   0.986  fft_address_7_IBUF (fft_address_7_IBUF)
+     LUT4:I0->O            1   0.439   0.000  state_cmp_eq0000111 (state_cmp_eq0000111)
+     MUXF5:I1->O           2   0.436   0.910  state_cmp_eq000011_f5 (state_cmp_eq000011)
+     LUT2:I1->O            3   0.439   0.932  state_cmp_eq000013 (state_cmp_eq0000)
+     LUT4:I1->O            6   0.439   0.833  cordic_start_mux0000212 (N23)
+     LUT4:I3->O            6   0.439   1.079  ram_a_raddr_mux0000<0>11 (N01)
+     LUT4:I0->O            1   0.439   0.000  ram_a_raddr_mux0000<5>48 (ram_a_raddr_mux0000<5>)
+     FD:D                      0.370          ram_a_raddr_3
+    ----------------------------------------
+    Total                      8.567ns (3.826ns logic, 4.740ns route)
+                                       (44.7% logic, 55.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 34204 / 9
+-------------------------------------------------------------------------
+Offset:              64.678ns (Levels of Logic = 74)
+  Source:            estimator/frequency_3 (FF)
+  Destination:       note_name<0> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: estimator/frequency_3 to note_name<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q            145   0.568   1.665  estimator/frequency_3 (estimator/frequency_3)
+     LUT2:I0->O            1   0.439   0.000  note_table/Mcompar_greater_cmp_lt0002_lut<1>159 (note_table/Mcompar_greater_cmp_lt0002_lut<1>159)
+     MUXCY:S->O            1   0.298   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<1>_159 (note_table/Mcompar_greater_cmp_lt0002_cy<1>160)
+     MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<2>_159 (note_table/Mcompar_greater_cmp_lt0002_cy<2>160)
+     MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<3>_159 (note_table/Mcompar_greater_cmp_lt0002_cy<3>160)
+     MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<4>_159 (note_table/Mcompar_greater_cmp_lt0002_cy<4>160)
+     MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<5>_156 (note_table/Mcompar_greater_cmp_lt0002_cy<5>157)
+     MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<6>_156 (note_table/Mcompar_greater_cmp_lt0002_cy<6>157)
+     MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<7>_156 (note_table/Mcompar_greater_cmp_lt0002_cy<7>157)
+     MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<8>_156 (note_table/Mcompar_greater_cmp_lt0002_cy<8>157)
+     MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<9>_156 (note_table/Mcompar_greater_cmp_lt0002_cy<9>157)
+     MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<10>_154 (note_table/Mcompar_greater_cmp_lt0002_cy<10>155)
+     MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<11>_151 (note_table/Mcompar_greater_cmp_lt0002_cy<11>152)
+     MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<12>_151 (note_table/Mcompar_greater_cmp_lt0002_cy<12>152)
+     MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<13>_146 (note_table/Mcompar_greater_cmp_lt0002_cy<13>147)
+     MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<14>_126 (note_table/Mcompar_greater_cmp_lt0002_cy<14>127)
+     MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<15>_107 (note_table/Mcompar_greater_cmp_lt0002_cy<15>108)
+     MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<16>_88 (note_table/Mcompar_greater_cmp_lt0002_cy<16>89)
+     MUXCY:CI->O           2   0.942   0.986  note_table/Mcompar_greater_cmp_lt0002_cy<17>_65 (note_table/Mcompar_greater_cmp_lt0002_cy<17>66)
+     LUT4:I0->O            1   0.439   0.557  note_table/note_name<0>75_SW0_SW0 (N542)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>118_SW0_SW0_SW0 (N619)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>118_SW0_SW0 (N544)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>164_SW0_SW0_SW0 (N621)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>164_SW0_SW0 (N546)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>202_SW0_SW0_SW0 (N623)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>202_SW0_SW0 (N548)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>243_SW0_SW0_SW0 (N665)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>243_SW0_SW0 (N586)
+     LUT4:I3->O            1   0.439   0.557  note_table/note_name<0>243_SW1 (N667)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>321_SW0_SW0_SW0_SW0 (N669)
+     LUT4:I2->O            1   0.439   0.551  note_table/note_name<0>321_SW0_SW0_SW0 (N625)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>321_SW0_SW0 (N550)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>358_SW0_SW0_SW0 (N627)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>358_SW0_SW0 (N552)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>399_SW0_SW0_SW0 (N661)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>399_SW0_SW0 (N554)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>436_SW0_SW0_SW0 (N629)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>436_SW0_SW0 (N556)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>477_SW0_SW0_SW0 (N631)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>477_SW0_SW0 (N558)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>514_SW0_SW0_SW0 (N633)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>514_SW0_SW0 (N560)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>555_SW0_SW0_SW0 (N663)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>555_SW0_SW0 (N562)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>592_SW0_SW0_SW0 (N655)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>592_SW0_SW0 (N584)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>633_SW0_SW0_SW0 (N657)
+     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>633_SW0_SW0 (N588)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>670_SW0_SW0_SW0 (N635)
+     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>670_SW0_SW0 (N564)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>711_SW0_SW0_SW0 (N637)
+     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>711_SW0_SW0 (N566)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>748_SW1_SW0_SW0 (N671)
+     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>748_SW1_SW0 (N639)
+     LUT4:I3->O            1   0.439   0.558  note_table/note_name<0>748_SW1 (N568)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>789_SW1_SW0 (N641)
+     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>789_SW1 (N570)
+     LUT4:I3->O            1   0.439   0.558  note_table/note_name<0>867_SW0_SW0_SW0_SW0 (N673)
+     LUT4:I3->O            1   0.439   0.558  note_table/note_name<0>867_SW0_SW0_SW0 (N643)
+     LUT4:I3->O            1   0.439   0.558  note_table/note_name<0>867_SW0_SW0 (N572)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>904_SW0_SW0_SW0 (N659)
+     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>904_SW0_SW0 (N590)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>945_SW0_SW0_SW0 (N645)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>945_SW0_SW0 (N574)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>982_SW1_SW0_SW0 (N675)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>982_SW1_SW0 (N647)
+     LUT4:I3->O            1   0.439   0.557  note_table/note_name<0>982_SW1 (N576)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>1023_SW1_SW0 (N649)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>1023_SW1 (N578)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>1060_SW1_SW0 (N651)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>1060_SW1 (N580)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>1101_SW1_SW0 (N653)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>1101_SW1 (N582)
+     LUT4:I3->O            1   0.439   0.517  note_table/note_name<0>1101 (note_name_0_OBUF)
+     OBUF:I->O                 4.361          note_name_0_OBUF (note_name<0>)
+    ----------------------------------------
+    Total                     64.678ns (31.548ns logic, 33.130ns route)
+                                       (48.8% logic, 51.2% route)
+
+=========================================================================
+WARNING:Xst:616 - Invalid property "BLACK_BOX 1": Did not attach to cart_to_phasor.
+
+
+Total REAL time to Xst completion: 81.00 secs
+Total CPU time to Xst completion: 79.36 secs
  
 --> 
 
 
-Total memory usage is 562388 kilobytes
+Total memory usage is 686480 kilobytes
 
-Number of errors   :    2 (   0 filtered)
-Number of warnings :   62 (   0 filtered)
-Number of infos    :    4 (   0 filtered)
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   55 (   0 filtered)
+Number of infos    :  108 (   0 filtered)
 
