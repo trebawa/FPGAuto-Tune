@@ -28,8 +28,9 @@
 # vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps scale_freq_select_test glbl 
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: trebawa  Hostname: eecs-digital-52  ProcessID: 16236
-#           Attempting to use alternate WLF file "./wlftu52Ier".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Attempting to use# Window cannot be closed because the modal window "Quit Vsim" is still open.
+# Break key hit 
+.wlf
 #           Using alternate file: ./wlftu52Ier
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 #           Using alternate file: ./wlftu52Ier

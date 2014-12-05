@@ -54,22 +54,20 @@ module main_fsm_test;
 		.fft_address(fft_address), 
 		.fft_read_valid(fft_read_valid), 
 		.fft_data(fft_data), 
-		.result_address(result_address), 
-		.result_read_enable(result_read_enable), 
+		.result_address(result_address),  
 		.result_data(result_data), 
-		.result_read_valid(result_read_valid)
 	);
+	
+	initial clk <= 0;
+	always #1 clk <= !clk;
 
 	initial begin
 		// Initialize Inputs
-		clk = 0;
-		scale = 0;
 		fft_done = 0;
 		fft_address = 0;
 		fft_read_valid = 0;
 		fft_data = 0;
 		result_address = 0;
-		result_read_enable = 0;
 
 		// Wait 100 ns for global reset to finish
 		#100;

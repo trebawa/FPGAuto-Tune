@@ -25,7 +25,6 @@ module main_fsm(
     output reg note_done = 1,	//when the calculation is complete
     output [3:0] note_name,
     output [2:0] note_octave,
-	 input [11:0] scale,
 		
     input fft_done,				//interface with the fft
     input [8:0] fft_address,
@@ -33,9 +32,7 @@ module main_fsm(
     input signed [35:0] fft_data,
 	 
     input [8:0] result_address,	//supply data that can be sent to the IFFT
-    input result_read_enable,
-    output reg signed [35:0] result_data,
-    output reg result_read_valid
+    output reg signed [35:0] result_data
     );
 	 
 	 ///////////////////////////////
