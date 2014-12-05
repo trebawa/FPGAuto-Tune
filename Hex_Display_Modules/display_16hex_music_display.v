@@ -18,7 +18,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-module display_16hex (reset, clock_27mhz, data, 
+module display_16hex_music (reset, clock_27mhz, data, 
 		disp_blank, disp_clock, disp_rs, disp_ce_b,
 		disp_reset_b, disp_data_out);
 

@@ -715,18 +715,14 @@ module recorder(
   input wire [17:0] from_ac97_data, // 18-bit PCM data from mic
   output reg [17:0] to_ac97_data    // 18-bit PCM data to headphone
 );  
-   // test: playback 750hz tone, or loopback using incoming data
-   wire [19:0] tone;
-   tone750hz xxx(.clock(clock),.ready(ready),.pcm_data(tone));
+  wire [17:0] system_in;
 
-   /*always @ (posedge clock) begin
+   always @ (posedge clock) begin
       if (ready) begin
-	 // get here when we've just received new data from the AC97
-	 to_ac97_data <= playback ? tone[19:12] : from_ac97_data;
+        system_in <= from_ac97_data;
       end
-   end*/
+    end
 
-   // assume that you can get 18-bit PCM data from above-- TODO
    // feed Codec output to Ishwarya's FFT Driver
 
    //////////////////////////////////////////////////////////////////////////
@@ -735,7 +731,8 @@ module recorder(
    // OUT: REAL AND IMAGINARY FFT DATA
    //////////////////////////////////////////////////////////////////////////
 
-   wire [9:0] counter_addr;
+    // do we need to wait for a ready signal from the ac97?
+   wire [8:0] counter_addr;
    wire [17:0] data_real_out;
    wire [17:0] data_imag_out;
    wire read_valid;
@@ -744,7 +741,7 @@ module recorder(
    interface_fft_3 fft_driver (
   .clk(clock),
   .reset(reset),
-  .sample_from_codec(from_ac97_data),
+  .sample_from_codec(system_in),
   .data_real_out(data_real_out), // to trevor's main_fsm
   .data_imag_out(data_imag_out),
 
@@ -758,12 +755,74 @@ module recorder(
    // IN: FFT DATA
    // OUT: SHIFTED FFT DATA FOR THE IFFT
    //////////////////////////////////////////////////////////////////////////
+    wire result_done; // --> ifft done trigger
+    wire note_done; // --> this can serve as the ifft done trigger for the half module
+    wire [3:0] note_name;
+    wire [2:0] note_octave;
+
+    wire [8:0] ifft_addr;
+    wire [35:0] ifft_data;
+    wire result_read_valid; // --> ifft done trigger?
+
+    main_fsm main (
+      .done(result_done),
+      .note_done(note_done),
+      .note_name(note_name),
+      .note_octave(note_octave),
+      //.scale(scale),
+      .fft_done(done),
+      .fft_address(counter_addr),
+      .fft_read_valid(read_valid),
+      .fft_data({data_real_out,data_imag_out}),
+
+      .result_address(ifft_addr),
+      //.result_read_enable(result_read_enable),
+      .result_data(ifft_data),
+      .result_read_valid(result_read_valid)
+      )
+
+  ///////////////////////////////////////////////////////////////////////////
+  // IFFT DRIVER MODULE
+  // IN: SHIFTED FFT DATA
+  // OUT: AUDIO TO AC97
+  ///////////////////////////////////////////////////////////////////////////
+
+    wire [17:0] dummy_imaginary_out;
+
+    interface_ifft_1(
+      .clk(clock),
+      .reset(reset),
+      .auto_tuned_data(ifft_data),
+      .result_done(result_done),
+      .result_addr(ifft_addr),
+
+      .data_real_out(to_ac97_data),
+      .data_imag_out(dummy_imaginary_out)
+      )
 
    /////////////////////////////////////////////////////////////////////////////
    // Hex Output display for music notes A - G | # | Octave Num
    /////////////////////////////////////////////////////////////////////////////
 
+    wire [63:0] display_data;
 
+     hex_display_LUT hex_lookup(
+      .note_name(note_name),
+      .note_octave(note_octave),
+      .data(display_data)
+      );
+
+     display_16hex_music display(
+      .reset(reset),
+      .clock_27mhz(clock),
+      .data(display_data),
+      .disp_blank(disp_blank),
+      .disp_clock(disp_clock),
+      .disp_rs(disp_rs),
+      .disp_ce_b(disp_ce_b),
+      .disp_reset_b(disp_reset_b),
+      .disp_data_out(disp_data_out)
+      );
 
 
 endmodule

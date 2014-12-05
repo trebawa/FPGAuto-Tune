@@ -10,7 +10,7 @@ module interface_ifft_1(
   input wire reset,
   input wire [35:0] auto_tuned_data, // input from the main_fsm module
   input wire result_done,
-  output reg [8:0] counter_addr,
+  output reg [8:0] result_addr,
 
   output wire [17:0] data_real_out,
   output wire [17:0] data_imag_out,
@@ -125,7 +125,7 @@ always @(posedge clk) begin
     //end
     end
     // dummy assignment of addr_in to counter
-    counter_addr <= addr_in;
+    result_addr <= addr_in;
   end
 end 
 
