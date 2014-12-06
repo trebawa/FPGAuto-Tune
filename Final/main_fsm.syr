@@ -5,14 +5,14 @@ Parameter TMPDIR set to /afs/athena.mit.edu/user/t/r/trebawa/6.111/Final/Final/x
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/t/r/trebawa/6.111/Final/Final/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: main_fsm.prj
@@ -177,10 +177,10 @@ Analyzing top module <main_fsm>.
 	S_RATE_MUL = 32'sb00000000000000000000000010000000
 	S_RUN_CORDICS = 32'sb00000000000000000000000000000100
 	S_WAIT_FOR_DATA = 32'sb00000000000000000000000000000001
-WARNING:Xst:1464 - "main_fsm.v" line 190: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
-WARNING:Xst:1464 - "main_fsm.v" line 202: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
-WARNING:Xst:1464 - "main_fsm.v" line 214: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
-WARNING:Xst:2211 - "cordic.v" line 70: Instantiating black box module <cordic>.
+WARNING:Xst:1464 - "main_fsm.v" line 191: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
+WARNING:Xst:1464 - "main_fsm.v" line 203: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
+WARNING:Xst:1464 - "main_fsm.v" line 215: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
+WARNING:Xst:2211 - "cordic.v" line 71: Instantiating black box module <cordic>.
 Module <main_fsm> is correct for synthesis.
  
     Set user-defined property "BLACK_BOX =  1" for instance <cart_to_phasor> in unit <main_fsm>.
@@ -481,14 +481,13 @@ Unit <freq_estimator> synthesized.
 Synthesizing Unit <main_fsm>.
     Related source file is "main_fsm.v".
 WARNING:Xst:1306 - Output <result_data> is never assigned.
-WARNING:Xst:1306 - Output <result_read_valid> is never assigned.
 WARNING:Xst:647 - Input <result_address> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <result_read_enable> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <fft_read_valid> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:646 - Signal <scale_freq> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:653 - Signal <scale_force_start> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:646 - Signal <scale_force_done> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <scale> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:646 - Signal <c_magnitude<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-    Register <note_done> equivalent to <done> has been removed
     Found finite state machine <FSM_0> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 6                                              |
@@ -501,23 +500,24 @@ WARNING:Xst:646 - Signal <c_magnitude<0>> is assigned but never used. This uncon
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
     Found 1-bit register for signal <done>.
+    Found 1-bit register for signal <note_done>.
     Found 1-bit register for signal <cordic_start>.
     Found 1-bit register for signal <est_start>.
     Found 9-bit register for signal <max_index>.
     Found 32-bit register for signal <max_phase>.
-    Found 9-bit comparator not equal for signal <max_phase$cmp_ne0000> created at line 214.
+    Found 9-bit comparator not equal for signal <max_phase$cmp_ne0000> created at line 215.
     Found 1-bit register for signal <pf_start>.
     Found 9-bit register for signal <ram_a_raddr>.
-    Found 9-bit adder for signal <ram_a_raddr$addsub0000> created at line 210.
+    Found 9-bit adder for signal <ram_a_raddr$addsub0000> created at line 211.
     Found 1-bit register for signal <ram_a_write>.
     Found 9-bit register for signal <ram_b_raddr>.
     Found 9-bit register for signal <ram_b_waddr>.
-    Found 9-bit adder for signal <ram_b_waddr$addsub0000> created at line 206.
+    Found 9-bit adder for signal <ram_b_waddr$addsub0000> created at line 207.
     Found 1-bit register for signal <ram_b_write>.
-    Found 9-bit comparator equal for signal <state$cmp_eq0002> created at line 214.
+    Found 9-bit comparator equal for signal <state$cmp_eq0002> created at line 215.
     Summary:
 	inferred   1 Finite State Machine(s).
-	inferred  74 D-type flip-flop(s).
+	inferred  75 D-type flip-flop(s).
 	inferred   2 Adder/Subtractor(s).
 	inferred   2 Comparator(s).
 Unit <main_fsm> synthesized.
@@ -542,8 +542,8 @@ Macro Statistics
  3-bit down counter                                    : 1
  3-bit up counter                                      : 1
  4-bit up counter                                      : 1
-# Registers                                            : 23
- 1-bit register                                        : 8
+# Registers                                            : 24
+ 1-bit register                                        : 9
  12-bit register                                       : 1
  18-bit register                                       : 1
  3-bit register                                        : 1
@@ -640,8 +640,8 @@ Macro Statistics
  3-bit down counter                                    : 1
  3-bit up counter                                      : 1
  4-bit up counter                                      : 1
-# Registers                                            : 276
- Flip-Flops                                            : 276
+# Registers                                            : 277
+ Flip-Flops                                            : 277
 # Comparators                                          : 176
  3-bit comparator greater                              : 1
  31-bit comparator greater                             : 4
@@ -801,8 +801,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 263
- Flip-Flops                                            : 263
+# Registers                                            : 264
+ Flip-Flops                                            : 264
 
 =========================================================================
 
@@ -828,27 +828,27 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : NO
 
 Design Statistics
-# IOs                              : 116
+# IOs                              : 102
 
 Cell Usage :
-# BELS                             : 14481
+# BELS                             : 14483
 #      BUF                         : 49
 #      GND                         : 4
 #      INV                         : 730
 #      LUT1                        : 824
-#      LUT2                        : 935
-#      LUT3                        : 425
+#      LUT2                        : 934
+#      LUT3                        : 426
 #      LUT3_D                      : 32
 #      LUT3_L                      : 33
-#      LUT4                        : 3267
+#      LUT4                        : 3268
 #      LUT4_D                      : 28
 #      LUT4_L                      : 4
 #      MUXCY                       : 5445
-#      MUXF5                       : 32
+#      MUXF5                       : 33
 #      VCC                         : 4
 #      XORCY                       : 2669
-# FlipFlops/Latches                : 3125
-#      FD                          : 18
+# FlipFlops/Latches                : 3126
+#      FD                          : 19
 #      FDE                         : 3091
 #      FDRE                        : 9
 #      FDS                         : 7
@@ -858,8 +858,8 @@ Cell Usage :
 #      SRL16E                      : 58
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 56
-#      IBUF                        : 47
+# IO Buffers                       : 55
+#      IBUF                        : 46
 #      OBUF                        : 9
 # MULTs                            : 10
 #      MULT18X18                   : 6
@@ -871,13 +871,13 @@ Device utilization summary:
 
 Selected Device : 2v6000bf957-4 
 
- Number of Slices:                     3495  out of  33792    10%  
- Number of Slice Flip Flops:           3125  out of  67584     4%  
- Number of 4 input LUTs:               6336  out of  67584     9%  
-    Number used as logic:              6278
+ Number of Slices:                     3496  out of  33792    10%  
+ Number of Slice Flip Flops:           3126  out of  67584     4%  
+ Number of 4 input LUTs:               6337  out of  67584     9%  
+    Number used as logic:              6279
     Number used as Shift registers:      58
- Number of IOs:                         116
- Number of bonded IOBs:                  57  out of    684     8%  
+ Number of IOs:                         102
+ Number of bonded IOBs:                  56  out of    684     8%  
  Number of BRAMs:                         2  out of    144     1%  
  Number of MULT18X18s:                   10  out of    144     6%  
  Number of GCLKs:                         1  out of     16     6%  
@@ -903,7 +903,7 @@ Clock Information:
 -----------------------------------+-------------------------------------------------------------------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)                                                                           | Load  |
 -----------------------------------+-------------------------------------------------------------------------------------------------+-------+
-clk                                | BUFGP                                                                                           | 3189  |
+clk                                | BUFGP                                                                                           | 3190  |
 ram_a/BU2/dbiterr                  | NONE(ram_a/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v2_noinit.ram/dpram.dp36x36.ram)| 1     |
 ram_b/BU2/dbiterr                  | NONE(ram_b/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v2_noinit.ram/dpram.dp36x36.ram)| 1     |
 -----------------------------------+-------------------------------------------------------------------------------------------------+-------+
@@ -914,8 +914,8 @@ Asynchronous Control Signals Information:
 ---------------------------------------+-----------------------------+-------+
 Control Signal                         | Buffer(FF name)             | Load  |
 ---------------------------------------+-----------------------------+-------+
-cart_to_phasor/N0(cart_to_phasor/GND:G)| NONE(cart_to_phasor/BU15775)| 4     |
-cart_to_phasor/N1(cart_to_phasor/VCC:P)| NONE(cart_to_phasor/BU15775)| 4     |
+cart_to_phasor/N0(cart_to_phasor/GND:G)| NONE(cart_to_phasor/BU15952)| 4     |
+cart_to_phasor/N1(cart_to_phasor/VCC:P)| NONE(cart_to_phasor/BU15952)| 4     |
 ---------------------------------------+-----------------------------+-------+
 
 Timing Summary:
@@ -934,7 +934,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 40.292ns (frequency: 24.819MHz)
-  Total number of paths / destination ports: 117692752669153 / 3592
+  Total number of paths / destination ports: 117692752669177 / 3593
 -------------------------------------------------------------------------
 Delay:               40.292ns (Levels of Logic = 116)
   Source:            estimator/old_max_phase_0 (FF)
@@ -1014,7 +1014,7 @@ Delay:               40.292ns (Levels of Logic = 116)
      MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<28> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<28>)
      MUXCY:CI->O           1   0.053   0.000  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<29> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<29>)
      MUXCY:CI->O          33   0.942   1.375  estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<30> (estimator/add_numerator/Mcompar_res_30_cmp_gt0000_cy<30>)
-     LUT3_L:I0->LO         1   0.439   0.134  estimator/add_numerator/res_19_mux0000_SW2 (N390)
+     LUT3_L:I0->LO         1   0.439   0.134  estimator/add_numerator/res_19_mux0000_SW2 (N393)
      LUT3:I2->O            2   0.439   0.701  estimator/add_numerator/res_19_mux0000 (estimator/numerator<19>)
      MULT18X18:A2->P26     1   8.493   0.726  estimator/mul/Mmult_r_result_mult0000_submult_2 (estimator/mul/Mmult_r_result_mult0000_submult_2_26)
      LUT2:I1->O            1   0.439   0.000  estimator/mul/Mmult_r_result_mult0000_Madd_lut<28> (estimator/mul/Mmult_r_result_mult0000_Madd_lut<28>)
@@ -1085,7 +1085,7 @@ Offset:              8.567ns (Levels of Logic = 7)
      LUT4:I0->O            1   0.439   0.000  state_cmp_eq0000111 (state_cmp_eq0000111)
      MUXF5:I1->O           2   0.436   0.910  state_cmp_eq000011_f5 (state_cmp_eq000011)
      LUT2:I1->O            3   0.439   0.932  state_cmp_eq000013 (state_cmp_eq0000)
-     LUT4:I1->O            6   0.439   0.833  cordic_start_mux0000212 (N23)
+     LUT4:I1->O            6   0.439   0.833  cordic_start_mux0000212 (N24)
      LUT4:I3->O            6   0.439   1.079  ram_a_raddr_mux0000<0>11 (N01)
      LUT4:I0->O            1   0.439   0.000  ram_a_raddr_mux0000<5>48 (ram_a_raddr_mux0000<5>)
      FD:D                      0.370          ram_a_raddr_3
@@ -1125,60 +1125,60 @@ Offset:              64.678ns (Levels of Logic = 74)
      MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<15>_107 (note_table/Mcompar_greater_cmp_lt0002_cy<15>108)
      MUXCY:CI->O           1   0.053   0.000  note_table/Mcompar_greater_cmp_lt0002_cy<16>_88 (note_table/Mcompar_greater_cmp_lt0002_cy<16>89)
      MUXCY:CI->O           2   0.942   0.986  note_table/Mcompar_greater_cmp_lt0002_cy<17>_65 (note_table/Mcompar_greater_cmp_lt0002_cy<17>66)
-     LUT4:I0->O            1   0.439   0.557  note_table/note_name<0>75_SW0_SW0 (N542)
-     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>118_SW0_SW0_SW0 (N619)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>118_SW0_SW0 (N544)
-     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>164_SW0_SW0_SW0 (N621)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>164_SW0_SW0 (N546)
-     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>202_SW0_SW0_SW0 (N623)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>202_SW0_SW0 (N548)
-     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>243_SW0_SW0_SW0 (N665)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>243_SW0_SW0 (N586)
-     LUT4:I3->O            1   0.439   0.557  note_table/note_name<0>243_SW1 (N667)
-     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>321_SW0_SW0_SW0_SW0 (N669)
-     LUT4:I2->O            1   0.439   0.551  note_table/note_name<0>321_SW0_SW0_SW0 (N625)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>321_SW0_SW0 (N550)
-     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>358_SW0_SW0_SW0 (N627)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>358_SW0_SW0 (N552)
-     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>399_SW0_SW0_SW0 (N661)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>399_SW0_SW0 (N554)
-     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>436_SW0_SW0_SW0 (N629)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>436_SW0_SW0 (N556)
-     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>477_SW0_SW0_SW0 (N631)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>477_SW0_SW0 (N558)
-     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>514_SW0_SW0_SW0 (N633)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>514_SW0_SW0 (N560)
-     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>555_SW0_SW0_SW0 (N663)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>555_SW0_SW0 (N562)
-     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>592_SW0_SW0_SW0 (N655)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>592_SW0_SW0 (N584)
-     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>633_SW0_SW0_SW0 (N657)
-     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>633_SW0_SW0 (N588)
-     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>670_SW0_SW0_SW0 (N635)
-     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>670_SW0_SW0 (N564)
-     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>711_SW0_SW0_SW0 (N637)
-     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>711_SW0_SW0 (N566)
-     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>748_SW1_SW0_SW0 (N671)
-     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>748_SW1_SW0 (N639)
-     LUT4:I3->O            1   0.439   0.558  note_table/note_name<0>748_SW1 (N568)
-     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>789_SW1_SW0 (N641)
-     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>789_SW1 (N570)
-     LUT4:I3->O            1   0.439   0.558  note_table/note_name<0>867_SW0_SW0_SW0_SW0 (N673)
-     LUT4:I3->O            1   0.439   0.558  note_table/note_name<0>867_SW0_SW0_SW0 (N643)
-     LUT4:I3->O            1   0.439   0.558  note_table/note_name<0>867_SW0_SW0 (N572)
-     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>904_SW0_SW0_SW0 (N659)
-     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>904_SW0_SW0 (N590)
-     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>945_SW0_SW0_SW0 (N645)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>945_SW0_SW0 (N574)
-     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>982_SW1_SW0_SW0 (N675)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>982_SW1_SW0 (N647)
-     LUT4:I3->O            1   0.439   0.557  note_table/note_name<0>982_SW1 (N576)
-     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>1023_SW1_SW0 (N649)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>1023_SW1 (N578)
-     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>1060_SW1_SW0 (N651)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>1060_SW1 (N580)
-     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>1101_SW1_SW0 (N653)
-     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>1101_SW1 (N582)
+     LUT4:I0->O            1   0.439   0.557  note_table/note_name<0>75_SW0_SW0 (N545)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>118_SW0_SW0_SW0 (N622)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>118_SW0_SW0 (N547)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>164_SW0_SW0_SW0 (N624)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>164_SW0_SW0 (N549)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>202_SW0_SW0_SW0 (N626)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>202_SW0_SW0 (N551)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>243_SW0_SW0_SW0 (N668)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>243_SW0_SW0 (N589)
+     LUT4:I3->O            1   0.439   0.557  note_table/note_name<0>243_SW1 (N670)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>321_SW0_SW0_SW0_SW0 (N672)
+     LUT4:I2->O            1   0.439   0.551  note_table/note_name<0>321_SW0_SW0_SW0 (N628)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>321_SW0_SW0 (N553)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>358_SW0_SW0_SW0 (N630)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>358_SW0_SW0 (N555)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>399_SW0_SW0_SW0 (N664)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>399_SW0_SW0 (N557)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>436_SW0_SW0_SW0 (N632)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>436_SW0_SW0 (N559)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>477_SW0_SW0_SW0 (N634)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>477_SW0_SW0 (N561)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>514_SW0_SW0_SW0 (N636)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>514_SW0_SW0 (N563)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>555_SW0_SW0_SW0 (N666)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>555_SW0_SW0 (N565)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>592_SW0_SW0_SW0 (N658)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>592_SW0_SW0 (N587)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>633_SW0_SW0_SW0 (N660)
+     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>633_SW0_SW0 (N591)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>670_SW0_SW0_SW0 (N638)
+     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>670_SW0_SW0 (N567)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>711_SW0_SW0_SW0 (N640)
+     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>711_SW0_SW0 (N569)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>748_SW1_SW0_SW0 (N674)
+     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>748_SW1_SW0 (N642)
+     LUT4:I3->O            1   0.439   0.558  note_table/note_name<0>748_SW1 (N571)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>789_SW1_SW0 (N644)
+     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>789_SW1 (N573)
+     LUT4:I3->O            1   0.439   0.558  note_table/note_name<0>867_SW0_SW0_SW0_SW0 (N676)
+     LUT4:I3->O            1   0.439   0.558  note_table/note_name<0>867_SW0_SW0_SW0 (N646)
+     LUT4:I3->O            1   0.439   0.558  note_table/note_name<0>867_SW0_SW0 (N575)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>904_SW0_SW0_SW0 (N662)
+     LUT4:I2->O            1   0.439   0.558  note_table/note_name<0>904_SW0_SW0 (N593)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>945_SW0_SW0_SW0 (N648)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>945_SW0_SW0 (N577)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>982_SW1_SW0_SW0 (N678)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>982_SW1_SW0 (N650)
+     LUT4:I3->O            1   0.439   0.557  note_table/note_name<0>982_SW1 (N579)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>1023_SW1_SW0 (N652)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>1023_SW1 (N581)
+     LUT4:I3->O            1   0.439   0.552  note_table/note_name<0>1060_SW1_SW0 (N654)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>1060_SW1 (N583)
+     LUT4:I3->O            1   0.439   0.551  note_table/note_name<0>1101_SW1_SW0 (N656)
+     LUT4:I2->O            1   0.439   0.557  note_table/note_name<0>1101_SW1 (N585)
      LUT4:I3->O            1   0.439   0.517  note_table/note_name<0>1101 (note_name_0_OBUF)
      OBUF:I->O                 4.361          note_name_0_OBUF (note_name<0>)
     ----------------------------------------
@@ -1189,15 +1189,15 @@ Offset:              64.678ns (Levels of Logic = 74)
 WARNING:Xst:616 - Invalid property "BLACK_BOX 1": Did not attach to cart_to_phasor.
 
 
-Total REAL time to Xst completion: 81.00 secs
-Total CPU time to Xst completion: 79.36 secs
+Total REAL time to Xst completion: 102.00 secs
+Total CPU time to Xst completion: 93.49 secs
  
 --> 
 
 
-Total memory usage is 686480 kilobytes
+Total memory usage is 684376 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   55 (   0 filtered)
+Number of warnings :   56 (   0 filtered)
 Number of infos    :  108 (   0 filtered)
 

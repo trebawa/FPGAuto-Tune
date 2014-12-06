@@ -29,7 +29,8 @@ module main_fsm(
     input fft_done,				//interface with the fft
     input [8:0] fft_address,
     input fft_read_valid,
-    input signed [35:0] fft_data,
+	 input signed [17:0] data_in_real,
+	 input signed [17:0] data_in_imag,
 	 
     input [8:0] result_address,	//supply data that can be sent to the IFFT
     output reg signed [35:0] result_data
@@ -39,6 +40,9 @@ module main_fsm(
 	 //  Modules and connections  //
 	 ///////////////////////////////
 	 
+	 //input processing
+    wire [35:0] fft_data = {data_in_real,data_in_imag};
+	 
 	 //RAM alpha
 	 wire [8:0] ram_a_waddr = fft_address;
 	 reg [8:0] ram_a_raddr;
@@ -46,7 +50,7 @@ module main_fsm(
 	 wire signed [17:0] ram_a_imag;
 	 reg ram_a_write = 0;
 	 wire [8:0] ram_a_addr = ram_a_write ? ram_a_waddr : ram_a_raddr;
-	 wire ram_a_we = ram_a_write && fft_read_valid;
+	 wire ram_a_we = ram_a_write;
 	 
 	 ram36x512 ram_a(
 		.clka(clk),
@@ -212,6 +216,7 @@ module main_fsm(
 					max_phase <= ram_b_out;
 					state <= S_FIND_FUND_FREQ;
 					est_start <= 1;
+					note_done <= 1;
 				end
 			end
 			S_FIND_FUND_FREQ: begin
@@ -220,9 +225,9 @@ module main_fsm(
 					state <= S_FORCE_TO_SCALE;
 				end
 			end
-			S_FORCE_TO_SCALE: begin
+			//S_FORCE_TO_SCALE: begin
 					
-			end
+			//end
 			//S_DIVIDE_SHIFT: begin
 				
 			//end

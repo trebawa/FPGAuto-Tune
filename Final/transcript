@@ -1,4 +1,4 @@
-# //  ModelSim SE 6.4a Aug 28 2008 Linux 3.2.0-72-generic
+# //  ModelSim SE 6.4a Aug 28 2008 Linux 3.13.0-29-generic
 # //
 # //  Copyright 1991-2008 Mentor Graphics Corporation
 # //              All Rights Reserved.
@@ -8,48 +8,59 @@
 # //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
-# do {scale_freq_select_test.fdo} 
+# do {main_fsm_test.fdo} 
 # ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module qmult
+# 
+# Top level modules:
+# 	qmult
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module qadd
+# 
+# Top level modules:
+# 	qadd
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module serial_peak_finder
+# 
+# Top level modules:
+# 	serial_peak_finder
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module scale_freq_select
 # 
 # Top level modules:
 # 	scale_freq_select
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module scale_freq_select_test
+# -- Compiling module ram36x512
 # 
 # Top level modules:
-# 	scale_freq_select_test
+# 	ram36x512
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module glbl
+# -- Compiling module note_lut
 # 
 # Top level modules:
-# 	glbl
-# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps scale_freq_select_test glbl 
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: trebawa  Hostname: eecs-digital-52  ProcessID: 16236
-#           Attempting to use# Window cannot be closed because the modal window "Quit Vsim" is still open.
-# Break key hit 
-.wlf
-#           Using alternate file: ./wlftu52Ier
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftu52Ier
-# Design is being optimized...
-# Loading work.scale_freq_select_test(fast)
-# Loading work.scale_freq_select(fast)
-# Loading work.glbl(fast)
-# .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
-# .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
-# .main_pane.signals.interior.cs
-force -freeze sim:/scale_freq_select_test/scale 100000000000 0
-restart -f
-# Loading work.scale_freq_select_test(fast)
-# Loading work.scale_freq_select(fast)
-# Loading work.glbl(fast)
-run 2000ns
-restart -f
-# Loading work.scale_freq_select_test(fast)
-# Loading work.scale_freq_select(fast)
-# Loading work.glbl(fast)
-force -freeze sim:/scale_freq_select_test/scale 001000000000 0
-run 2000ns
+# 	note_lut
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module freq_estimator
+# 
+# Top level modules:
+# 	freq_estimator
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module cordic
+# 
+# Top level modules:
+# 	cordic
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module main_fsm
+# 
+# Top level modules:
+# 	main_fsm
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module main_fsm_test
+# ** Error: main_fsm_test.v(74): (vlog-2110) Illegal reference to net "data_in_real".
+# ** Error: main_fsm_test.v(75): (vlog-2110) Illegal reference to net "data_in_imag".
+# ** Error: /afs/csail.mit.edu/proj/redsocs/modeltech/linux/vlog failed.
+# Error in macro ./main_fsm_test.fdo line 14
+# /afs/csail.mit.edu/proj/redsocs/modeltech/linux/vlog failed.
+#     while executing
+# "vlog +acc  "main_fsm_test.v""

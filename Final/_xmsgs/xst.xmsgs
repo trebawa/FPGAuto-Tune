@@ -5,22 +5,25 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompilers" num="261" delta="unknown" ><arg fmt="%s" index="1">&quot;main_fsm.v&quot; line 107 </arg>Connection to output port &apos;<arg fmt="%s" index="2">peak_index</arg>&apos; does not match port size
+<msg type="warning" file="HDLCompilers" num="261" delta="unknown" ><arg fmt="%s" index="1">&quot;main_fsm.v&quot; line 108 </arg>Connection to output port &apos;<arg fmt="%s" index="2">peak_index</arg>&apos; does not match port size
 </msg>
 
-<msg type="warning" file="HDLCompilers" num="259" delta="unknown" ><arg fmt="%s" index="1">&quot;main_fsm.v&quot; line 118 </arg>Connection to input port &apos;<arg fmt="%s" index="2">max_index</arg>&apos; does not match port size
+<msg type="warning" file="HDLCompilers" num="259" delta="unknown" ><arg fmt="%s" index="1">&quot;main_fsm.v&quot; line 119 </arg>Connection to input port &apos;<arg fmt="%s" index="2">max_index</arg>&apos; does not match port size
 </msg>
 
-<msg type="warning" file="Xst" num="1464" delta="unknown" >&quot;<arg fmt="%s" index="1">main_fsm.v</arg>&quot; line <arg fmt="%d" index="2">190</arg>: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
+<msg type="warning" file="HDLCompilers" num="259" delta="unknown" ><arg fmt="%s" index="1">&quot;main_fsm.v&quot; line 145 </arg>Connection to input port &apos;<arg fmt="%s" index="2">scale</arg>&apos; does not match port size
 </msg>
 
-<msg type="warning" file="Xst" num="1464" delta="unknown" >&quot;<arg fmt="%s" index="1">main_fsm.v</arg>&quot; line <arg fmt="%d" index="2">202</arg>: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
+<msg type="warning" file="Xst" num="1464" delta="unknown" >&quot;<arg fmt="%s" index="1">main_fsm.v</arg>&quot; line <arg fmt="%d" index="2">191</arg>: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
 </msg>
 
-<msg type="warning" file="Xst" num="1464" delta="unknown" >&quot;<arg fmt="%s" index="1">main_fsm.v</arg>&quot; line <arg fmt="%d" index="2">214</arg>: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
+<msg type="warning" file="Xst" num="1464" delta="unknown" >&quot;<arg fmt="%s" index="1">main_fsm.v</arg>&quot; line <arg fmt="%d" index="2">203</arg>: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
 </msg>
 
-<msg type="warning" file="Xst" num="2211" delta="unknown" >&quot;<arg fmt="%s" index="1">cordic.v</arg>&quot; line <arg fmt="%d" index="2">70</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">cordic</arg>&gt;.
+<msg type="warning" file="Xst" num="1464" delta="unknown" >&quot;<arg fmt="%s" index="1">main_fsm.v</arg>&quot; line <arg fmt="%d" index="2">215</arg>: Exactly equal expression will be synthesized as an equal expression, simulation mismatch is possible.
+</msg>
+
+<msg type="warning" file="Xst" num="2211" delta="unknown" >&quot;<arg fmt="%s" index="1">cordic.v</arg>&quot; line <arg fmt="%d" index="2">71</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">cordic</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="37" delta="unknown" >Detected unknown constraint/property &quot;<arg fmt="%s" index="1">BLACK_BOX</arg>&quot;. This constraint/property is not supported by the current software release and will be ignored.
@@ -61,13 +64,10 @@
 <msg type="warning" file="Xst" num="1306" delta="unknown" >Output &lt;<arg fmt="%s" index="1">result_data</arg>&gt; is never assigned.
 </msg>
 
-<msg type="warning" file="Xst" num="1306" delta="unknown" >Output &lt;<arg fmt="%s" index="1">result_read_valid</arg>&gt; is never assigned.
-</msg>
-
 <msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">result_address</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">result_read_enable</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="warning" file="Xst" num="647" delta="unknown" >Input &lt;<arg fmt="%s" index="1">fft_read_valid</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
 <msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">scale_freq</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -77,6 +77,9 @@
 </msg>
 
 <msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">scale_force_done</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">scale</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
 <msg type="warning" file="Xst" num="646" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">c_magnitude&lt;0&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.

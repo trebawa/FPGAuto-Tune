@@ -1,0 +1,20 @@
+
+
+
+// Instantiate the module
+main_fsm instance_name (
+    .clk(clk), 
+    .done(done), 
+    .note_done(note_done), 
+    .note_name(note_name), 
+    .note_octave(note_octave), 
+    .fft_done(fft_done), 
+    .fft_address(fft_address), 
+    .fft_read_valid(fft_read_valid), 
+    .data_in_real(data_in_real), 
+    .data_in_imag(data_in_imag), 
+    .result_address(result_address), 
+    .result_data(result_data)
+    );
+
+

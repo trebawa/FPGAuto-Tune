@@ -44,35 +44,50 @@ module main_fsm_test;
 
 	// Instantiate the Unit Under Test (UUT)
 	main_fsm uut (
-		.clk(clk), 
-		.done(done), 
-		.note_done(note_done), 
-		.note_name(note_name), 
-		.note_octave(note_octave), 
-		.scale(scale), 
-		.fft_done(fft_done), 
-		.fft_address(fft_address), 
-		.fft_read_valid(fft_read_valid), 
-		.fft_data(fft_data), 
-		.result_address(result_address),  
-		.result_data(result_data), 
-	);
+    .clk(clk), 
+    .done(done), 
+    .note_done(note_done), 
+    .note_name(note_name), 
+    .note_octave(note_octave), 
+    .fft_done(fft_done), 
+    .fft_address(fft_address), 
+    .fft_read_valid(fft_read_valid), 
+    .data_in_real(data_in_real), 
+    .data_in_imag(data_in_imag), 
+    .result_address(result_address), 
+    .result_data(result_data)
+    );
+
 	
 	initial clk <= 0;
 	always #1 clk <= !clk;
+	
+	//memories
+	reg [17:0] realparts [8:0];
+	reg [17:0] imagparts [8:0];
 
 	initial begin
 		// Initialize Inputs
 		fft_done = 0;
 		fft_address = 0;
 		fft_read_valid = 0;
-		fft_data = 0;
+		data_in_real = realparts[result_address];
+		data_in_imag = imagparts[result_address];
 		result_address = 0;
+		
 
 		// Wait 100 ns for global reset to finish
 		#100;
         
+		$readmemb("a_real.list",realparts);
+		$readmemb("a_imag.list",imagparts);
+		  
 		// Add stimulus here
+		fft_done = 1;
+		fft_read_valid = 1;
+		while (result_address <= 511) begin
+			result_address = result_address +1;
+		end
 
 	end
       
