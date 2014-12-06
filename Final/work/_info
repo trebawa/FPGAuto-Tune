@@ -41,7 +41,7 @@ R4
 vcordic
 IWVGl<K?ES0zG601nh;K[`3
 Vcz@X]kligTYj?UmJ@`J:K3
-w1417650462
+w1417905519
 8cordic.v
 Fcordic.v
 L0 39
@@ -78,6 +78,7 @@ R6
 !s100 F9n99o5>UXlR7d8O_cUk61
 !s85 0
 vglbl
+!s100 T?5S;>bN`@zG_25]R_4A33
 IB;@1jEXmEfQXL`;Kf0IBZ3
 VnN]4Gon>inod6>M^M2[SV1
 w1202685744
@@ -86,12 +87,10 @@ F/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
 L0 5
 R5
 r1
+!s85 0
 31
 R6
-!s100 T?5S;>bN`@zG_25]R_4A33
-!s85 0
 vmain_fsm
-!s100 <OE1AcSCUhZS;UMJJdUl23
 IFiPcjzh;S:U^VMGR<>Xeh1
 V1Cii5Q?_i63Og2hmS3KU[0
 w1417900831
@@ -100,9 +99,23 @@ Fmain_fsm.v
 L0 21
 R5
 r1
-!s85 0
 31
 R6
+!s100 <OE1AcSCUhZS;UMJJdUl23
+!s85 0
+vmain_fsm_test
+IlUBdT00fTEUWDdn8lj52>3
+V<HHLUmK5A[VA@5CaUW2fP3
+w1417904981
+8main_fsm_test.v
+Fmain_fsm_test.v
+L0 25
+R5
+r1
+31
+R6
+!s100 ]lUD[>VRLH0M5<Wb0^_4K2
+!s85 0
 vnn_mult_test
 IA7eif9LkC<XW2LTo:EBSB2
 VdaP6=BgUK3K<P?9kjfzi90
@@ -210,7 +223,7 @@ R6
 vram36x512
 Ibk@eTHkcEL9gPKC9E[bUX3
 V8TcV97A5PWaDaX[i]Sjc60
-w1417639228
+w1417905548
 8ram36x512.v
 Fram36x512.v
 L0 40

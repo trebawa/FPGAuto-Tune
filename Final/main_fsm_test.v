@@ -30,7 +30,8 @@ module main_fsm_test;
 	reg fft_done;
 	reg [8:0] fft_address;
 	reg fft_read_valid;
-	reg [35:0] fft_data;
+	reg [17:0] data_in_real;
+	reg [17:0] data_in_imag;
 	reg [8:0] result_address;
 	reg result_read_enable;
 
@@ -71,8 +72,8 @@ module main_fsm_test;
 		fft_done = 0;
 		fft_address = 0;
 		fft_read_valid = 0;
-		data_in_real = realparts[result_address];
-		data_in_imag = imagparts[result_address];
+		assign data_in_real = realparts[result_address];
+		assign data_in_imag = imagparts[result_address];
 		result_address = 0;
 		
 

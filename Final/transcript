@@ -57,10 +57,19 @@
 # 	main_fsm
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module main_fsm_test
-# ** Error: main_fsm_test.v(74): (vlog-2110) Illegal reference to net "data_in_real".
-# ** Error: main_fsm_test.v(75): (vlog-2110) Illegal reference to net "data_in_imag".
-# ** Error: /afs/csail.mit.edu/proj/redsocs/modeltech/linux/vlog failed.
-# Error in macro ./main_fsm_test.fdo line 14
-# /afs/csail.mit.edu/proj/redsocs/modeltech/linux/vlog failed.
-#     while executing
-# "vlog +acc  "main_fsm_test.v""
+# 
+# Top level modules:
+# 	main_fsm_test
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module glbl
+# 
+# Top level modules:
+# 	glbl
+# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps main_fsm_test glbl 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: main_fsm.v(95): Module 'ram32x512' is not defined.
+# Optimization failed
+# Error loading design
+# Error: Error loading design 
+#        Pausing macro execution 
+# MACRO ./main_fsm_test.fdo PAUSED at line 16
