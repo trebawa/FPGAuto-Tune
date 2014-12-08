@@ -20,10 +20,10 @@ PROP_Enable_Message_Filtering
 false
 s
 PROP_PreferredLanguage
-Verilog
+VHDL
 s
 PROP_Simulator
-Modelsim-SE Verilog
+Modelsim-SE Mixed
 s
 PROP_Synthesis_Tool
 XST (VHDL/Verilog)

@@ -34,8 +34,8 @@ component cordic
 	x_in: IN std_logic_VECTOR(17 downto 0);
 	y_in: IN std_logic_VECTOR(17 downto 0);
 	nd: IN std_logic;
-	x_out: OUT std_logic_VECTOR(23 downto 0);
-	phase_out: OUT std_logic_VECTOR(23 downto 0);
+	x_out: OUT std_logic_VECTOR(22 downto 0);
+	phase_out: OUT std_logic_VECTOR(22 downto 0);
 	rdy: OUT std_logic;
 	clk: IN std_logic);
 end component;

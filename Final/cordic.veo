@@ -35,8 +35,8 @@ cordic YourInstanceName (
 	.x_in(x_in), // Bus [17 : 0] 
 	.y_in(y_in), // Bus [17 : 0] 
 	.nd(nd),
-	.x_out(x_out), // Bus [23 : 0] 
-	.phase_out(phase_out), // Bus [23 : 0] 
+	.x_out(x_out), // Bus [22 : 0] 
+	.phase_out(phase_out), // Bus [22 : 0] 
 	.rdy(rdy),
 	.clk(clk));
 

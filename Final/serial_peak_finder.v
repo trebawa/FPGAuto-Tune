@@ -21,12 +21,12 @@
 module serial_peak_finder(
     input clk,
     input start, //First data point must be present at data_in on cycle when start is high (1-cycle pulse)
-    input [31:0] data_in,//on each subsequent cycle, present a new datum until don
+    input signed [31:0] data_in,//on each subsequent cycle, present a new datum until don
 	 input [8:0] index,
     output reg [8:0] peak_index
     );
 	 
-	 reg [17:0] largest;
+	 reg signed [31:0] largest;
 	 
 	 always @(posedge clk) begin
 		if (start) begin
@@ -36,7 +36,7 @@ module serial_peak_finder(
 		else begin
 			if (data_in > largest) begin
 				largest <= data_in;
-				peak_index <= index;
+				peak_index <= index+1;
 			end
 		end
 	 end

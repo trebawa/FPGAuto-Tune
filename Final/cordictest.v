@@ -31,8 +31,8 @@ module cordictest;
 	reg clk;
 
 	// Outputs
-	wire [23:0] x_out;
-	wire [23:0] phase_out;
+	wire [22:0] x_out;
+	wire [22:0] phase_out;
 	wire rdy;
 
 	// Instantiate the Unit Under Test (UUT)
@@ -51,13 +51,19 @@ module cordictest;
 	
 	initial begin
 		// Initialize Inputs
-		x_in = 0;
-		y_in = 0;
+		x_in = 65536;
+		y_in = 65536;
 		nd = 0;
 
 		// Wait 100 ns for global reset to finish
 		#100;
         
+		 nd = 1;
+		 #10; 
+			x_in = -65536;
+			y_in = 65536;
+		 #10;
+		 nd = 0;
 		// Add stimulus here
 		
 	end

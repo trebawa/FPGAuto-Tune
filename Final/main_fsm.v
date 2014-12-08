@@ -63,10 +63,10 @@ module main_fsm(
 			 
 	 //CORDIC
 	 reg cordic_start;
-	 wire signed [23:0] c_magnitude;//1QN
-	 wire signed [31:0] magnitude = {{10{c_magnitude[23]}},c_magnitude[22:1]}; //sign extended to 11Q32 format
-	 wire signed [23:0] c_phase;//2QN
-	 wire signed [31:0] phase = {{9{c_phase[23]}},c_phase[22:0]};//sign extended to 11Q32 format
+	 wire signed [22:0] c_magnitude;//1QN
+	 wire signed [31:0] magnitude = {{10{c_magnitude[22]}},c_magnitude[21:1]}; //sign extended to 11Q32 format
+	 wire signed [22:0] c_phase;//2QN
+	 wire signed [31:0] phase = {{10{c_phase[22]}},c_phase[21:0]};//sign extended to 11Q32 format
 	 wire cordic_done;
 	 
 	 cordic cart_to_phasor(
@@ -221,13 +221,14 @@ module main_fsm(
 					max_phase <= ram_b_out;
 					state <= S_FIND_FUND_FREQ;
 					est_start <= 1;
-					note_done <= 1;
+					note_done <= 0;
 				end
 			end
 			S_FIND_FUND_FREQ: begin
 				est_start <= 0;
 				if (est_done) begin
-					state <= S_FORCE_TO_SCALE;
+					note_done <= 1;
+					state <= S_WAIT_FOR_DATA;//S_FORCE_TO_SCALE;
 				end
 			end
 			//S_FORCE_TO_SCALE: begin

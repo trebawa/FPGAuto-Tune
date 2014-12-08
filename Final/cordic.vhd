@@ -45,8 +45,8 @@ ENTITY cordic IS
 	x_in: IN std_logic_VECTOR(17 downto 0);
 	y_in: IN std_logic_VECTOR(17 downto 0);
 	nd: IN std_logic;
-	x_out: OUT std_logic_VECTOR(23 downto 0);
-	phase_out: OUT std_logic_VECTOR(23 downto 0);
+	x_out: OUT std_logic_VECTOR(22 downto 0);
+	phase_out: OUT std_logic_VECTOR(22 downto 0);
 	rdy: OUT std_logic;
 	clk: IN std_logic);
 END cordic;
@@ -58,8 +58,8 @@ component wrapped_cordic
 	x_in: IN std_logic_VECTOR(17 downto 0);
 	y_in: IN std_logic_VECTOR(17 downto 0);
 	nd: IN std_logic;
-	x_out: OUT std_logic_VECTOR(23 downto 0);
-	phase_out: OUT std_logic_VECTOR(23 downto 0);
+	x_out: OUT std_logic_VECTOR(22 downto 0);
+	phase_out: OUT std_logic_VECTOR(22 downto 0);
 	rdy: OUT std_logic;
 	clk: IN std_logic);
 end component;
@@ -96,7 +96,7 @@ end component;
 			c_has_phase_out => 1,
 			c_has_x_in => 1,
 			c_pipeline_mode => -2,
-			c_output_width => 24);
+			c_output_width => 23);
 -- synthesis translate_on
 BEGIN
 -- synthesis translate_off

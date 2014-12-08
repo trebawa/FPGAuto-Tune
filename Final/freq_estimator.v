@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module freq_estimator( //Everything is 11Q32) (11 integer bits, 1 sign bit, 20 fractional bits)
-    input signed [31:0] max_phase,// phase of the fundamental frequency
+    input [31:0] max_phase,// phase of the fundamental frequency
     input [8:0] max_index,// FFT index of fundamental frequency
     input clk,
     input start,
@@ -48,10 +48,10 @@ module freq_estimator( //Everything is 11Q32) (11 integer bits, 1 sign bit, 20 f
 	 //wire div_done, div_overflow;
 	 //reg div_start = 0;
 	 
-	 wire signed [31:0] index_factor = 31'h564D269; // currently 44100/511? I'm not sure how to calculate this
+	 wire signed [31:0] index_factor = 31'h5622000; // currently 44100/512? I'm not sure how to calculate this
 	 
 	 qmult #(20,32) i_to_f (//convert the index to the center frequency of that bin
-		.i_multiplicand({23'h0,max_index}),
+		.i_multiplicand({23'h0,max_index-256}),
 		.i_multiplier(index_factor),
 		.o_result(max_freq),
 		.ovr(ovr_1)
@@ -86,7 +86,7 @@ module freq_estimator( //Everything is 11Q32) (11 integer bits, 1 sign bit, 20 f
 	 
 	 qadd #(20,32) freq_diff(//calculate the frequency error
 		.a(freq_result),
-		.b(-max_freq),
+		.b(-{1'b0,max_freq[30:0]}),//throw away the sign of the frequency
 		.c(df)
 	 );
 	 

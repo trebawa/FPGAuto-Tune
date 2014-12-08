@@ -104,6 +104,27 @@ module main_fsm_test;
 			data_in_imag = imagparts[fft_address];
 			#2;
 		end
+		fft_done <= 0;
+		fft_address <= 0;
+		while (!note_done) begin
+		#2;
+		end
+		#2;
+		$readmemb("b_real.list",realparts,0,511);
+		$readmemb("b_imag.list",imagparts,0,511);
+		fft_done = 1;
+		fft_read_valid = 1;
+			data_in_real = realparts[fft_address];
+			data_in_imag = imagparts[fft_address];
+			#2;
+		while (fft_address < 511) begin
+			fft_address = fft_address +1;
+			data_in_real = realparts[fft_address];
+			data_in_imag = imagparts[fft_address];
+			#2;
+		end
+		
+		
 
 	end
       
