@@ -2297,7 +2297,7 @@ prop_8_name
 PROP_BehavioralSimTop
 s
 prop_8_val
-"Module|main_fsm_test"
+"Module|freq_est_test"
 s
 prop_90_name
 PROP_UserEditorPreference

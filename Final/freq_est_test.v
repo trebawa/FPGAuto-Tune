@@ -26,7 +26,7 @@ module freq_est_test;
 
 	// Inputs
 	reg [31:0] max_phase;
-	reg [9:0] max_index;
+	reg [8:0] max_index;
 	reg clk;
 	reg start;
 
@@ -57,7 +57,7 @@ module freq_est_test;
 		#100;
 		
 		max_phase = 32'h100000;
-		max_index = 10'd150;
+		max_index = 10'd253;
 		//max_freq = 31'h1B800000;
 		start = 1;
 		#10;
@@ -66,8 +66,7 @@ module freq_est_test;
 		#500
         
 		// Add stimulus here
-		max_phase = 32'h101110;
-		max_index = 10'd150;
+		max_phase = 32'h409926; //middle C!
 		//max_freq = 32'h1B800000;
 		start = 1;
 		#10;

@@ -37,12 +37,12 @@ module freq_estimator( //Everything is 11Q32) (11 integer bits, 1 sign bit, 20 f
 	 wire [31:0] new_two_n; 
 	 wire signed [31:0] dp;
 	 wire signed [31:0] df;
-	 wire [30:0] df_magnitude = df[30:0];
-	 reg [30:0] df_magnitude_last = 31'h7fffffff;
+	 wire [31:0] df_magnitude = df < 0 ? -df : df;
+	 reg [31:0] df_magnitude_last = 31'h7fffffff;
 	 wire signed [31:0] numerator;
-	 wire [31:0] freq_result;
-	 wire [31:0] max_freq;
-	 reg [31:0] last_freq = 0;
+	 wire signed [31:0] freq_result;
+	 wire signed [31:0] max_freq;
+	 reg signed [31:0] last_freq = 0;
 	 wire ovr_1;
 	 wire ovr_2;
 	 //wire div_done, div_overflow;
@@ -51,7 +51,7 @@ module freq_estimator( //Everything is 11Q32) (11 integer bits, 1 sign bit, 20 f
 	 wire signed [31:0] index_factor = 31'h5622000; // currently 44100/512? I'm not sure how to calculate this
 	 
 	 qmult #(20,32) i_to_f (//convert the index to the center frequency of that bin
-		.i_multiplicand({23'h0,max_index-256}),
+		.i_multiplicand({23'h0,(max_index-256 < 0 ? -(max_index-256) : (max_index-256))}),
 		.i_multiplier(index_factor),
 		.o_result(max_freq),
 		.ovr(ovr_1)
@@ -62,7 +62,7 @@ module freq_estimator( //Everything is 11Q32) (11 integer bits, 1 sign bit, 20 f
 			//if (div_done) begin
 				
 				if (df_magnitude>df_magnitude_last) begin //figure out if we're done
-					frequency <= last_freq;
+					frequency <= last_freq < 0 ? -last_freq : last_freq;
 					done <= 1;
 				end
 				df_magnitude_last <= df_magnitude;
@@ -86,7 +86,7 @@ module freq_estimator( //Everything is 11Q32) (11 integer bits, 1 sign bit, 20 f
 	 
 	 qadd #(20,32) freq_diff(//calculate the frequency error
 		.a(freq_result),
-		.b(-{1'b0,max_freq[30:0]}),//throw away the sign of the frequency
+		.b(max_freq < 0 ? -max_freq : max_freq),//throw away the sign of the frequency
 		.c(df)
 	 );
 	 

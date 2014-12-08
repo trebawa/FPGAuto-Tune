@@ -123,6 +123,7 @@ module main_fsm_test;
 			data_in_imag = imagparts[fft_address];
 			#2;
 		end
+		fft_done = 0;
 		
 		
 

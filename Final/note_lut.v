@@ -25,8 +25,8 @@ module note_lut(
     output reg greater //true if the actual frequency is greater than the center frequency, false otherwise
     );
      
-/////////////////////
-//note_name mapping//
+///////////////////////////
+//   note_name mapping   //
 //  value       note     //
 //  0           C        //
 //  1           C#/Db    //
@@ -40,7 +40,7 @@ module note_lut(
 //  9           A        //
 //  A           A#/Bb    //
 //  B           B        //
-/////////////////////
+///////////////////////////
 always @(*) begin
     if (freq_fun < 32'h105a025) begin //C0
             greater = 0;

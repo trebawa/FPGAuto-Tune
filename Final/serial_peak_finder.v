@@ -36,7 +36,7 @@ module serial_peak_finder(
 		else begin
 			if (data_in > largest) begin
 				largest <= data_in;
-				peak_index <= index+1;
+				peak_index <= index;
 			end
 		end
 	 end
