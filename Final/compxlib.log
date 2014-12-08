@@ -5,7 +5,7 @@
    \   \         APPLICATION : compxlib
    /   /         CONTENTS    : Compilation Log
   /___/   /\     FILENAME    : compxlib.log
-  \   \  /  \    CREATED ON  : Sat Dec  6 17:37:54 2014
+  \   \  /  \    CREATED ON  : Sat Dec  6 18:43:35 2014
    \___\/\___\
 
 Library Source => '/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE'
@@ -23,7 +23,6 @@ compxlib -s mti_se
          -l verilog
          -dir /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE
          -log compxlib.log
-         -w
          -p /afs/csail.mit.edu/proj/redsocs/modeltech/linux
 ------------------------------------------------------------------------------
 MTI => Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
@@ -33,5 +32,85 @@ Backing up setup files if any...
 Output directory => '/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/mti_se'
 
 --> Compiling verilog unisim library
+    > Unisim library already exists at /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/mti_se
+    > Note: Use '-w' option if you want to re-compile and overwrite the library
 
-ERROR:CAEInterfaces:444 - COMPXLIB[file]: unable to remove directory '/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/mti_se/unisims_ver'
+    Pre-Compiled Library Info :- 
+   ---------------------------------------------------------------
+     Library         =: unisim
+     Mapped Name     =: unisims_ver
+     Language Name   =: verilog
+     Version         =: 10.1
+     Library Path    =: /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/mti_se
+     Compiled By     =: mti_se
+     Simulator Used  =: Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+     Compiled On     =: Tue Nov 25 18:27:57 2014
+     Errors          =: 0
+     Warnings        =: 0
+     Library Log     =: /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/mti_se/unisims_ver/cxl_unisim.log
+   ---------------------------------------------------------------
+
+compxlib[unisims_ver]: No compilation done.
+
+--> Compiling verilog unimacro library
+    > unimacro_ver library already exists at /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/mti_se
+    > Note: Use '-w' option if you want to re-compile and overwrite the library
+
+    Pre-Compiled Library Info :- 
+   ---------------------------------------------------------------
+     Library         =: unimacro
+     Mapped Name     =: unimacro_ver
+     Language Name   =: verilog
+     Version         =: 10.1
+     Library Path    =: /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/mti_se
+     Compiled By     =: mti_se
+     Simulator Used  =: Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+     Compiled On     =: Tue Nov 25 18:28:06 2014
+     Errors          =: 0
+     Warnings        =: 0
+     Library Log     =: /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/mti_se/unimacro_ver/cxl_unimacro.log
+   ---------------------------------------------------------------
+
+compxlib[unimacro_ver]: No compilation done.
+
+--> Compiling verilog simprim library
+    > Simprim library already exists at /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/mti_se
+    > Note: Use '-w' option if you want to re-compile and overwrite the library
+
+    Pre-Compiled Library Info :- 
+   ---------------------------------------------------------------
+     Library         =: simprim
+     Mapped Name     =: simprims_ver
+     Language Name   =: verilog
+     Version         =: 10.1
+     Library Path    =: /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/mti_se
+     Compiled By     =: mti_se
+     Simulator Used  =: Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+     Compiled On     =: Tue Nov 25 18:28:34 2014
+     Errors          =: 0
+     Warnings        =: 0
+     Library Log     =: /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/mti_se/simprims_ver/cxl_simprim.log
+   ---------------------------------------------------------------
+
+compxlib[simprims_ver]: No compilation done.
+
+--> Compiling verilog XilinxCoreLib library
+    > XilinxCoreLib library already exists at /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/mti_se
+    > Note: Use '-w' option if you want to re-compile and overwrite the library
+
+    Pre-Compiled Library Info :- 
+   ---------------------------------------------------------------
+     Library         =: XilinxCoreLib
+     Mapped Name     =: XilinxCoreLib_ver
+     Language Name   =: verilog
+     Version         =: 10.1
+     Library Path    =: /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/mti_se
+     Compiled By     =: mti_se
+     Simulator Used  =: Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+     Compiled On     =: Tue Nov 25 18:29:31 2014
+     Errors          =: 0
+     Warnings        =: 9
+     Library Log     =: /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/mti_se/XilinxCoreLib_ver/cxl_XilinxCoreLib.log
+   ---------------------------------------------------------------
+
+compxlib[XilinxCoreLib_ver]: No compilation done.

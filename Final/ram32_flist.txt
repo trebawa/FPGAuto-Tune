@@ -1,0 +1,12 @@
+# Output products list for <ram32>
+ram32.asy
+ram32.ngc
+ram32.sym
+ram32.v
+ram32.veo
+ram32.vhd
+ram32.vho
+ram32.xco
+ram32_blk_mem_gen_v2_8_xst_1.ngc_xst.xrpt
+ram32_flist.txt
+ram32_xmdf.tcl

@@ -23,7 +23,7 @@ module serial_peak_finder(
     input start, //First data point must be present at data_in on cycle when start is high (1-cycle pulse)
     input [31:0] data_in,//on each subsequent cycle, present a new datum until don
 	 input [8:0] index,
-    output reg [11:0] peak_index
+    output reg [8:0] peak_index
     );
 	 
 	 reg [17:0] largest;

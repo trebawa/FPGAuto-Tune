@@ -56,7 +56,8 @@ module main_fsm_test;
     .data_in_real(data_in_real), 
     .data_in_imag(data_in_imag), 
     .result_address(result_address), 
-    .result_data(result_data)
+    .result_data(result_data),
+	 .scale(scale)
     );
 
 	
@@ -64,30 +65,44 @@ module main_fsm_test;
 	always #1 clk <= !clk;
 	
 	//memories
-	reg [17:0] realparts [8:0];
-	reg [17:0] imagparts [8:0];
+	reg [17:0] realparts [0:511];
+	reg [17:0] imagparts [0:511];
+	
+	reg [8:0] k;
+	
+	
+
 
 	initial begin
 		// Initialize Inputs
 		fft_done = 0;
 		fft_address = 0;
 		fft_read_valid = 0;
-		assign data_in_real = realparts[result_address];
-		assign data_in_imag = imagparts[result_address];
+		scale = 12'b111011010111;
 		result_address = 0;
+		
+				$readmemb("a_real.list",realparts,0,511);
+		$readmemb("a_imag.list",imagparts,0,511);
+
 		
 
 		// Wait 100 ns for global reset to finish
 		#100;
         
-		$readmemb("a_real.list",realparts);
-		$readmemb("a_imag.list",imagparts);
+		
+		//for (k=0; k<=511; k=k+1) $display("%d:%h",k,realparts[k]);
 		  
 		// Add stimulus here
 		fft_done = 1;
 		fft_read_valid = 1;
-		while (result_address <= 511) begin
-			result_address = result_address +1;
+			data_in_real = realparts[fft_address];
+			data_in_imag = imagparts[fft_address];
+			#2;
+		while (fft_address < 511) begin
+			fft_address = fft_address +1;
+			data_in_real = realparts[fft_address];
+			data_in_imag = imagparts[fft_address];
+			#2;
 		end
 
 	end

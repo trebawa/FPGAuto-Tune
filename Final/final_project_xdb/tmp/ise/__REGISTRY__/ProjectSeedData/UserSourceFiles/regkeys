@@ -1,5 +1,5 @@
 NUM_USER_FILES
-26
+27
 s
 user_file_1
 cordic.xco
@@ -57,6 +57,9 @@ cordictest.v
 s
 user_file_26
 main_fsm_test.v
+s
+user_file_27
+ram32.xco
 s
 user_file_3
 freq_estimator.v

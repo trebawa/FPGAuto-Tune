@@ -25,6 +25,7 @@ module main_fsm(
     output reg note_done = 1,	//when the calculation is complete
     output [3:0] note_name,
     output [2:0] note_octave,
+	 input [11:0] scale,
 		
     input fft_done,				//interface with the fft
     input [8:0] fft_address,
@@ -86,12 +87,14 @@ module main_fsm(
 	 wire ram_b_we = ram_b_write;
 	 wire signed [31:0] ram_b_out; //phase data, 11Q32
 	 
-	 ram32x512 ram_b(
+	 wire [3:0] waste; //extra unused bits
+	 
+	 ram36x512 ram_b(
 		.clka(clk),
-		.dina(phase),
+		.dina({4'b0,phase}),
 		.addra(ram_b_addr),
 		.wea(ram_b_we),
-		.douta(ram_b_out)
+		.douta({waste,ram_b_out})
 		);
 				
 	 //Peak finder
@@ -188,10 +191,10 @@ module main_fsm(
 				end
 			end
 			S_POPULATE_RAM_A: begin
-				if (fft_address === 511) begin
+				if (fft_address === 9'b111111111) begin
 					state <= S_RUN_CORDICS;
 					ram_a_write <= 0;
-					cordic_start <= 0;
+					cordic_start <= 1;
 					ram_a_raddr <= 0;
 					ram_b_write <= 1;
 					pf_start <= 1;
@@ -206,9 +209,11 @@ module main_fsm(
 					end
 					else ram_b_waddr <= ram_b_waddr+1;
 				end
-				else if (ram_a_raddr != 511) cordic_start <= 1;
+				else if (ram_a_raddr != 511) begin
+					cordic_start <= 1;
+					ram_a_raddr <= ram_a_addr + 1;
+				end
 				else cordic_start <= 0;
-				if (cordic_start) ram_a_raddr <= ram_a_addr + 1;
 			end
 			S_FIND_MAX_FREQ: begin
 				ram_b_raddr <= max_index;
